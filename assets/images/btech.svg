@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="500" viewBox="0 0 600 500">
+  <defs>
+    <linearGradient id="btechBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#070c18"/>
+      <stop offset="100%" stop-color="#02050e"/>
+    </linearGradient>
+    <linearGradient id="btechGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00d2ff"/>
+      <stop offset="100%" stop-color="#3b82f6"/>
+    </linearGradient>
+  </defs>
+  
+  <rect width="100%" height="100%" fill="url(#btechBg)"/>
+  
+  <!-- Subtle Circuit Lines -->
+  <path d="M 50 100 H 200 V 220 H 350 V 150 H 550" fill="none" stroke="#1e293b" stroke-width="2"/>
+  <path d="M 50 400 H 220 V 320 H 450 V 400 H 550" fill="none" stroke="#1e293b" stroke-width="2"/>
+  
+  <!-- Central Graduation / College Motif -->
+  <g transform="translate(300, 200)">
+    <!-- Graduation Cap Symbol -->
+    <polygon points="0,-70 120, -10 0, 50 -120, -10" fill="#0f172a" stroke="url(#btechGrad)" stroke-width="3"/>
+    <path d="M -70, 16 V 70 C -70, 110, 70, 110, 70, 70 V 16" fill="#0f172a" stroke="url(#btechGrad)" stroke-width="3"/>
+    <path d="M 120, -10 V 60" stroke="#00d2ff" stroke-width="3"/>
+    <circle cx="120" cy="65" r="7" fill="#00d2ff"/>
+  </g>
+  
+  <!-- Info Card Overlay -->
+  <rect x="75" y="340" width="450" height="110" rx="16" fill="#0f172a" stroke="url(#btechGrad)" stroke-width="1.5" opacity="0.95"/>
+  <text x="300" y="375" font-family="'Inter', sans-serif" font-size="16" font-weight="700" fill="#ffffff" text-anchor="middle">
+    B.TECH COLLEGE PHOTO SLOT
+  </text>
+  <text x="300" y="402" font-family="'Inter', sans-serif" font-size="14" font-weight="600" fill="#38bdf8" text-anchor="middle">
+    Gokula Krishna College of Engineering
+  </text>
+  <text x="300" y="428" font-family="'Inter', sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">
+    Computer Science &amp; Engineering • 3rd Year
+  </text>
+</svg>

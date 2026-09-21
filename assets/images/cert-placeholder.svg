@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="700" height="500" viewBox="0 0 700 500">
+  <defs>
+    <linearGradient id="certBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#090e1c"/>
+      <stop offset="100%" stop-color="#020409"/>
+    </linearGradient>
+    <linearGradient id="goldBorder" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f5af19"/>
+      <stop offset="50%" stop-color="#00d2ff"/>
+      <stop offset="100%" stop-color="#f5af19"/>
+    </linearGradient>
+  </defs>
+  
+  <rect width="100%" height="100%" fill="url(#certBg)"/>
+  
+  <!-- Outer Border -->
+  <rect x="35" y="35" width="630" height="430" rx="16" fill="none" stroke="url(#goldBorder)" stroke-width="2"/>
+  <rect x="45" y="45" width="610" height="410" rx="12" fill="#0d1424" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+  
+  <!-- Certificate Stamp Seal -->
+  <circle cx="350" cy="140" r="45" fill="none" stroke="#f5af19" stroke-width="2"/>
+  <polygon points="350,110 360,135 385,135 365,150 372,175 350,160 328,175 335,150 315,135 340,135" fill="#f5af19" opacity="0.85"/>
+  
+  <!-- Text Elements -->
+  <text x="350" y="230" font-family="'Inter', sans-serif" font-size="20" font-weight="800" fill="#ffffff" text-anchor="middle" letter-spacing="2">
+    CERTIFICATE OF COMPLETION
+  </text>
+  <text x="350" y="260" font-family="'Inter', sans-serif" font-size="13" fill="#94a3b8" text-anchor="middle">
+    This credential verifies foundational technical proficiency presented to
+  </text>
+  <text x="350" y="305" font-family="'Inter', sans-serif" font-size="22" font-weight="700" fill="#00d2ff" text-anchor="middle">
+    KISHORE NAIK
+  </text>
+  <text x="350" y="340" font-family="'Inter', sans-serif" font-size="13" fill="#e2e8f0" text-anchor="middle">
+    3rd Year B.Tech • Computer Science and Engineering
+  </text>
+  
+  <!-- Bottom Verification Bar -->
+  <line x1="150" y1="380" x2="550" y2="380" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+  <text x="200" y="415" font-family="'JetBrains Mono', monospace" font-size="11" fill="#64748b">
+    VERIFIED CREDENTIAL
+  </text>
+  <text x="500" y="415" font-family="'JetBrains Mono', monospace" font-size="11" fill="#00d2ff" text-anchor="end">
+    Gokula Krishna College of Engg
+  </text>
+</svg>

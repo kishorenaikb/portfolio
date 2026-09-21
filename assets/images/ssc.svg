@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="500" viewBox="0 0 600 500">
+  <defs>
+    <linearGradient id="sscBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#061219"/>
+      <stop offset="100%" stop-color="#010609"/>
+    </linearGradient>
+    <linearGradient id="sscGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00f2fe"/>
+      <stop offset="100%" stop-color="#4facfe"/>
+    </linearGradient>
+  </defs>
+  
+  <rect width="100%" height="100%" fill="url(#sscBg)"/>
+  
+  <!-- Foundation / Building Motif -->
+  <g transform="translate(300, 190)">
+    <!-- School Building Motif -->
+    <path d="M-90 40 L0 -30 L90 40 Z" fill="#0f172a" stroke="url(#sscGrad)" stroke-width="3"/>
+    <rect x="-70" y="40" width="140" height="60" fill="#0f172a" stroke="url(#sscGrad)" stroke-width="3"/>
+    <rect x="-20" y="60" width="40" height="40" fill="#1e293b"/>
+    <!-- Pencil / Pen Icon -->
+    <path d="M0 -30 L0 -70" stroke="#00f2fe" stroke-width="3"/>
+    <circle cx="0" cy="-75" r="5" fill="#00f2fe"/>
+  </g>
+  
+  <!-- Info Card Overlay -->
+  <rect x="50" y="340" width="500" height="115" rx="16" fill="#0f172a" stroke="url(#sscGrad)" stroke-width="1.5" opacity="0.95"/>
+  <text x="300" y="375" font-family="'Inter', sans-serif" font-size="16" font-weight="700" fill="#ffffff" text-anchor="middle">
+    SSC / SCHOOL PHOTO SLOT
+  </text>
+  <text x="300" y="400" font-family="'Inter', sans-serif" font-size="13" font-weight="600" fill="#38bdf8" text-anchor="middle">
+    APTWR School (Boys)
+  </text>
+  <text x="300" y="425" font-family="'Inter', sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">
+    Narasaraopet, Andhra Pradesh • English Medium
+  </text>
+</svg>

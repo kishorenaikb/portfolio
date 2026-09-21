@@ -1,0 +1,1620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KISHORE NAIK | B.Tech CSE Student &amp; Developer Portfolio</title>
+  <meta name="description" content="Personal developer portfolio and digital identity of Kishore Naik, 3rd Year B.Tech Computer Science and Engineering student at Gokula Krishna College of Engineering.">
+  <meta name="author" content="Kishore Naik">
+  <meta name="theme-color" content="#060911">
+
+  <!-- Google Fonts: Outfit (Display), Inter (Body), JetBrains Mono (Code) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+
+  <!-- Ambient Liquid Canvas Background -->
+  <canvas id="ambient-canvas"></canvas>
+  <div class="ambient-glow-mesh"></div>
+
+  <!-- Top Scroll Progress Indicator -->
+  <div id="scroll-progress-container">
+    <div id="scroll-progress-bar"></div>
+  </div>
+
+  <!-- ===================================================================
+       1. STICKY GLASS DESKTOP & MOBILE HEADER
+       =================================================================== -->
+  <header class="glass-header">
+    <div class="container nav-container">
+      <!-- Brand Logo -->
+      <a href="#hero" class="brand-logo" aria-label="Kishore Naik Home">
+        <div class="brand-symbol">KN</div>
+        <div class="brand-text-wrap">
+          <span class="brand-name">KISHORE NAIK</span>
+          <span class="brand-tagline">3rd Year B.Tech CSE</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Menu with Intelligent Dropdowns -->
+      <nav aria-label="Main Navigation">
+        <ul class="nav-menu">
+          <li class="nav-item">
+            <a href="#hero" class="nav-link active">Home</a>
+          </li>
+
+          <!-- ABOUT Dropdown -->
+          <li class="nav-item">
+            <a href="#about" class="nav-link">
+              About <span class="nav-arrow">▼</span>
+            </a>
+            <div class="dropdown-menu">
+              <a href="#about" class="dropdown-link">
+                <span class="dropdown-icon">👤</span> About Me
+              </a>
+              <a href="#roots" class="dropdown-link">
+                <span class="dropdown-icon">📍</span> My Roots
+              </a>
+              <a href="#journey" class="dropdown-link">
+                <span class="dropdown-icon">🚀</span> My Journey
+              </a>
+              <a href="#interests" class="dropdown-link">
+                <span class="dropdown-icon">💡</span> Interests
+              </a>
+              <a href="#family" class="dropdown-link">
+                <span class="dropdown-icon">🤝</span> Family
+              </a>
+            </div>
+          </li>
+
+          <!-- EDUCATION Dropdown -->
+          <li class="nav-item">
+            <a href="#education" class="nav-link">
+              Education <span class="nav-arrow">▼</span>
+            </a>
+            <div class="dropdown-menu">
+              <a href="#btech" class="dropdown-link">
+                <span class="dropdown-icon">🎓</span> B.Tech (Gokula Krishna)
+              </a>
+              <a href="#intermediate" class="dropdown-link">
+                <span class="dropdown-icon">🏛️</span> Intermediate (Yerragondapalem)
+              </a>
+              <a href="#ssc" class="dropdown-link">
+                <span class="dropdown-icon">🏫</span> SSC (Narasaraopet)
+              </a>
+              <a href="#education" class="dropdown-link">
+                <span class="dropdown-icon">⏳</span> Complete Timeline
+              </a>
+            </div>
+          </li>
+
+          <!-- WORK Dropdown -->
+          <li class="nav-item">
+            <a href="#projects" class="nav-link">
+              Work <span class="nav-arrow">▼</span>
+            </a>
+            <div class="dropdown-menu">
+              <a href="#projects" class="dropdown-link">
+                <span class="dropdown-icon">💻</span> Projects
+              </a>
+              <a href="#skills" class="dropdown-link">
+                <span class="dropdown-icon">⚡</span> Skills
+              </a>
+              <a href="#problem-solver" class="dropdown-link">
+                <span class="dropdown-icon">🧠</span> Problem Solving
+              </a>
+              <a href="#experience" class="dropdown-link">
+                <span class="dropdown-icon">💼</span> Experience
+              </a>
+              <a href="#achievements" class="dropdown-link">
+                <span class="dropdown-icon">🏆</span> Achievements
+              </a>
+              <a href="#certifications" class="dropdown-link">
+                <span class="dropdown-icon">📜</span> Certifications
+              </a>
+            </div>
+          </li>
+
+          <!-- MORE Dropdown -->
+          <li class="nav-item">
+            <a href="#gallery" class="nav-link">
+              More <span class="nav-arrow">▼</span>
+            </a>
+            <div class="dropdown-menu">
+              <a href="#gallery" class="dropdown-link">
+                <span class="dropdown-icon">🖼️</span> Gallery
+              </a>
+              <a href="#resume" class="dropdown-link">
+                <span class="dropdown-icon">📄</span> Resume
+              </a>
+              <a href="#contact" class="dropdown-link">
+                <span class="dropdown-icon">✉️</span> Contact
+              </a>
+            </div>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Header Actions -->
+      <div class="header-actions">
+        <!-- Command Palette Trigger -->
+        <button id="search-trigger-btn" class="search-trigger-btn" title="Open Global Search">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <span>Search</span>
+          <span class="kbd-shortcut">Ctrl K</span>
+        </button>
+
+        <!-- Photo Manager Trigger -->
+        <button class="btn btn-glass btn-sm open-photo-manager-btn" data-slot="heroProfile" title="Upload or change photos">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
+            <circle cx="12" cy="13" r="4"></circle>
+          </svg>
+          <span>Photos</span>
+        </button>
+
+        <!-- Contact CTA Button -->
+        <a href="#contact" class="btn btn-primary btn-sm">
+          Let's Connect
+        </a>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button id="mobile-toggle-btn" class="mobile-menu-btn" aria-label="Toggle Mobile Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div id="mobile-drawer" class="mobile-drawer">
+    <div class="mobile-nav-group">
+      <div class="mobile-group-title">Navigation</div>
+      <a href="#hero" class="mobile-nav-link">🏠 Home</a>
+      <a href="#about" class="mobile-nav-link">👤 About Me</a>
+      <a href="#roots" class="mobile-nav-link">📍 My Roots</a>
+      <a href="#education" class="mobile-nav-link">🎓 Education</a>
+      <a href="#skills" class="mobile-nav-link">⚡ Skills</a>
+      <a href="#problem-solver" class="mobile-nav-link">🧠 Problem Solving</a>
+      <a href="#projects" class="mobile-nav-link">💻 Projects</a>
+      <a href="#journey" class="mobile-nav-link">🚀 Journey</a>
+      <a href="#achievements" class="mobile-nav-link">🏆 Achievements</a>
+      <a href="#certifications" class="mobile-nav-link">📜 Certifications</a>
+      <a href="#experience" class="mobile-nav-link">💼 Experience</a>
+      <a href="#interests" class="mobile-nav-link">💡 Interests</a>
+      <a href="#family" class="mobile-nav-link">🤝 Family</a>
+      <a href="#gallery" class="mobile-nav-link">🖼️ Gallery</a>
+      <a href="#resume" class="mobile-nav-link">📄 Resume</a>
+      <a href="#contact" class="mobile-nav-link">✉️ Contact</a>
+    </div>
+    <div style="padding-top: 1rem;">
+      <button class="btn btn-glass btn-sm open-photo-manager-btn" style="width: 100%;">
+        📷 Manage / Upload Photos
+      </button>
+    </div>
+  </div>
+
+  <!-- ===================================================================
+       2. FLOATING GLASS BOTTOM NAVIGATION DOCK
+       =================================================================== -->
+  <nav class="floating-bottom-dock" aria-label="Quick Access Dock">
+    <a href="#hero" class="dock-item active" title="Home">
+      <svg class="dock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+      </svg>
+      <span class="dock-label">Home</span>
+    </a>
+    <a href="#about" class="dock-item" title="About">
+      <svg class="dock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+        <circle cx="12" cy="7" r="4"></circle>
+      </svg>
+      <span class="dock-label">About</span>
+    </a>
+    <a href="#projects" class="dock-item" title="Projects">
+      <svg class="dock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+        <polyline points="16 18 22 12 16 6"></polyline>
+        <polyline points="8 6 2 12 8 18"></polyline>
+      </svg>
+      <span class="dock-label">Projects</span>
+    </a>
+    <a href="#journey" class="dock-item" title="Journey">
+      <svg class="dock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+        <circle cx="12" cy="12" r="10"></circle>
+        <polyline points="12 6 12 12 14 14"></polyline>
+      </svg>
+      <span class="dock-label">Journey</span>
+    </a>
+    <a href="#contact" class="dock-item" title="Contact">
+      <svg class="dock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+        <polyline points="22,6 12,13 2,6"></polyline>
+      </svg>
+      <span class="dock-label">Contact</span>
+    </a>
+  </nav>
+
+  <!-- ===================================================================
+       3. HERO SECTION
+       =================================================================== -->
+  <section id="hero" class="hero-section">
+    <div class="container hero-grid">
+      <!-- Left Column -->
+      <div class="hero-content-col">
+        <div class="hero-intro-pill">
+          <span class="pulse-dot"></span>
+          <span>3rd Year B.Tech CSE Student</span>
+        </div>
+
+        <div class="hero-title-greeting">Hi, I'm</div>
+        <h1 class="hero-name">
+          <span class="text-gradient">KISHORE NAIK</span>
+        </h1>
+
+        <div class="hero-subtitle">
+          <span>Developer</span> • 
+          <span>Problem Solver</span> • 
+          <span>Tech Explorer</span>
+        </div>
+
+        <div class="hero-statement">
+          "Turning ideas into useful digital experiences."
+        </div>
+
+        <p class="hero-bio">
+          I am Kishore Naik, a 3rd Year B.Tech Computer Science and Engineering student at Gokula Krishna College of Engineering, passionate about technology, software development, problem solving, and building useful digital experiences.
+        </p>
+
+        <!-- CTA Buttons -->
+        <div class="hero-cta-group">
+          <a href="#about" class="btn btn-primary">
+            Explore My Portfolio
+          </a>
+          <a href="#projects" class="btn btn-glass">
+            View Projects
+          </a>
+          <a href="#resume" class="btn btn-outline">
+            Download Resume
+          </a>
+          <a href="#contact" class="btn btn-glass">
+            Contact Me
+          </a>
+        </div>
+      </div>
+
+      <!-- Right Column: Profile Photo & Floating Badges -->
+      <div class="hero-photo-wrapper">
+        <div class="hero-photo-container">
+          <div class="hero-photo-inner">
+            <img 
+              src="assets/images/profile.svg" 
+              alt="Kishore Naik - 3rd Year B.Tech CSE Student" 
+              class="hero-photo-img" 
+              data-photo-slot="heroProfile"
+            >
+            <div class="glass-reflection-sheen"></div>
+            <!-- Quick update button -->
+            <button class="photo-slot-btn open-photo-manager-btn" data-slot="heroProfile" title="Update Profile Photo">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
+                <circle cx="12" cy="13" r="4"></circle>
+              </svg>
+              <span>Update Photo</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Floating Glass Badges -->
+        <div class="floating-badge b-1">
+          <span class="badge-dot cyan"></span>
+          <span>Python</span>
+        </div>
+        <div class="floating-badge b-2">
+          <span class="badge-dot orange"></span>
+          <span>Java</span>
+        </div>
+        <div class="floating-badge b-3">
+          <span class="badge-dot green"></span>
+          <span>Web Development</span>
+        </div>
+        <div class="floating-badge b-4">
+          <span class="badge-dot purple"></span>
+          <span>Problem Solving</span>
+        </div>
+        <div class="floating-badge b-5">
+          <span class="badge-dot blue"></span>
+          <span>CSE Student</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       4. ABOUT ME & MY ROOTS SECTION
+       =================================================================== -->
+  <section id="about" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">About Me</span>
+        <h2 class="section-title">More About Me</h2>
+        <p class="section-subtitle">
+          I am Kishore Naik, currently pursuing my 3rd Year B.Tech in Computer Science and Engineering. I enjoy learning new technologies, developing applications, solving problems, and exploring innovative ideas.
+        </p>
+      </div>
+
+      <!-- Information Cards Grid -->
+      <div id="about-info-cards" class="about-cards-grid">
+        <!-- Populated dynamically from portfolio-data.js -->
+      </div>
+
+      <!-- Narrative & Focus Interests -->
+      <div class="glass-panel" style="padding: 2.25rem; margin-bottom: 2.5rem;">
+        <h3 style="font-size: 1.35rem; margin-bottom: 1rem; color: #fff;">
+          Curiosity, Craftsmanship &amp; Continuous Learning
+        </h3>
+        <p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.5rem;">
+          My journey in Computer Science is driven by an ambition to translate conceptual ideas into practical, reliable, and user-centric software. Whether analyzing algorithms, building responsive web interfaces, or exploring cutting-edge developments in artificial intelligence, I approach technology with discipline, curiosity, and an eagerness to learn.
+        </p>
+        
+        <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+          <span style="font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent-cyan);">
+            Active Interest Areas:
+          </span>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.6rem;">
+            <span class="glass-badge accent">Software Development</span>
+            <span class="glass-badge accent">Web Development</span>
+            <span class="glass-badge accent">Artificial Intelligence</span>
+            <span class="glass-badge accent">Programming</span>
+            <span class="glass-badge accent">Problem Solving</span>
+            <span class="glass-badge accent">Cybersecurity</span>
+            <span class="glass-badge accent">Modern Technology</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- My Roots Section ("Where I Come From") -->
+      <div id="roots" class="roots-container">
+        <div class="glass-panel roots-glass-card">
+          <div>
+            <div class="roots-badge">
+              <span>📍</span>
+              <span>Where I Come From</span>
+            </div>
+            <h3 class="roots-location-text">
+              Bommarajupalli Thanda, Ipur Mandal, Palnadu District, Andhra Pradesh, India
+            </h3>
+            <p class="roots-sub-text">
+              My roots keep me grounded. Coming from Bommarajupalli Thanda in Palnadu District, every step in my education—from tribal welfare residential schooling to excellence colleges and engineering—is built on perseverance, community pride, and an unwavering desire to make a meaningful difference.
+            </p>
+            <div class="roots-quote">
+              "Grounded in humble beginnings, driven by curiosity, and empowered by education to build meaningful solutions for the world."
+            </div>
+          </div>
+
+          <!-- Radar Visual Representation -->
+          <div class="roots-radar-visual">
+            <div class="radar-circle c-1"></div>
+            <div class="radar-circle c-2"></div>
+            <div class="radar-circle c-3"></div>
+            <div class="radar-pin">
+              <div class="radar-dot">
+                <div class="radar-ping"></div>
+              </div>
+              <div class="radar-coords-tag">Palnadu District • 16.14° N, 79.80° E</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       5. EDUCATION JOURNEY (SSC -> Intermediate -> B.Tech)
+       =================================================================== -->
+  <section id="education" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Education Journey</span>
+        <h2 class="section-title">My Academic Path</h2>
+        <p class="section-subtitle">
+          An interactive timeline tracing my growth through English medium schooling, state residential college of excellence, and B.Tech in Computer Science and Engineering.
+        </p>
+      </div>
+
+      <div class="education-timeline-wrap">
+        
+        <!-- 1. B.Tech Section -->
+        <div id="btech" class="glass-panel edu-card">
+          <div class="edu-card-node">
+            <div class="edu-card-node-inner"></div>
+          </div>
+
+          <div class="edu-card-content-grid">
+            <div>
+              <span class="edu-level-badge">B.Tech • Current Stage</span>
+              <h3 class="edu-inst-name">Gokula Krishna College of Engineering</h3>
+              <div class="edu-course-name">B.Tech, Computer Science and Engineering</div>
+              <div class="edu-meta-row">
+                <div class="edu-meta-item">
+                  <span>📅</span> <span>3rd Year (Ongoing)</span>
+                </div>
+                <div class="edu-meta-item">
+                  <span>📍</span> <span>Andhra Pradesh, India</span>
+                </div>
+                <div class="edu-meta-item">
+                  <span>🌐</span> <span>English Medium</span>
+                </div>
+              </div>
+
+              <p class="edu-desc">
+                Pursuing core Computer Science and Engineering studies. Deepening theoretical comprehension in Data Structures, Object-Oriented Programming, and Database Systems while actively developing hands-on web and software projects.
+              </p>
+
+              <ul class="edu-highlights-list">
+                <li class="edu-highlight-item">
+                  <span class="edu-highlight-bullet">▹</span>
+                  <span>Specializing in Computer Science &amp; Engineering fundamentals</span>
+                </li>
+                <li class="edu-highlight-item">
+                  <span class="edu-highlight-bullet">▹</span>
+                  <span>Mastering Java, Python, Web Development, and Algorithm design</span>
+                </li>
+                <li class="edu-highlight-item">
+                  <span class="edu-highlight-bullet">▹</span>
+                  <span>Active collaboration in coding labs, peer reviews, and tech exploration</span>
+                </li>
+              </ul>
+
+              <div class="edu-tags-row">
+                <span class="tech-badge">Java</span>
+                <span class="tech-badge">Python</span>
+                <span class="tech-badge">Data Structures</span>
+                <span class="tech-badge">Web Tech</span>
+                <span class="tech-badge">DBMS</span>
+                <span class="tech-badge">OOP</span>
+              </div>
+            </div>
+
+            <!-- B.Tech Photo Frame Slot -->
+            <div class="edu-photo-frame">
+              <div class="edu-photo-frame-inner">
+                <img 
+                  src="assets/images/btech.svg" 
+                  alt="Kishore Naik B.Tech Photo Slot" 
+                  class="edu-photo-img" 
+                  data-photo-slot="btechPhoto"
+                >
+                <div class="edu-photo-caption">
+                  <span>B.Tech Photo</span>
+                  <button class="photo-slot-btn open-photo-manager-btn" data-slot="btechPhoto" style="position: static; padding: 0.2rem 0.5rem;">
+                    Update
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Intermediate Section -->
+        <div id="intermediate" class="glass-panel edu-card">
+          <div class="edu-card-node">
+            <div class="edu-card-node-inner" style="background: #a855f7;"></div>
+          </div>
+
+          <div class="edu-card-content-grid">
+            <div>
+              <span class="edu-level-badge" style="color: #c084fc; background: rgba(168, 85, 247, 0.1);">
+                Intermediate • Completed
+              </span>
+              <h3 class="edu-inst-name">
+                Andhra Pradesh Tribal Welfare Residential College of Excellence (Boys)
+              </h3>
+              <div class="edu-course-name" style="color: #c084fc;">
+                Intermediate (MPC / Science Stream)
+              </div>
+              <div class="edu-meta-row">
+                <div class="edu-meta-item">
+                  <span>📍</span> <span>Yerragondapalem, Prakasam District, Andhra Pradesh</span>
+                </div>
+                <div class="edu-meta-item">
+                  <span>🌐</span> <span>English Medium</span>
+                </div>
+              </div>
+
+              <p class="edu-desc">
+                Studied at the state-recognized College of Excellence in Yerragondapalem under the Tribal Welfare Department. Built an exceptional analytical and mathematical foundation that laid the stepping stones for my engineering career.
+              </p>
+
+              <ul class="edu-highlights-list">
+                <li class="edu-highlight-item">
+                  <span class="edu-highlight-bullet" style="color: #a855f7;">▹</span>
+                  <span>Earned admission into the state College of Excellence through academic merit</span>
+                </li>
+                <li class="edu-highlight-item">
+                  <span class="edu-highlight-bullet" style="color: #a855f7;">▹</span>
+                  <span>Rigorous discipline in Mathematics, Physics, and analytical logic</span>
+                </li>
+                <li class="edu-highlight-item">
+                  <span class="edu-highlight-bullet" style="color: #a855f7;">▹</span>
+                  <span>Formative residential years fostering self-reliance, leadership, and focus</span>
+                </li>
+              </ul>
+
+              <div class="edu-tags-row">
+                <span class="tech-badge" style="color: #c084fc;">Mathematics</span>
+                <span class="tech-badge" style="color: #c084fc;">Physics</span>
+                <span class="tech-badge" style="color: #c084fc;">Analytical Thinking</span>
+                <span class="tech-badge" style="color: #c084fc;">Logic Formulation</span>
+              </div>
+            </div>
+
+            <!-- Intermediate Photo Frame Slot -->
+            <div class="edu-photo-frame">
+              <div class="edu-photo-frame-inner">
+                <img 
+                  src="assets/images/intermediate.svg" 
+                  alt="Kishore Naik Intermediate Photo Slot" 
+                  class="edu-photo-img" 
+                  data-photo-slot="intermediatePhoto"
+                >
+                <div class="edu-photo-caption">
+                  <span>Intermediate Photo</span>
+                  <button class="photo-slot-btn open-photo-manager-btn" data-slot="intermediatePhoto" style="position: static; padding: 0.2rem 0.5rem;">
+                    Update
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. SSC Section -->
+        <div id="ssc" class="glass-panel edu-card">
+          <div class="edu-card-node">
+            <div class="edu-card-node-inner" style="background: #00f2fe;"></div>
+          </div>
+
+          <div class="edu-card-content-grid">
+            <div>
+              <span class="edu-level-badge" style="color: #67e8f9; background: rgba(0, 242, 254, 0.1);">
+                SSC / School • Completed
+              </span>
+              <h3 class="edu-inst-name">
+                Andhra Pradesh Tribal Welfare Residential School (Boys)
+              </h3>
+              <div class="edu-course-name" style="color: #67e8f9;">
+                Class 10th (Secondary School Certificate)
+              </div>
+              <div class="edu-meta-row">
+                <div class="edu-meta-item">
+                  <span>📍</span> <span>Narasaraopet, Andhra Pradesh</span>
+                </div>
+                <div class="edu-meta-item">
+                  <span>🌐</span> <span>English Medium</span>
+                </div>
+              </div>
+
+              <p class="edu-desc">
+                Completed secondary schooling in English Medium at APTWR School (Boys), Narasaraopet. This foundational period ignited my passion for mathematics and computers, creating the vision for my future in software engineering.
+              </p>
+
+              <ul class="edu-highlights-list">
+                <li class="edu-highlight-item">
+                  <span class="edu-highlight-bullet" style="color: #00f2fe;">▹</span>
+                  <span>Distinguished performance in English Medium secondary curriculum</span>
+                </li>
+                <li class="edu-highlight-item">
+                  <span class="edu-highlight-bullet" style="color: #00f2fe;">▹</span>
+                  <span>Active participation in science clubs and mathematics activities</span>
+                </li>
+                <li class="edu-highlight-item">
+                  <span class="edu-highlight-bullet" style="color: #00f2fe;">▹</span>
+                  <span>Instilled lifelong values of hard work, discipline, and curiosity</span>
+                </li>
+              </ul>
+
+              <div class="edu-tags-row">
+                <span class="tech-badge" style="color: #67e8f9;">Mathematics</span>
+                <span class="tech-badge" style="color: #67e8f9;">General Science</span>
+                <span class="tech-badge" style="color: #67e8f9;">Computer Basics</span>
+                <span class="tech-badge" style="color: #67e8f9;">Communication</span>
+              </div>
+            </div>
+
+            <!-- SSC Photo Frame Slot -->
+            <div class="edu-photo-frame">
+              <div class="edu-photo-frame-inner">
+                <img 
+                  src="assets/images/ssc.svg" 
+                  alt="Kishore Naik SSC Photo Slot" 
+                  class="edu-photo-img" 
+                  data-photo-slot="sscPhoto"
+                >
+                <div class="edu-photo-caption">
+                  <span>School / SSC Photo</span>
+                  <button class="photo-slot-btn open-photo-manager-btn" data-slot="sscPhoto" style="position: static; padding: 0.2rem 0.5rem;">
+                    Update
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       6. SKILLS SECTION
+       =================================================================== -->
+  <section id="skills" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Technical Competencies</span>
+        <h2 class="section-title">Skills &amp; Technologies</h2>
+        <p class="section-subtitle">
+          Hands-on proficiency across programming languages, web development stacks, core algorithmic reasoning, and emerging tech interests.
+        </p>
+      </div>
+
+      <!-- Filter Tabs -->
+      <div class="skills-filter-tabs">
+        <button class="filter-tab-btn active" data-category="all">All Skills</button>
+        <button class="filter-tab-btn" data-category="programming">Programming (Python, Java, C, C++, JS)</button>
+        <button class="filter-tab-btn" data-category="development">Development (HTML, CSS, Web Dev)</button>
+        <button class="filter-tab-btn" data-category="core">Core (Problem Solving, DSA, Logic)</button>
+        <button class="filter-tab-btn" data-category="interests">Interest Areas (AI, Tech)</button>
+      </div>
+
+      <!-- Dynamic Skills Grid -->
+      <div id="skills-grid-container" class="skills-grid">
+        <!-- Rendered dynamically from portfolio-data.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       7. PROBLEM SOLVER DEDICATED SECTION
+       =================================================================== -->
+  <section id="problem-solver" class="section" style="padding-top: 2rem;">
+    <div class="container">
+      <div class="glass-panel problem-solver-box">
+        <div class="solver-grid">
+          <div>
+            <span class="glass-badge accent" style="margin-bottom: 0.75rem;">Core Identity</span>
+            <h2 style="font-size: 2.2rem; color: #fff; margin-bottom: 0.75rem;">
+              Problem Solver &amp; Analytical Thinker
+            </h2>
+            <p style="color: var(--text-secondary); line-height: 1.65; margin-bottom: 1.5rem;">
+              Programming for me is the craft of converting complex requirements into unambiguous, efficient logic. I enjoy breaking down problems into sub-problems, tracing edge cases, and selecting optimal data structures for space and time efficiency.
+            </p>
+
+            <div class="solver-pillars-grid">
+              <div class="solver-pillar-card">
+                <div class="solver-pillar-title">🧠 Logical Thinking</div>
+                <div class="solver-pillar-desc">Structuring unambiguous decision branches and edge condition handling.</div>
+              </div>
+              <div class="solver-pillar-card">
+                <div class="solver-pillar-title">⚡ Algorithmic Thinking</div>
+                <div class="solver-pillar-desc">Applying asymptotic complexity analysis to design scalable solutions.</div>
+              </div>
+              <div class="solver-pillar-card">
+                <div class="solver-pillar-title">💻 Programming Practice</div>
+                <div class="solver-pillar-desc">Continuous drills in Java, Python, and C across searching, sorting &amp; arrays.</div>
+              </div>
+              <div class="solver-pillar-card">
+                <div class="solver-pillar-title">🔍 Debugging &amp; Refinement</div>
+                <div class="solver-pillar-desc">Methodical execution tracing, memory safety, and cleaner refactoring.</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Interactive Binary Search Algorithm Visualizer Console -->
+          <div class="code-console-window">
+            <div class="code-console-header">
+              <div class="console-dots">
+                <span class="c-dot red"></span>
+                <span class="c-dot yellow"></span>
+                <span class="c-dot green"></span>
+              </div>
+              <span class="console-tab-title">interactive_binary_search.java</span>
+              <span style="font-size: 0.72rem; color: #00d2ff; font-family: var(--font-mono);">O(log N)</span>
+            </div>
+            
+            <div class="code-console-body">
+              <pre><code><span style="color:#f43f5e;">public int</span> <span style="color:#38bdf8;">searchElement</span>(<span style="color:#f43f5e;">int</span>[] nums, <span style="color:#f43f5e;">int</span> target) {
+    <span style="color:#f43f5e;">int</span> left = 0, right = nums.length - 1;
+    <span style="color:#f43f5e;">while</span> (left &lt;= right) {
+        <span style="color:#f43f5e;">int</span> mid = left + (right - left) / 2;
+        <span style="color:#f43f5e;">if</span> (nums[mid] == target) <span style="color:#f43f5e;">return</span> mid;
+        <span style="color:#f43f5e;">if</span> (nums[mid] &lt; target) left = mid + 1;
+        <span style="color:#f43f5e;">else</span> right = mid - 1;
+    }
+    <span style="color:#f43f5e;">return</span> -1;
+}</code></pre>
+            </div>
+
+            <!-- Live Interactive Visualizer App Area -->
+            <div id="binary-search-app" style="padding: 1rem 1.25rem; background: rgba(0,0,0,0.3); border-top: 1px solid rgba(255,255,255,0.08);">
+              <!-- Interactive controls injected by animations.js -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       8. PROJECTS SECTION & FEATURED SHOWCASE
+       =================================================================== -->
+  <section id="projects" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Project Showcase</span>
+        <h2 class="section-title">Things I've Built</h2>
+        <p class="section-subtitle">
+          Real software applications, student utilities, and interactive web systems built with clean code and modern design principles.
+        </p>
+      </div>
+
+      <!-- Featured Project Showcase -->
+      <div class="glass-panel featured-project-card">
+        <div class="featured-grid">
+          <div>
+            <div class="featured-badge">Featured Project • Live</div>
+            <h3 class="featured-title">Liquid Glass Portfolio &amp; Digital Identity System</h3>
+            <p class="featured-summary">
+              A high-performance, dark-mode personal developer website built with an Apple-inspired Liquid Glass UI, modular architecture, interactive timelines, and zero-friction photo customization.
+            </p>
+
+            <ul class="featured-features-list">
+              <li class="featured-feature-item">
+                <span class="check-icon">✓</span>
+                <span>Custom frosted glassmorphic UI system with specular liquid highlights</span>
+              </li>
+              <li class="featured-feature-item">
+                <span class="check-icon">✓</span>
+                <span>Interactive 3-tier education timeline with dedicated non-distorting photo slots</span>
+              </li>
+              <li class="featured-feature-item">
+                <span class="check-icon">✓</span>
+                <span>Global Command Palette (Ctrl+K) with instant keyword search indexing</span>
+              </li>
+              <li class="featured-feature-item">
+                <span class="check-icon">✓</span>
+                <span>Centralized single-source-of-truth data configuration in <code style="color:#7dd3fc;">portfolio-data.js</code></span>
+              </li>
+            </ul>
+
+            <div class="featured-tech-row">
+              <span class="tech-badge">HTML5</span>
+              <span class="tech-badge">CSS3 / Glassmorphism</span>
+              <span class="tech-badge">JavaScript (ES6+)</span>
+              <span class="tech-badge">Canvas 2D</span>
+              <span class="tech-badge">Responsive UI</span>
+            </div>
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+              <a href="#hero" class="btn btn-primary btn-sm">Current Site</a>
+              <a href="https://github.com/your-kishorenaikb" target="_blank" rel="noopener noreferrer" class="btn btn-glass btn-sm">
+                GitHub Repo
+              </a>
+            </div>
+          </div>
+
+          <div class="featured-preview-box">
+            <img src="assets/images/project-featured.svg" alt="Featured Portfolio UI Preview" class="featured-preview-img">
+          </div>
+        </div>
+      </div>
+
+      <!-- Projects Category Filter Bar -->
+      <div class="projects-filter-bar">
+        <button class="filter-tab-btn active" data-filter="ALL">All Projects</button>
+        <button class="filter-tab-btn" data-filter="WEB">Web</button>
+        <button class="filter-tab-btn" data-filter="AI">AI</button>
+        <button class="filter-tab-btn" data-filter="JAVA">Java</button>
+        <button class="filter-tab-btn" data-filter="PYTHON">Python</button>
+        <button class="filter-tab-btn" data-filter="CSE">CSE</button>
+        <button class="filter-tab-btn" data-filter="OTHER">Other</button>
+      </div>
+
+      <!-- Dynamic Projects Grid -->
+      <div id="projects-grid-container" class="projects-grid">
+        <!-- Injected dynamically from portfolio-data.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       9. MY JOURNEY TIMELINE
+       =================================================================== -->
+  <section id="journey" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Continuous Growth</span>
+        <h2 class="section-title">My Journey</h2>
+        <p class="section-subtitle">
+          Tracing milestones from school and college of excellence to programming exploration, practical projects, and future career horizons.
+        </p>
+      </div>
+
+      <!-- Interactive Journey Grid -->
+      <div id="journey-nodes-container" class="journey-timeline-container">
+        <!-- Injected dynamically from portfolio-data.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       10. ACHIEVEMENTS & CERTIFICATIONS
+       =================================================================== -->
+  <section id="achievements" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Milestones &amp; Credentials</span>
+        <h2 class="section-title">Achievements &amp; Certifications</h2>
+        <p class="section-subtitle">
+          Academic selections, verified coursework milestones, and technical development achievements.
+        </p>
+      </div>
+
+      <!-- Achievements Grid -->
+      <h3 style="font-size: 1.35rem; color: #ffffff; margin-bottom: 1.25rem;">
+        Recognitions &amp; Milestones
+      </h3>
+      <div id="achievements-grid" class="grid-2" style="margin-bottom: 3.5rem;">
+        <!-- Injected dynamically from portfolio-data.js -->
+      </div>
+
+      <!-- Certifications Grid -->
+      <div id="certifications">
+        <h3 style="font-size: 1.35rem; color: #ffffff; margin-bottom: 1.25rem;">
+          Verified Certifications
+        </h3>
+        <div id="certifications-grid" class="grid-3">
+          <!-- Injected dynamically from portfolio-data.js -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       11. EXPERIENCE SECTION
+       =================================================================== -->
+  <section id="experience" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Professional Path</span>
+        <h2 class="section-title">Experience &amp; Activities</h2>
+        <p class="section-subtitle">
+          Practical software development, academic teamwork, and continuous self-driven skill acquisition.
+        </p>
+      </div>
+
+      <div class="experience-wrap">
+        <!-- Status Banner -->
+        <div class="experience-status-banner">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00d2ff" stroke-width="2">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="12" y1="16" x2="12" y2="12"></line>
+            <line x1="12" y1="8" x2="12.01" y2="8"></line>
+          </svg>
+          <span>
+            <strong>Current Status:</strong> Currently building experience through projects, learning and technical exploration.
+          </span>
+        </div>
+
+        <!-- Experience Cards -->
+        <div class="glass-panel experience-item-card">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem; flex-wrap: wrap; gap: 0.5rem;">
+            <div>
+              <h3 class="exp-role-title">B.Tech Computer Science Student &amp; Project Developer</h3>
+              <div class="exp-org-name">Gokula Krishna College of Engineering</div>
+            </div>
+            <span class="glass-badge accent">2023 - Present (3rd Year)</span>
+          </div>
+
+          <ul class="exp-bullets-list">
+            <li class="exp-bullet-item">
+              <span style="color: #00d2ff;">▹</span>
+              <span>Developing modular web applications, software visualizers, and student utilities following clean code standards.</span>
+            </li>
+            <li class="exp-bullet-item">
+              <span style="color: #00d2ff;">▹</span>
+              <span>Engaging in peer code reviews, laboratory practicals, and collaborative technology workshops in CSE.</span>
+            </li>
+            <li class="exp-bullet-item">
+              <span style="color: #00d2ff;">▹</span>
+              <span>Establishing a robust personal digital presence and technical portfolio.</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="glass-panel experience-item-card">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem; flex-wrap: wrap; gap: 0.5rem;">
+            <div>
+              <h3 class="exp-role-title">Independent Technical Learner &amp; Problem Solver</h3>
+              <div class="exp-org-name">Self-Directed Learning</div>
+            </div>
+            <span class="glass-badge">Ongoing</span>
+          </div>
+
+          <ul class="exp-bullets-list">
+            <li class="exp-bullet-item">
+              <span style="color: #00d2ff;">▹</span>
+              <span>Regularly practicing algorithmic reasoning, array manipulation, and OOP principles in Java and Python.</span>
+            </li>
+            <li class="exp-bullet-item">
+              <span style="color: #00d2ff;">▹</span>
+              <span>Exploring modern web technologies, glassmorphic UI architectures, and responsive design systems.</span>
+            </li>
+            <li class="exp-bullet-item">
+              <span style="color: #00d2ff;">▹</span>
+              <span>Documenting code repositories and preparing for software engineering internship opportunities.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       12. MY INTERESTS ("WHAT I ENJOY")
+       =================================================================== -->
+  <section id="interests" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Passions &amp; Recreation</span>
+        <h2 class="section-title">What I Enjoy</h2>
+        <p class="section-subtitle">
+          Interests that cultivate creativity, analytical depth, and lifelong curiosity.
+        </p>
+      </div>
+
+      <div class="interests-grid">
+        <!-- Interactive Digital Bookshelf -->
+        <div class="glass-panel bookshelf-card">
+          <div class="bookshelf-title-bar">
+            <div>
+              <h3 style="font-size: 1.25rem; color: #fff;">📚 Reading Books</h3>
+              <span style="font-size: 0.8rem; color: #94a3b8;">Click any book to view key takeaways</span>
+            </div>
+            <span class="tech-badge">Digital Bookshelf</span>
+          </div>
+
+          <div class="books-row">
+            <div class="book-spine-card" onclick="window.showToast('Clean Code: Writing readable, maintainable, and craftsman-level software.')">
+              <div class="book-title-vertical">Clean Code</div>
+              <div class="book-author">Robert C. Martin</div>
+            </div>
+            <div class="book-spine-card" onclick="window.showToast('Algorithms Unlocked: Demystifying fundamental computational thinking.')">
+              <div class="book-title-vertical">Algorithms Unlocked</div>
+              <div class="book-author">Thomas Cormen</div>
+            </div>
+            <div class="book-spine-card" onclick="window.showToast('Wings of Fire: Inspiring resilience, vision, and scientific pursuit.')">
+              <div class="book-title-vertical">Wings of Fire</div>
+              <div class="book-author">Dr. A.P.J. Kalam</div>
+            </div>
+            <div class="book-spine-card" onclick="window.showToast('Atomic Habits: Building disciplined systems for incremental excellence.')">
+              <div class="book-title-vertical">Atomic Habits</div>
+              <div class="book-author">James Clear</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive Music Visualizer Widget -->
+        <div class="glass-panel music-card">
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+              <h3 style="font-size: 1.25rem; color: #fff;">🎧 Listening to Music</h3>
+              <span id="music-status-text" style="font-size: 0.78rem; color: #00d2ff;">Active Flow</span>
+            </div>
+            <p style="font-size: 0.85rem; color: #94a3b8;">
+              Instrumental and ambient focus soundtracks powering coding sessions.
+            </p>
+          </div>
+
+          <!-- Animated Sound Wave Visualizer -->
+          <div class="music-wave-container">
+            <div class="wave-bar"></div>
+            <div class="wave-bar"></div>
+            <div class="wave-bar"></div>
+            <div class="wave-bar"></div>
+            <div class="wave-bar"></div>
+            <div class="wave-bar"></div>
+            <div class="wave-bar"></div>
+            <div class="wave-bar"></div>
+          </div>
+
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <span style="font-size: 0.8rem; color: #64748b;">Flow State Audio</span>
+            <button id="music-toggle-btn" class="btn btn-glass btn-sm" style="padding: 0.3rem 0.8rem; font-size: 0.78rem;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                <rect x="6" y="4" width="4" height="16"></rect>
+                <rect x="14" y="4" width="4" height="16"></rect>
+              </svg>
+              <span>Pause</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Additional Passions: Gaming & Tech Exploration Cards -->
+      <div class="grid-3">
+        <div class="glass-panel gaming-stat-card">
+          <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">🎮</div>
+          <h4 style="font-size: 1.1rem; color: #fff; margin-bottom: 0.4rem;">Playing Games</h4>
+          <p style="font-size: 0.85rem; color: #94a3b8; line-height: 1.6;">
+            Enjoying strategy, logic puzzles, and tactical decision-making mechanics. Appreciating game mechanics and physics engines.
+          </p>
+        </div>
+
+        <div class="glass-panel gaming-stat-card">
+          <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">🤖</div>
+          <h4 style="font-size: 1.1rem; color: #fff; margin-bottom: 0.4rem;">Exploring AI</h4>
+          <p style="font-size: 0.85rem; color: #94a3b8; line-height: 1.6;">
+            Curious about intelligent systems, language models, neural representations, and how AI accelerates software engineering.
+          </p>
+        </div>
+
+        <div class="glass-panel gaming-stat-card">
+          <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">💻</div>
+          <h4 style="font-size: 1.1rem; color: #fff; margin-bottom: 0.4rem;">Programming &amp; Tech</h4>
+          <p style="font-size: 0.85rem; color: #94a3b8; line-height: 1.6;">
+            Diving deep into code architectures, open source repositories, and modern web frameworks to continuously elevate my skills.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       13. MY FAMILY SECTION (Respectful, Warm, Professional)
+       =================================================================== -->
+  <section id="family" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Roots &amp; Gratitude</span>
+        <h2 class="section-title">My Family</h2>
+        <p class="section-subtitle">
+          The moral foundation, encouragement, and inspiration behind every step of my academic and personal journey.
+        </p>
+      </div>
+
+      <div id="family-grid" class="family-grid">
+        <!-- Rendered dynamically from portfolio-data.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       14. GALLERY SECTION
+       =================================================================== -->
+  <section id="gallery" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Visual Memories</span>
+        <h2 class="section-title">Personal Gallery</h2>
+        <p class="section-subtitle">
+          Moments capturing academic milestones, campus life, developer sessions, and cherished memories.
+        </p>
+      </div>
+
+      <!-- Gallery Filter Bar -->
+      <div class="gallery-filter-bar">
+        <button class="filter-tab-btn active" data-filter="all">All Photos</button>
+        <button class="filter-tab-btn" data-filter="B.Tech">B.Tech</button>
+        <button class="filter-tab-btn" data-filter="Intermediate">Intermediate</button>
+        <button class="filter-tab-btn" data-filter="School">School</button>
+        <button class="filter-tab-btn" data-filter="Projects">Projects</button>
+        <button class="filter-tab-btn" data-filter="College Life">College Life</button>
+        <button class="filter-tab-btn" data-filter="Achievements">Achievements</button>
+      </div>
+
+      <!-- Dynamic Gallery Grid -->
+      <div id="gallery-grid-container" class="gallery-grid">
+        <!-- Rendered dynamically from portfolio-data.js -->
+      </div>
+
+      <div style="text-align: center; margin-top: 2rem;">
+        <button class="btn btn-glass btn-sm open-photo-manager-btn">
+          📷 Manage / Replace Gallery Photos
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       15. RESUME SECTION
+       =================================================================== -->
+  <section id="resume" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Curriculum Vitae</span>
+        <h2 class="section-title">Resume Overview</h2>
+        <p class="section-subtitle">
+          A concise overview of my academic foundation, technical skillset, projects, and contact credentials.
+        </p>
+      </div>
+
+      <div class="glass-panel resume-preview-card">
+        <div class="resume-header">
+          <div>
+            <h3 class="resume-name">KISHORE NAIK</h3>
+            <div class="resume-title-sub">3rd Year B.Tech CSE Student • Gokula Krishna College of Engineering</div>
+            <div style="font-size: 0.85rem; color: #94a3b8; margin-top: 0.35rem;">
+              Palnadu District, Andhra Pradesh, India • kishorenaik2k06@gmail.com • +91 7013741421
+            </div>
+          </div>
+          <span class="tech-badge">Verified Profile</span>
+        </div>
+
+        <div class="resume-section-block">
+          <div class="resume-sec-title">Academic Background</div>
+          <div style="display: flex; flex-direction: column; gap: 0.4rem; font-size: 0.9rem; color: #cbd5e1;">
+            <div><strong>B.Tech CSE (3rd Year):</strong> Gokula Krishna College of Engineering (English Medium)</div>
+            <div><strong>Intermediate (MPC):</strong> APTWR College of Excellence (Boys), Yerragondapalem</div>
+            <div><strong>SSC (Class 10th):</strong> APTWR School (Boys), Narasaraopet (English Medium)</div>
+          </div>
+        </div>
+
+        <div class="resume-section-block">
+          <div class="resume-sec-title">Core Competencies</div>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.4rem;">
+            <span class="tech-badge">Python</span>
+            <span class="tech-badge">Java</span>
+            <span class="tech-badge">C / C++</span>
+            <span class="tech-badge">JavaScript</span>
+            <span class="tech-badge">HTML5 / CSS3</span>
+            <span class="tech-badge">Web Development</span>
+            <span class="tech-badge">Problem Solving</span>
+            <span class="tech-badge">DSA</span>
+          </div>
+        </div>
+
+        <div class="resume-section-block">
+          <div class="resume-sec-title">Featured Work &amp; Focus</div>
+          <p style="font-size: 0.88rem; color: #94a3b8; line-height: 1.6;">
+            Engineered modular web projects including Algorithm Visualizers, Student Academic Trackers, and the Liquid Glass Portfolio System. Actively preparing for software engineering internship roles.
+          </p>
+        </div>
+
+        <!-- Download & View Buttons -->
+        <div class="resume-cta-buttons">
+          <button class="btn btn-glass" onclick="window.print()">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 6 2 18 2 18 9"></polyline>
+              <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+              <rect x="6" y="14" width="12" height="8"></rect>
+            </svg>
+            <span>Print / View Resume</span>
+          </button>
+          <a href="mailto:kishorenaik2k06@gmail.com?subject=Requesting%20Resume%20-%20Kishore%20Naik" class="btn btn-primary">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            <span>Download Resume PDF</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       16. CONNECT WITH ME & CONTACT
+       =================================================================== -->
+  <section id="contact" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Get in Touch</span>
+        <h2 class="section-title">Let's Connect</h2>
+        <p class="section-subtitle">
+          Have an idea, internship opportunity, technical collaboration, or simply want to say hello? I'd love to connect.
+        </p>
+      </div>
+
+      <!-- Social Cards Grid -->
+      <div class="social-cards-grid">
+        <a href="https://github.com/your-kishorenaikb" target="_blank" rel="noopener noreferrer" class="glass-panel glass-panel-hover social-card" title="your-kishorenaikb">
+          <div class="social-icon-box">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+            </svg>
+          </div>
+          <span class="social-label">GitHub</span>
+        </a>
+
+        <a href="https://linkedin.com/in/LINKEDIN_URL" target="_blank" rel="noopener noreferrer" class="glass-panel glass-panel-hover social-card">
+          <div class="social-icon-box">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+            </svg>
+          </div>
+          <span class="social-label">LinkedIn</span>
+        </a>
+
+        <a href="https://wa.me/917013741421?text=Hi%20Kishore,%20I%20saw%20your%20portfolio!" target="_blank" rel="noopener noreferrer" class="glass-panel glass-panel-hover social-card">
+          <div class="social-icon-box" style="color: #25d366;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
+            </svg>
+          </div>
+          <span class="social-label">WhatsApp</span>
+        </a>
+
+        <a href="mailto:kishorenaik2k06@gmail.com" class="glass-panel glass-panel-hover social-card">
+          <div class="social-icon-box" style="color: #00d2ff;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+              <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+          </div>
+          <span class="social-label">Email</span>
+        </a>
+
+        <a href="https://instagram.com/__1ts__k1shore__na1k___" target="_blank" rel="noopener noreferrer" class="glass-panel glass-panel-hover social-card" title="@__1ts__k1shore__na1k___">
+          <div class="social-icon-box" style="color: #e1306c;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+            </svg>
+          </div>
+          <span class="social-label">Instagram</span>
+        </a>
+
+        <a href="https://facebook.com/1tsk1shorena1k" target="_blank" rel="noopener noreferrer" class="glass-panel glass-panel-hover social-card" title="1tsk1shorena1k">
+          <div class="social-icon-box" style="color: #1877f2;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+            </svg>
+          </div>
+          <span class="social-label">Facebook</span>
+        </a>
+      </div>
+
+      <!-- Contact Info & Interactive Form -->
+      <div class="contact-grid">
+        <!-- Direct Contact Cards -->
+        <div class="contact-info-list">
+          <a href="mailto:kishorenaik2k06@gmail.com" class="glass-panel glass-panel-hover contact-direct-item">
+            <div class="contact-icon-bubble">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+            </div>
+            <div>
+              <div class="contact-val-sub">Direct Email</div>
+              <div class="contact-val-text">kishorenaik2k06@gmail.com</div>
+            </div>
+          </a>
+
+          <a href="tel:+917013741421" class="glass-panel glass-panel-hover contact-direct-item">
+            <div class="contact-icon-bubble">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+              </svg>
+            </div>
+            <div>
+              <div class="contact-val-sub">Phone Number</div>
+              <div class="contact-val-text">+91 7013741421</div>
+            </div>
+          </a>
+
+          <a href="https://wa.me/917013741421?text=Hi%20Kishore,%20let%27s%20connect!" target="_blank" rel="noopener noreferrer" class="glass-panel glass-panel-hover contact-direct-item">
+            <div class="contact-icon-bubble" style="color: #25d366; border-color: rgba(37, 211, 102, 0.3); background: rgba(37, 211, 102, 0.1);">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
+              </svg>
+            </div>
+            <div>
+              <div class="contact-val-sub">WhatsApp Chat</div>
+              <div class="contact-val-text">+91 7013741421</div>
+            </div>
+          </a>
+
+          <div class="glass-panel" style="padding: 1.25rem;">
+            <div style="font-size: 0.8rem; color: #94a3b8; line-height: 1.5;">
+              🔒 <strong>Privacy Assured:</strong> Communications sent via this form are transmitted securely. No credentials or personal secrets are exposed.
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="glass-panel contact-form">
+          <h3 style="font-size: 1.25rem; color: #fff; margin-bottom: 0.5rem;">Send a Message</h3>
+          <form id="contact-form" novalidate>
+            <div class="form-group">
+              <label for="form-name" class="form-label">Your Name</label>
+              <input type="text" id="form-name" class="form-input" placeholder="e.g. Alex Sharma" required>
+            </div>
+
+            <div class="form-group">
+              <label for="form-email" class="form-label">Email Address</label>
+              <input type="email" id="form-email" class="form-input" placeholder="e.g. alex@example.com" required>
+            </div>
+
+            <div class="form-group">
+              <label for="form-subject" class="form-label">Subject</label>
+              <input type="text" id="form-subject" class="form-input" placeholder="e.g. Internship Opportunity / Collaboration" required>
+            </div>
+
+            <div class="form-group">
+              <label for="form-message" class="form-label">Message</label>
+              <textarea id="form-message" class="form-textarea" placeholder="Hello Kishore, I would like to discuss..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width: 100%;">
+              Send Message
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       17. FOOTER
+       =================================================================== -->
+  <footer class="footer-wrap">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div style="display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.75rem;">
+            <div class="brand-symbol" style="width: 32px; height: 32px; font-size: 0.95rem;">KN</div>
+            <span class="brand-name">KISHORE NAIK</span>
+          </div>
+          <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; max-width: 320px; margin-bottom: 1.25rem;">
+            3rd Year B.Tech Computer Science and Engineering student at Gokula Krishna College of Engineering. Developer, Problem Solver, Tech Explorer.
+          </p>
+          <div style="display: flex; gap: 0.5rem;">
+            <span class="tech-badge">Palnadu, AP</span>
+            <span class="tech-badge">English Medium</span>
+          </div>
+        </div>
+
+        <div class="footer-quick-links">
+          <div>
+            <div class="footer-col-title">Navigation</div>
+            <ul class="footer-link-list">
+              <li><a href="#hero" class="footer-link">Home</a></li>
+              <li><a href="#about" class="footer-link">About Me</a></li>
+              <li><a href="#roots" class="footer-link">My Roots</a></li>
+              <li><a href="#journey" class="footer-link">My Journey</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <div class="footer-col-title">Academics &amp; Work</div>
+            <ul class="footer-link-list">
+              <li><a href="#education" class="footer-link">Education</a></li>
+              <li><a href="#skills" class="footer-link">Skills</a></li>
+              <li><a href="#projects" class="footer-link">Projects</a></li>
+              <li><a href="#achievements" class="footer-link">Achievements</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <div class="footer-col-title">Connect</div>
+            <ul class="footer-link-list">
+              <li><a href="#resume" class="footer-link">Resume</a></li>
+              <li><a href="#gallery" class="footer-link">Gallery</a></li>
+              <li><a href="#contact" class="footer-link">Contact</a></li>
+              <li><a href="mailto:kishorenaik2k06@gmail.com" class="footer-link">Email Kishore</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom-row">
+        <div>
+          © 2026 Kishore Naik. All rights reserved.
+        </div>
+        <div style="display: flex; gap: 1rem;">
+          <button class="open-photo-manager-btn" style="background: none; border: none; color: #64748b; font-size: 0.8rem; cursor: pointer;">
+            📷 Photo Settings
+          </button>
+          <a href="#hero" style="color: #64748b; text-decoration: none;">Top ↑</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===================================================================
+       18. MODALS & POPUPS
+       =================================================================== -->
+
+  <!-- 1. Command Palette / Global Search Modal (Ctrl + K) -->
+  <div id="command-palette-modal" class="modal-backdrop">
+    <div class="cmd-palette-box">
+      <div class="cmd-input-wrap">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00d2ff" stroke-width="2">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input type="text" id="cmd-search-input" class="cmd-search-input" placeholder="Type to search sections, skills, projects, education..." autocomplete="off">
+        <span class="kbd-shortcut">ESC</span>
+      </div>
+      <ul id="cmd-results-list" class="cmd-results-list">
+        <!-- Dynamically populated -->
+      </ul>
+    </div>
+  </div>
+
+  <!-- 2. Project Case Study Modal -->
+  <div id="project-modal" class="modal-backdrop">
+    <div class="modal-container" style="padding: 2.25rem;">
+      <button id="project-modal-close" class="modal-close-btn" aria-label="Close modal">✕</button>
+      <div style="margin-bottom: 1.5rem;">
+        <span id="p-modal-category" class="tech-badge" style="margin-bottom: 0.5rem; display: inline-block;">Category</span>
+        <h2 id="p-modal-title" style="font-size: 1.75rem; color: #fff; margin-bottom: 0.75rem;">Project Title</h2>
+      </div>
+
+      <div style="margin-bottom: 1.5rem;">
+        <h4 style="font-size: 0.95rem; color: #00d2ff; text-transform: uppercase; margin-bottom: 0.4rem;">The Challenge &amp; Problem</h4>
+        <p id="p-modal-problem" style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6;"></p>
+      </div>
+
+      <div style="margin-bottom: 1.5rem;">
+        <h4 style="font-size: 0.95rem; color: #00d2ff; text-transform: uppercase; margin-bottom: 0.4rem;">The Engineered Solution</h4>
+        <p id="p-modal-solution" style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6;"></p>
+      </div>
+
+      <div style="margin-bottom: 1.5rem;">
+        <h4 style="font-size: 0.95rem; color: #00d2ff; text-transform: uppercase; margin-bottom: 0.4rem;">Key Highlights &amp; Features</h4>
+        <ul id="p-modal-features" style="padding-left: 1.25rem; font-size: 0.92rem; color: #cbd5e1; line-height: 1.6;"></ul>
+      </div>
+
+      <div style="margin-bottom: 2rem;">
+        <h4 style="font-size: 0.95rem; color: #00d2ff; text-transform: uppercase; margin-bottom: 0.5rem;">Technologies Used</h4>
+        <div id="p-modal-tech" style="display: flex; flex-wrap: wrap; gap: 0.5rem;"></div>
+      </div>
+
+      <div style="display: flex; gap: 1rem; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1.25rem;">
+        <a id="p-modal-github" href="#" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
+          View on GitHub
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. Certificate View Modal -->
+  <div id="certificate-modal" class="modal-backdrop">
+    <div class="modal-container" style="padding: 2.25rem; text-align: center;">
+      <button id="cert-modal-close" class="modal-close-btn" aria-label="Close modal">✕</button>
+      <div style="margin-bottom: 1.5rem;">
+        <img src="assets/images/cert-placeholder.svg" alt="Certificate Preview" style="width: 100%; max-height: 320px; object-fit: contain; border-radius: var(--radius-md); margin-bottom: 1rem;">
+        <h2 id="cert-modal-title" style="font-size: 1.5rem; color: #fff; margin-bottom: 0.4rem;"></h2>
+        <div id="cert-modal-org" style="color: #00d2ff; font-size: 0.95rem; margin-bottom: 0.25rem;"></div>
+        <div id="cert-modal-id" style="font-family: var(--font-mono); font-size: 0.8rem; color: #64748b;"></div>
+      </div>
+      <p id="cert-modal-desc" style="font-size: 0.9rem; color: #94a3b8; line-height: 1.6; max-width: 500px; margin: 0 auto;"></p>
+    </div>
+  </div>
+
+  <!-- 4. Fullscreen Lightbox Modal -->
+  <div id="lightbox-modal" class="modal-backdrop">
+    <div style="position: relative; max-width: 90vw; max-height: 90vh; text-align: center;">
+      <button id="lightbox-close" class="modal-close-btn" style="top: -45px; right: 0;">✕</button>
+      <img id="lightbox-img" src="" alt="Enlarged View" style="max-width: 100%; max-height: 80vh; border-radius: var(--radius-lg); border: 1px solid rgba(255,255,255,0.2); box-shadow: var(--shadow-glass-lg);">
+      <div id="lightbox-title" style="color: #fff; font-weight: 700; font-size: 1.1rem; margin-top: 0.75rem;"></div>
+      <div id="lightbox-caption" style="color: #94a3b8; font-size: 0.88rem; margin-top: 0.25rem;"></div>
+    </div>
+  </div>
+
+  <!-- 5. In-Browser Real-Time Photo Manager Modal -->
+  <div id="photo-manager-modal" class="modal-backdrop">
+    <div class="modal-container" style="padding: 2.25rem; max-width: 800px;">
+      <button id="photo-modal-close" class="modal-close-btn" aria-label="Close modal">✕</button>
+      
+      <div style="margin-bottom: 1.5rem;">
+        <div class="glass-badge accent" style="margin-bottom: 0.5rem;">Photo Management</div>
+        <h2 style="font-size: 1.65rem; color: #ffffff; margin-bottom: 0.4rem;">
+          Preserve Facial Identity &amp; Upload Real Photos
+        </h2>
+        <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.5;">
+          Select your authentic photographs directly from your computer. They preview instantly in the browser without altering or distorting your face.
+        </p>
+      </div>
+
+      <div class="grid-2" style="gap: 1.25rem; margin-bottom: 1.5rem;">
+        <!-- Slot 1: Profile Photo -->
+        <div id="photo-card-heroProfile" class="glass-panel" style="padding: 1.25rem; display: flex; gap: 1rem; align-items: center;">
+          <img id="modal-preview-heroProfile" src="assets/images/profile.svg" alt="Profile Preview" data-photo-slot="heroProfile" style="width: 70px; height: 85px; object-fit: cover; border-radius: 8px; border: 1px solid #00d2ff;">
+          <div style="flex: 1;">
+            <div style="font-size: 0.9rem; font-weight: 700; color: #fff;">1. Profile / Hero Photo</div>
+            <div style="font-size: 0.75rem; color: #94a3b8; margin-bottom: 0.5rem;">Displayed in the main Hero section</div>
+            <label class="btn btn-primary btn-sm" style="cursor: pointer; display: inline-flex;">
+              Browse File
+              <input type="file" id="input-file-heroProfile" accept="image/*" style="display: none;">
+            </label>
+          </div>
+        </div>
+
+        <!-- Slot 2: B.Tech Photo -->
+        <div id="photo-card-btechPhoto" class="glass-panel" style="padding: 1.25rem; display: flex; gap: 1rem; align-items: center;">
+          <img id="modal-preview-btechPhoto" src="assets/images/btech.svg" alt="B.Tech Preview" data-photo-slot="btechPhoto" style="width: 70px; height: 85px; object-fit: cover; border-radius: 8px; border: 1px solid #00d2ff;">
+          <div style="flex: 1;">
+            <div style="font-size: 0.9rem; font-weight: 700; color: #fff;">2. B.Tech College Photo</div>
+            <div style="font-size: 0.75rem; color: #94a3b8; margin-bottom: 0.5rem;">Gokula Krishna College of Engg</div>
+            <label class="btn btn-primary btn-sm" style="cursor: pointer; display: inline-flex;">
+              Browse File
+              <input type="file" id="input-file-btechPhoto" accept="image/*" style="display: none;">
+            </label>
+          </div>
+        </div>
+
+        <!-- Slot 3: Intermediate Photo -->
+        <div id="photo-card-intermediatePhoto" class="glass-panel" style="padding: 1.25rem; display: flex; gap: 1rem; align-items: center;">
+          <img id="modal-preview-intermediatePhoto" src="assets/images/intermediate.svg" alt="Intermediate Preview" data-photo-slot="intermediatePhoto" style="width: 70px; height: 85px; object-fit: cover; border-radius: 8px; border: 1px solid #a855f7;">
+          <div style="flex: 1;">
+            <div style="font-size: 0.9rem; font-weight: 700; color: #fff;">3. Intermediate Photo</div>
+            <div style="font-size: 0.75rem; color: #94a3b8; margin-bottom: 0.5rem;">College of Excellence, Yerragondapalem</div>
+            <label class="btn btn-primary btn-sm" style="cursor: pointer; display: inline-flex;">
+              Browse File
+              <input type="file" id="input-file-intermediatePhoto" accept="image/*" style="display: none;">
+            </label>
+          </div>
+        </div>
+
+        <!-- Slot 4: SSC Photo -->
+        <div id="photo-card-sscPhoto" class="glass-panel" style="padding: 1.25rem; display: flex; gap: 1rem; align-items: center;">
+          <img id="modal-preview-sscPhoto" src="assets/images/ssc.svg" alt="SSC Preview" data-photo-slot="sscPhoto" style="width: 70px; height: 85px; object-fit: cover; border-radius: 8px; border: 1px solid #00f2fe;">
+          <div style="flex: 1;">
+            <div style="font-size: 0.9rem; font-weight: 700; color: #fff;">4. SSC / School Photo</div>
+            <div style="font-size: 0.75rem; color: #94a3b8; margin-bottom: 0.5rem;">APTWR School, Narasaraopet</div>
+            <label class="btn btn-primary btn-sm" style="cursor: pointer; display: inline-flex;">
+              Browse File
+              <input type="file" id="input-file-sscPhoto" accept="image/*" style="display: none;">
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div style="background: rgba(0, 210, 255, 0.05); border: 1px solid rgba(0, 210, 255, 0.15); padding: 1rem; border-radius: var(--radius-md); font-size: 0.82rem; color: #94a3b8; line-height: 1.5; margin-bottom: 1.25rem;">
+        💡 <strong>Permanent Hosting Tip:</strong> Photos uploaded via this file picker are instantly stored in your browser's local memory. To make them permanent for GitHub Pages or Vercel, simply copy your photo files into the <code style="color:#00d2ff;">assets/images/</code> folder as <code style="color:#00d2ff;">profile.jpg</code>, <code style="color:#00d2ff;">btech.jpg</code>, <code style="color:#00d2ff;">intermediate.jpg</code>, and <code style="color:#00d2ff;">ssc.jpg</code>.
+      </div>
+
+      <div style="display: flex; justify-content: space-between; align-items: center;">
+        <button id="photo-modal-reset-all" class="btn btn-outline btn-sm">
+          Reset All to Defaults
+        </button>
+        <button class="btn btn-glass btn-sm" onclick="PhotoManager.closeModal()">
+          Close Window
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating Back to Top Button -->
+  <button id="back-to-top-btn" class="back-to-top-btn" aria-label="Back to Top" title="Back to Top">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
+
+  <!-- Toast Notification Container -->
+  <div id="toast-container"></div>
+
+  <!-- Application Scripts -->
+  <script src="js/portfolio-data.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/photo-manager.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
