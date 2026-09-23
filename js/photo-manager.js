@@ -57,7 +57,7 @@ const PhotoManager = {
   resetPhoto(slotKey) {
     try {
       localStorage.removeItem(this.STORAGE_KEYS[slotKey]);
-    } catch (e) {}
+    } catch (e) { }
     const defaultSrc = PORTFOLIO_DATA.photos[slotKey] || this.FALLBACK_SVGS[slotKey];
     this.updateDomPhoto(slotKey, defaultSrc);
   },

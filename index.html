@@ -61,7 +61,8 @@
       </a>
 
       <!-- 3-Line Menu Option in Navbar (Click to Show Options) -->
-      <div class="nav-menu-btn" id="nav-menu-toggle" onclick="hamburgerMenu()" title="Open Navigation Menu" aria-label="Open Navigation Menu">
+      <div class="nav-menu-btn" id="nav-menu-toggle" onclick="hamburgerMenu()" title="Open Navigation Menu"
+        aria-label="Open Navigation Menu">
         <span></span>
         <span></span>
         <span></span>
@@ -159,36 +160,41 @@
 
         <!-- Dynamic Role Subtitle (Redundant name below barcode removed) -->
         <div class="role-subtitle-wrap" data-aos="fade-up" data-aos-delay="400">
-          <span class="jello" style="font-family: 'Fira Code'; font-size: 2.6rem; font-weight: 700; color: var(--color-purple);">&gt;</span>
+          <span class="jello"
+            style="font-family: 'Fira Code'; font-size: 2.6rem; font-weight: 700; color: var(--color-purple);">&gt;</span>
           <span id="typing-animation"></span>
         </div>
 
         <!-- Description Paragraph -->
         <p id="info-para" data-aos="fade-up" data-aos-delay="500">
-          I am a passionate 3rd-year Computer Science &amp; Engineering undergraduate at Gokula Krishna College of Engineering.
-          I specialize in building responsive, modern web applications, solving algorithmic challenges, and exploring scalable software architectures.
+          I am a passionate 3rd-year Computer Science &amp; Engineering undergraduate at Gokula Krishna College of
+          Engineering.
+          I specialize in building responsive, modern web applications, solving algorithmic challenges, and exploring
+          scalable software architectures.
         </p>
 
-        <!-- Action Row with Small Setting Button Near Above Let's Connect / Let's Talk Button -->
-        <div class="hero-actions-wrap" data-aos="fade-up" data-aos-delay="650">
-          <div class="setting-trigger-wrap">
-            <!-- Setting Button (Expands to small bar like resume button only, does not open modal) -->
-            <button class="resume-btn setting-bar-btn" id="setting-btn" onclick="toggleSettingBar(this, event)" title="Settings" aria-label="Portfolio Settings">
-              <div class="sign">
-                <i class="fa-solid fa-gear"></i>
-              </div>
-              <div class="text">Settings</div>
+        <!-- Action Row: Contact Button & Exact Reference Setting Theme Toggle -->
+        <div class="contact-btn-div" data-aos="fade-up" data-aos-delay="650">
+          <a href="#about">
+            <button class="letsTalkBtn">
+              <p class="letsTalkBtn-text">Let's Talk!</p>
+              <span class="letsTalkBtn-BG"></span>
             </button>
-          </div>
+          </a>
 
-          <!-- Contact Button -->
-          <div class="contact-btn-div">
-            <a href="#about">
-              <button class="letsTalkBtn">
-                <p class="letsTalkBtn-text">Let's Talk!</p>
-                <span class="letsTalkBtn-BG"></span>
-              </button>
-            </a>
+          <!-- Exact Reference Site Setting Container -->
+          <div class="setting-container" id="setting-container">
+            <input type="checkbox" id="switchforsetting" onclick="settingtoggle()" />
+
+            <label for="switchforsetting" class="needtobeinvert" id="labelforsetting" tabindex="0"
+              aria-label="Settings for appearance" title="Settings"></label>
+
+            <!-- Small Moon Icon (White Theme Toggle Button) -->
+            <div class="visualmodetogglebuttoncontainer" id="visualmodetogglebuttoncontainer">
+              <input type="checkbox" id="switchforvisualmode" onclick="visualmode()" />
+              <label for="switchforvisualmode" id="labelforvisualmode" tabindex="0" aria-label="Switch White Theme"
+                title="Toggle White Theme"></label>
+            </div>
           </div>
         </div>
       </div>
@@ -210,15 +216,19 @@
           <div class="about-info">
             <p>
               Hello! I'm <strong>Kishore Naik</strong>, an aspiring software engineer and web developer from
-              <strong class="edu-loc-text">Sullurpet, Tirupathi Dist, AP</strong>. Born on <strong>24th September 2006</strong>, I am currently pursuing Bachelor of Technology in <strong>Computer Science and Engineering</strong> (2024 &ndash; 2028)
+              <strong class="edu-loc-text">Sullurpet, Tirupathi Dist, AP</strong>. Born on <strong>24th September
+                2006</strong>, I am currently pursuing Bachelor of Technology in <strong>Computer Science and
+                Engineering</strong> (2024 &ndash; 2028)
               at <strong>Gokula Krishna College of Engineering</strong>, Sullurpet.
             </p>
             <p>
-              Beyond software engineering, I am an enthusiastic <strong>story writer</strong> and deeply passionate about <strong>alone travelling</strong>.
+              Beyond software engineering, I am an enthusiastic <strong>story writer</strong> and deeply passionate
+              about <strong>alone travelling</strong>.
               I communicate fluently in <strong>Telugu</strong>, <strong>English</strong>, and <strong>Hindi</strong>.
             </p>
             <p>
-              Whether it's building modern full-stack web applications or architecting clean UI systems, I approach every challenge with
+              Whether it's building modern full-stack web applications or architecting clean UI systems, I approach
+              every challenge with
               curiosity, focus, and a drive to continually level up.
             </p>
 
@@ -235,104 +245,105 @@
                 <div class="text">Resume</div>
               </button>
 
-              <!-- Exact Expanding A Tale Button (Placed Near Below Resume Button, Displays "A Tale" on hover & opens story reader on click) -->
-              <button class="resume-btn tale-btn" id="tale-btn" onclick="openTaleModal(event)" title="Read A Tale by Kishore Naik">
+              <!-- Exact Expanding A Tale Button (Exact Same Reference Shape, Gradient & Interaction) -->
+              <button class="resume-btn tale-btn" id="tale-btn" onclick="openTaleModal(event)"
+                title="Read A Tale by Kishore Naik">
                 <div class="sign">
-                  <svg viewBox="0 0 448 512">
+                  <svg viewBox="0 0 640 512">
                     <path
-                      d="M96 0C43 0 0 43 0 96V416c0 53 43 96 96 96H384h32c17.7 0 32-14.3 32-32s-14.3-32-32-32V384c17.7 0 32-14.3 32-32V32c0-17.7-14.3-32-32-32s-32 14.3-32 32v64c0 17.7-14.3 32-32 32H96c-17.7 0-32-14.3-32-32V96c0-17.7 14.3-32 32-32H384V0H96zM384 352H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H384v-64z" />
+                      d="M144 480C64.5 480 0 415.5 0 336c0-62.8 40.2-116.2 96.2-135.9c-.1-2.7-.2-5.4-.2-8.1c0-88.4 71.6-160 160-160c59.3 0 111 32.2 138.7 80.2C409.9 102 428.3 96 448 96c53 0 96 43 96 96c0 12.2-2.3 23.8-6.4 34.6C596 238.4 640 290.1 640 352c0 70.7-57.3 128-128 128H144zm79-167l80 80c9.4 9.4 24.6 9.4 33.9 0l80-80c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0l-39 39V184c0-13.3-10.7-24-24-24s-24 10.7-24 24V318.1l-39-39c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9z" />
                   </svg>
                 </div>
                 <div class="text">A Tale</div>
               </button>
             </div>
+          </div>
 
-            <!-- Theme-Mixed Profile Showcase (Natural photo, no side boxes, clean rows without cards) -->
-            <div class="theme-profile-wrap" data-aos="fade-up">
-              <!-- Avatar DP without side boxes -->
-              <div class="dp">
-                <img src="assets/images/profile.jpg" onerror="this.onerror=null; this.src='assets/images/profile.svg'"
-                  alt="Kishore Naik" />
+          <!-- Theme-Mixed Profile Showcase (Natural photo, no side boxes, clean rows without cards) -->
+          <div class="theme-profile-wrap" data-aos="fade-up">
+            <!-- Avatar DP without side boxes -->
+            <div class="dp">
+              <img src="assets/images/profile.jpg" onerror="this.onerror=null; this.src='assets/images/profile.svg'"
+                alt="Kishore Naik" />
+            </div>
+
+            <div class="profile-info-content">
+              <h3 class="profile-name">Kishore Naik</h3>
+
+              <div class="profile-details-list">
+                <!-- Education Background -->
+                <div class="profile-detail-item edu-item">
+                  <img src="assets/images/icons/education.svg" alt="Education" class="detail-mini-img" />
+                  <span class="detail-value edu-font">B.Tech CSE (2024 - 2028) &bull; GKCE</span>
+                </div>
+
+                <!-- Location (Sullurpet, Tirupathi Dist, AP) -->
+                <div class="profile-detail-item loc-item">
+                  <img src="assets/images/icons/location.svg" alt="Location" class="detail-mini-img" />
+                  <span class="detail-value edu-loc-text">Sullurpet, Tirupathi Dist, AP</span>
+                </div>
+
+                <!-- Date of Birth: 24 09 2006 (Headline removed as requested) -->
+                <div class="profile-detail-item">
+                  <img src="assets/images/icons/dob.svg" alt="DOB" class="detail-mini-img" />
+                  <span class="detail-value">24 09 2006</span>
+                </div>
+
+                <!-- Phone: 7013741421 (Small related phone image, headline removed as requested) -->
+                <div class="profile-detail-item">
+                  <img src="assets/images/icons/phone.svg" alt="Phone" class="detail-mini-img" />
+                  <a href="tel:7013741421" class="detail-value phone-link">7013741421</a>
+                </div>
+
+                <!-- Passions: Story Writing & Alone Travelling -->
+                <div class="profile-detail-item">
+                  <img src="assets/images/icons/story-writing.svg" alt="Story Writing" class="detail-mini-img" />
+                  <span class="detail-value">Story Writing</span>
+                </div>
+
+                <div class="profile-detail-item">
+                  <img src="assets/images/icons/alone-travelling.svg" alt="Alone Travelling" class="detail-mini-img" />
+                  <span class="detail-value">Alone Travelling</span>
+                </div>
+
+                <!-- Languages: Telugu, English, Hindi -->
+                <div class="profile-languages-row">
+                  <span class="lang-pill" title="Telugu Language">
+                    <img src="assets/images/icons/telugu.svg" alt="Telugu" class="detail-mini-img" />
+                    Telugu
+                  </span>
+                  <span class="lang-pill" title="English Language">
+                    <img src="assets/images/icons/english.svg" alt="English" class="detail-mini-img" />
+                    English
+                  </span>
+                  <span class="lang-pill" title="Hindi Language">
+                    <img src="assets/images/icons/hindi.svg" alt="Hindi" class="detail-mini-img" />
+                    Hindi
+                  </span>
+                </div>
               </div>
 
-              <div class="profile-info-content">
-                <h3 class="profile-name">Kishore Naik</h3>
-
-                <div class="profile-details-list">
-                  <!-- Education Background -->
-                  <div class="profile-detail-item edu-item">
-                    <img src="assets/images/icons/education.svg" alt="Education" class="detail-mini-img" />
-                    <span class="detail-value edu-font">B.Tech CSE (2024 - 2028) &bull; GKCE</span>
-                  </div>
-
-                  <!-- Location (Sullurpet, Tirupathi Dist, AP) -->
-                  <div class="profile-detail-item loc-item">
-                    <img src="assets/images/icons/location.svg" alt="Location" class="detail-mini-img" />
-                    <span class="detail-value edu-loc-text">Sullurpet, Tirupathi Dist, AP</span>
-                  </div>
-
-                  <!-- Date of Birth: 24 09 2006 (Headline removed as requested) -->
-                  <div class="profile-detail-item">
-                    <img src="assets/images/icons/dob.svg" alt="DOB" class="detail-mini-img" />
-                    <span class="detail-value">24 09 2006</span>
-                  </div>
-
-                  <!-- Phone: 7013741421 (Small related phone image, headline removed as requested) -->
-                  <div class="profile-detail-item">
-                    <img src="assets/images/icons/phone.svg" alt="Phone" class="detail-mini-img" />
-                    <a href="tel:7013741421" class="detail-value phone-link">7013741421</a>
-                  </div>
-
-                  <!-- Passions: Story Writing & Alone Travelling -->
-                  <div class="profile-detail-item">
-                    <img src="assets/images/icons/story-writing.svg" alt="Story Writing" class="detail-mini-img" />
-                    <span class="detail-value">Story Writing</span>
-                  </div>
-
-                  <div class="profile-detail-item">
-                    <img src="assets/images/icons/alone-travelling.svg" alt="Alone Travelling" class="detail-mini-img" />
-                    <span class="detail-value">Alone Travelling</span>
-                  </div>
-
-                  <!-- Languages: Telugu, English, Hindi -->
-                  <div class="profile-languages-row">
-                    <span class="lang-pill" title="Telugu Language">
-                      <img src="assets/images/icons/telugu.svg" alt="Telugu" class="detail-mini-img" />
-                      Telugu
-                    </span>
-                    <span class="lang-pill" title="English Language">
-                      <img src="assets/images/icons/english.svg" alt="English" class="detail-mini-img" />
-                      English
-                    </span>
-                    <span class="lang-pill" title="Hindi Language">
-                      <img src="assets/images/icons/hindi.svg" alt="Hindi" class="detail-mini-img" />
-                      Hindi
-                    </span>
-                  </div>
-                </div>
-
-                <!-- Connect Socials Row -->
-                <div class="profile-connect-row">
-                  <a href="https://instagram.com/__1ts__k1shore__na1k___" target="_blank" rel="noopener noreferrer"
-                    title="Instagram: @__1ts__k1shore__na1k___">
-                    <i class="fa-brands fa-instagram"></i>
-                  </a>
-                  <a href="https://facebook.com/1tsk1shorena1k" target="_blank" rel="noopener noreferrer"
-                    title="Facebook: 1tsk1shorena1k">
-                    <i class="fa-brands fa-facebook-f"></i>
-                  </a>
-                  <a href="https://github.com/your-kishorenaikb" target="_blank" rel="noopener noreferrer"
-                    title="GitHub: your-kishorenaikb">
-                    <i class="fa-brands fa-github"></i>
-                  </a>
-                  <a href="https://wa.me/917013741421" target="_blank" rel="noopener noreferrer"
-                    title="WhatsApp: +91 7013741421">
-                    <i class="fa-brands fa-whatsapp"></i>
-                  </a>
-                  <a href="mailto:kishorenaik2k06@gmail.com" title="Email: kishorenaik2k06@gmail.com">
-                    <i class="fa-solid fa-envelope"></i>
-                  </a>
-                </div>
+              <!-- Connect Socials Row -->
+              <div class="profile-connect-row">
+                <a href="https://instagram.com/__1ts__k1shore__na1k___" target="_blank" rel="noopener noreferrer"
+                  title="Instagram: @__1ts__k1shore__na1k___">
+                  <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a href="https://facebook.com/1tsk1shorena1k" target="_blank" rel="noopener noreferrer"
+                  title="Facebook: 1tsk1shorena1k">
+                  <i class="fa-brands fa-facebook-f"></i>
+                </a>
+                <a href="https://github.com/your-kishorenaikb" target="_blank" rel="noopener noreferrer"
+                  title="GitHub: your-kishorenaikb">
+                  <i class="fa-brands fa-github"></i>
+                </a>
+                <a href="https://wa.me/917013741421" target="_blank" rel="noopener noreferrer"
+                  title="WhatsApp: +91 7013741421">
+                  <i class="fa-brands fa-whatsapp"></i>
+                </a>
+                <a href="mailto:kishorenaik2k06@gmail.com" title="Email: kishorenaik2k06@gmail.com">
+                  <i class="fa-solid fa-envelope"></i>
+                </a>
               </div>
             </div>
           </div>
@@ -441,7 +452,8 @@
 
           <!-- Subdivisions Buttons -->
           <div class="skills-subdivisions">
-            <button class="skills-btn active" onclick="showSkills('programming-languages', this)">Technical Skills</button>
+            <button class="skills-btn active" onclick="showSkills('programming-languages', this)">Technical
+              Skills</button>
             <button class="skills-btn" onclick="showSkills('tools', this)">Tools &amp; FrameWorks</button>
             <button class="skills-btn" onclick="showSkills('core-skills', this)">Core Engineering</button>
           </div>
@@ -465,7 +477,8 @@
           <!-- House 1: SSC School (2012 to 2021 &bull; 87% - Light Yellowish) -->
           <div class="house house-yellow active-house" id="house1" onclick="showDetails('house1')">
             <div class="house-front">
-              <img src="assets/images/academic-school.jpg" alt="APTWR School Narasaraopet" class="house-image" onerror="this.src='assets/images/ssc.svg'" />
+              <img src="assets/images/academic-school.jpg" alt="APTWR School Narasaraopet" class="house-image"
+                onerror="this.src='assets/images/ssc.svg'" />
               <div class="house-title">SSC (10th)</div>
               <div class="house-period">2012 &ndash; 2021</div>
               <div class="house-percentage">87%</div>
@@ -484,7 +497,8 @@
           <!-- House 2: Intermediate (2021 to 2024 &bull; 94% - Pink) -->
           <div class="house house-pink" id="house2" onclick="showDetails('house2')">
             <div class="house-front">
-              <img src="assets/images/academic-inter.jpg" alt="AP Tribal Welfare Residential College" class="house-image" onerror="this.src='assets/images/intermediate.svg'" />
+              <img src="assets/images/academic-inter.jpg" alt="AP Tribal Welfare Residential College"
+                class="house-image" onerror="this.src='assets/images/intermediate.svg'" />
               <div class="house-title">Inter (MPC)</div>
               <div class="house-period">2021 &ndash; 2024</div>
               <div class="house-percentage">94%</div>
@@ -503,7 +517,8 @@
           <!-- House 3: B.Tech College (2024 to 2028 &bull; Current - Blue) -->
           <div class="house house-blue" id="house3" onclick="showDetails('house3')">
             <div class="house-front">
-              <img src="assets/images/academic-college.jpg" alt="Gokula Krishna College of Engineering" class="house-image" onerror="this.src='assets/images/btech.svg'" />
+              <img src="assets/images/academic-college.jpg" alt="Gokula Krishna College of Engineering"
+                class="house-image" onerror="this.src='assets/images/btech.svg'" />
               <div class="house-title">B.Tech (CSE)</div>
               <div class="house-period">2024 &ndash; 2028</div>
               <div class="house-percentage">Current</div>
@@ -628,7 +643,8 @@
                 <span class="project-tag">System &bull; White Accent</span>
                 <article class="ProjectHeading">Responsive UI &amp; Component Suite</article>
                 <p class="ProjectDescription">
-                  A high-performance responsive UI micro-interaction library engineered with vanilla JavaScript, modern CSS variables,
+                  A high-performance responsive UI micro-interaction library engineered with vanilla JavaScript, modern
+                  CSS variables,
                   and mobile touch gestures for seamless mobile and desktop cross-compatibility.
                 </p>
                 <div class="project-buttons">
@@ -668,7 +684,8 @@
 
       <!-- Character Avatar Image in Center (Stationary Character, Only Eyes Track Clicks/Cursor) -->
       <div class="footer-avatar-container" data-aos="fade-up" title="Click anywhere to see my eyes look!">
-        <img src="assets/images/footer-avatar.png" alt="Kishore Naik Avatar" class="footer-avatar-img" id="footer-wala-avatar" />
+        <img src="assets/images/footer-avatar.png" alt="Kishore Naik Avatar" class="footer-avatar-img"
+          id="footer-wala-avatar" />
         <div class="footer-avatar-face">
           <div class="footer-avatar-eye footer-left-eye">
             <div class="footer-pupil"></div>
@@ -693,8 +710,7 @@
           title="GitHub: your-kishorenaikb">
           <i class="fa-brands fa-github"></i>
         </a>
-        <a href="https://wa.me/917013741421" target="_blank" rel="noopener noreferrer"
-          title="WhatsApp: +91 7013741421">
+        <a href="https://wa.me/917013741421" target="_blank" rel="noopener noreferrer" title="WhatsApp: +91 7013741421">
           <i class="fa-brands fa-whatsapp"></i>
         </a>
         <a href="mailto:kishorenaik2k06@gmail.com" title="Email: kishorenaik2k06@gmail.com">
@@ -742,7 +758,8 @@
           </p>
           <p>
             Code teaches me logic, syntax, and structure—but story writing and solo travel teach me humanity and life.
-            Together, they shape who I am: an engineer with an analytical mind, and a wanderer with a storyteller's soul.
+            Together, they shape who I am: an engineer with an analytical mind, and a wanderer with a storyteller's
+            soul.
           </p>
         </div>
 

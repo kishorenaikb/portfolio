@@ -152,26 +152,26 @@ class BinarySearchVisualizer {
         <!-- Array Elements Container -->
         <div class="bs-array-row" style="display: flex; gap: 6px; justify-content: space-between; margin-bottom: 1.5rem; overflow-x: auto; padding: 0.5rem 0;">
           ${this.array.map((val, idx) => {
-            let bg = 'rgba(255, 255, 255, 0.05)';
-            let border = 'rgba(255, 255, 255, 0.12)';
-            let textColor = '#ffffff';
+      let bg = 'rgba(255, 255, 255, 0.05)';
+      let border = 'rgba(255, 255, 255, 0.12)';
+      let textColor = '#ffffff';
 
-            if (idx === this.mid) {
-              bg = this.found ? 'rgba(34, 197, 94, 0.3)' : 'rgba(0, 210, 255, 0.3)';
-              border = this.found ? '#22c55e' : '#00d2ff';
-              textColor = this.found ? '#86efac' : '#38bdf8';
-            } else if (idx < this.left || idx > this.right) {
-              bg = 'rgba(255, 255, 255, 0.01)';
-              border = 'rgba(255, 255, 255, 0.04)';
-              textColor = '#475569';
-            }
+      if (idx === this.mid) {
+        bg = this.found ? 'rgba(34, 197, 94, 0.3)' : 'rgba(0, 210, 255, 0.3)';
+        border = this.found ? '#22c55e' : '#00d2ff';
+        textColor = this.found ? '#86efac' : '#38bdf8';
+      } else if (idx < this.left || idx > this.right) {
+        bg = 'rgba(255, 255, 255, 0.01)';
+        border = 'rgba(255, 255, 255, 0.04)';
+        textColor = '#475569';
+      }
 
-            let pointerLabel = '';
-            if (idx === this.left && idx === this.right) pointerLabel = 'L,R';
-            else if (idx === this.left) pointerLabel = 'L';
-            else if (idx === this.right) pointerLabel = 'R';
+      let pointerLabel = '';
+      if (idx === this.left && idx === this.right) pointerLabel = 'L,R';
+      else if (idx === this.left) pointerLabel = 'L';
+      else if (idx === this.right) pointerLabel = 'R';
 
-            return `
+      return `
               <div style="display: flex; flex-direction: column; align-items: center; gap: 4px; min-width: 38px;">
                 <div style="font-family: var(--font-mono); font-size: 0.68rem; color: #00d2ff; height: 16px;">
                   ${idx === this.mid ? 'MID' : pointerLabel}
@@ -187,7 +187,7 @@ class BinarySearchVisualizer {
                 <div style="font-family: var(--font-mono); font-size: 0.65rem; color: #64748b;">[${idx}]</div>
               </div>
             `;
-          }).join('')}
+    }).join('')}
         </div>
 
         <!-- Status Log -->
@@ -289,7 +289,7 @@ class MusicVisualizerController {
     }
 
     if (this.toggleBtn) {
-      this.toggleBtn.innerHTML = this.isPlaying 
+      this.toggleBtn.innerHTML = this.isPlaying
         ? `<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg> Pause`
         : `<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg> Play`;
     }

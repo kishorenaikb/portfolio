@@ -6,6 +6,9 @@
  * ===================================================================
  */
 
+// Global Settings State
+let trackingActive = true;
+
 // Initialize AOS (Animation On Scroll) & Core Functions
 document.addEventListener("DOMContentLoaded", () => {
   if (typeof AOS !== "undefined") {
@@ -179,40 +182,17 @@ function showDetails(houseId) {
     clickedHouse.classList.toggle("show-overlay");
   }
 
-  // Dynamic accents matching card
+  // Dynamic accents matching clean light white active style (no neon glow halos)
   const circle = document.getElementById("moving-circle");
   const roadProgress = document.getElementById("road-progress");
 
-  if (houseId === "house1") {
-    // School: Light Yellowish
-    if (circle) {
-      circle.style.background = "var(--accent-yellow)";
-      circle.style.boxShadow = "0 0 18px #fbbf24, 0 0 30px rgba(251, 191, 36, 0.6)";
-    }
-    if (roadProgress) {
-      roadProgress.style.background = "linear-gradient(90deg, rgba(251, 191, 36, 0.2), rgba(251, 191, 36, 0.5))";
-      roadProgress.style.boxShadow = "0 0 15px rgba(251, 191, 36, 0.4)";
-    }
-  } else if (houseId === "house2") {
-    // Intermediate: Pink
-    if (circle) {
-      circle.style.background = "var(--accent-pink)";
-      circle.style.boxShadow = "0 0 18px #ec4899, 0 0 30px rgba(236, 72, 153, 0.6)";
-    }
-    if (roadProgress) {
-      roadProgress.style.background = "linear-gradient(90deg, rgba(236, 72, 153, 0.2), rgba(236, 72, 153, 0.5))";
-      roadProgress.style.boxShadow = "0 0 15px rgba(236, 72, 153, 0.4)";
-    }
-  } else if (houseId === "house3") {
-    // B.Tech College: Blue
-    if (circle) {
-      circle.style.background = "var(--accent-blue)";
-      circle.style.boxShadow = "0 0 18px #00d2ff, 0 0 30px rgba(0, 210, 255, 0.6)";
-    }
-    if (roadProgress) {
-      roadProgress.style.background = "linear-gradient(90deg, rgba(0, 210, 255, 0.2), rgba(0, 210, 255, 0.5))";
-      roadProgress.style.boxShadow = "0 0 15px rgba(0, 210, 255, 0.4)";
-    }
+  if (circle) {
+    circle.style.background = "#ffffff";
+    circle.style.boxShadow = "0 0 14px rgba(255, 255, 255, 0.5)";
+  }
+  if (roadProgress) {
+    roadProgress.style.background = "linear-gradient(90deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.3))";
+    roadProgress.style.boxShadow = "none";
   }
 
   moveCircleToHouse(houseId);
@@ -288,53 +268,90 @@ function initAcademicTrackInitial() {
    =================================================================== */
 function initAvatarGazeAndClickTracking() {
   const avatar = document.getElementById("footer-wala-avatar") || document.getElementById("footer-avatar-img");
+  const avatarContainer = document.querySelector(".footer-avatar-container");
   let pupils = Array.from(document.getElementsByClassName("footer-pupil"));
 
-  // Ensure head never moves or rotates
+  // Ensure head never moves or rotates (Stationary & constant)
   if (avatar) {
     avatar.style.transform = "none";
   }
 
-  const pupilStartPoint = -10;
-  const pupilRangeX = 20;
-  const pupilRangeY = 15;
-
   function directPupilGaze(targetX, targetY, isClick = false) {
     if (!trackingActive) return;
+
     if (pupils.length === 0) {
       pupils = Array.from(document.getElementsByClassName("footer-pupil"));
     }
     if (pupils.length === 0) return;
 
-    const mouseXRange = window.innerWidth || 1;
-    const mouseYRange = window.innerHeight || 1;
-    const fracXValue = Math.max(0, Math.min(1, targetX / mouseXRange));
-    const fracYValue = Math.max(0, Math.min(1, targetY / mouseYRange));
+    // Responsive travel distances based on eye sizes
+    const isMobile = window.innerWidth <= 500;
+    const isTablet = window.innerWidth > 500 && window.innerWidth <= 768;
+    const maxTravelX = isMobile ? 5.5 : (isTablet ? 7.5 : 11);
+    const maxTravelY = isMobile ? 4.0 : (isTablet ? 5.5 : 8.0);
 
-    const t = pupilStartPoint + fracXValue * pupilRangeX;
-    const o = pupilStartPoint + fracYValue * pupilRangeY;
+    let t = 0;
+    let o = 0;
+
+    const targetElem = avatarContainer || avatar;
+    if (targetElem) {
+      const rect = targetElem.getBoundingClientRect();
+      const avatarCenterX = rect.left + rect.width / 2;
+      const avatarCenterY = rect.top + rect.height / 2;
+      const dx = targetX - avatarCenterX;
+      const dy = targetY - avatarCenterY;
+
+      const dist = Math.hypot(dx, dy);
+      if (dist > 0) {
+        const angle = Math.atan2(dy, dx);
+        // Intensity scaling so even close-up clicks visibly shift the gaze
+        const intensity = Math.min(1, Math.max(0.4, dist / (isMobile ? 50 : 80)));
+        t = Math.cos(angle) * maxTravelX * intensity;
+        o = Math.sin(angle) * maxTravelY * intensity;
+      }
+    } else {
+      const fracX = Math.max(0, Math.min(1, targetX / (window.innerWidth || 1)));
+      const fracY = Math.max(0, Math.min(1, targetY / (window.innerHeight || 1)));
+      t = (fracX - 0.5) * 2 * maxTravelX;
+      o = (fracY - 0.5) * 2 * maxTravelY;
+    }
 
     pupils.forEach((p) => {
-      p.style.transition = isClick ? "transform 0.16s cubic-bezier(0.25, 1, 0.5, 1)" : "transform 0.04s linear";
+      p.style.transition = isClick
+        ? "transform 0.16s cubic-bezier(0.2, 0.9, 0.3, 1.2)"
+        : "transform 0.05s ease-out";
       p.style.transform = `translate(${t.toFixed(1)}px, ${o.toFixed(1)}px)`;
     });
   }
 
-  // Click tracking: Clicking anywhere turns ONLY the eyes to that side
+  // Click tracking: Clicking anywhere on desktop or mobile turns eyes to click side
   document.addEventListener("click", (e) => {
     directPupilGaze(e.clientX, e.clientY, true);
   });
 
-  // Mobile tap tracking
+  // Mobile tap tracking: Touching/tapping anywhere turns eyes to the tapped side
   document.addEventListener("touchstart", (e) => {
     if (e.touches && e.touches[0]) {
       directPupilGaze(e.touches[0].clientX, e.touches[0].clientY, true);
     }
   }, { passive: true });
 
-  // Smooth mouse movement cursor tracking
+  // Direct click / tap listener on the avatar container itself
+  if (avatarContainer) {
+    avatarContainer.addEventListener("click", (e) => {
+      directPupilGaze(e.clientX, e.clientY, true);
+    });
+    avatarContainer.addEventListener("touchstart", (e) => {
+      if (e.touches && e.touches[0]) {
+        directPupilGaze(e.touches[0].clientX, e.touches[0].clientY, true);
+      }
+    }, { passive: true });
+  }
+
+  // Smooth mouse movement cursor tracking across desktop
   let throttle = false;
   window.addEventListener("mousemove", (e) => {
+    if (window.innerWidth <= 768) return;
     if (throttle) return;
     throttle = true;
     requestAnimationFrame(() => {
@@ -354,6 +371,7 @@ function hamburgerMenu() {
   if (menu) menu.classList.toggle("show-toggle-menu");
   if (toggleBtn) toggleBtn.classList.toggle("active");
 }
+window.togglenavmenu = hamburgerMenu;
 
 function hidemenubyli() {
   document.body.classList.remove("stopscrolling");
@@ -425,25 +443,64 @@ function showSkills(category, btnElement) {
 }
 
 /* ===================================================================
-   8. SETTING SYMBOL ACTION (Expands to Small Bar Like Resume Button Only)
+   8. EXACT REFERENCE SETTING TOGGLE & WHITE THEME VISUAL MODE
    =================================================================== */
-function toggleSettingBar(btn, e) {
-  if (e) {
-    e.stopPropagation();
-    e.preventDefault();
-  }
-  const button = btn || document.getElementById("setting-btn");
-  if (button) {
-    // Does not open any modal or window; toggles small bar like the resume button
-    button.classList.toggle("active-bar");
+function settingtoggle() {
+  const container = document.getElementById("setting-container");
+  const visualBtn = document.getElementById("visualmodetogglebuttoncontainer");
+  const switchSetting = document.getElementById("switchforsetting");
+
+  if (container) container.classList.toggle("settingactivate");
+  if (visualBtn) visualBtn.classList.toggle("visualmodeshow");
+}
+window.settingtoggle = settingtoggle;
+
+function visualmode() {
+  document.body.classList.toggle("light-mode");
+  const inverts = document.querySelectorAll(".needtobeinvert");
+  inverts.forEach((e) => {
+    e.classList.toggle("invertapplied");
+  });
+
+  const isLight = document.body.classList.contains("light-mode");
+  const switchVisual = document.getElementById("switchforvisualmode");
+  if (switchVisual) switchVisual.checked = isLight;
+
+  if (typeof localStorage !== "undefined") {
+    localStorage.setItem("kishore-theme", isLight ? "light" : "dark");
   }
 }
+window.visualmode = visualmode;
 
-// Click outside collapses the small setting bar
+// Restore saved theme on page load
+(function restoreTheme() {
+  if (typeof localStorage !== "undefined") {
+    const saved = localStorage.getItem("kishore-theme");
+    if (saved === "light") {
+      document.body.classList.add("light-mode");
+      const switchVisual = document.getElementById("switchforvisualmode");
+      if (switchVisual) switchVisual.checked = true;
+      const inverts = document.querySelectorAll(".needtobeinvert");
+      inverts.forEach((e) => {
+        e.classList.add("invertapplied");
+      });
+    }
+  }
+})();
+
+// Click outside collapses setting container
 document.addEventListener("click", (e) => {
-  const settingBtn = document.getElementById("setting-btn");
-  if (settingBtn && !settingBtn.contains(e.target)) {
-    settingBtn.classList.remove("active-bar");
+  const container = document.getElementById("setting-container");
+  if (container && !container.contains(e.target)) {
+    const visualBtn = document.getElementById("visualmodetogglebuttoncontainer");
+    const switchSetting = document.getElementById("switchforsetting");
+    if (container.classList.contains("settingactivate")) {
+      container.classList.remove("settingactivate");
+    }
+    if (visualBtn && visualBtn.classList.contains("visualmodeshow")) {
+      visualBtn.classList.remove("visualmodeshow");
+    }
+    if (switchSetting) switchSetting.checked = false;
   }
 });
 
@@ -454,7 +511,6 @@ function toggleAmbientGlow(input) {
   }
 }
 
-let trackingActive = true;
 function toggleAvatarTracking(input) {
   trackingActive = input.checked;
   const pupils = document.querySelectorAll(".footer-pupil");

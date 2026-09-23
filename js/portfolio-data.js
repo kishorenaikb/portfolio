@@ -18,7 +18,7 @@ const PORTFOLIO_DATA = {
     heroStatement: "Turning ideas into useful digital experiences.",
     shortBio: "I am Kishore Naik, a 3rd Year B.Tech Computer Science and Engineering student passionate about technology, software development, problem solving, and building useful digital experiences.",
     aboutDetailed: "I am Kishore Naik, currently pursuing my 3rd Year B.Tech in Computer Science and Engineering at Gokula Krishna College of Engineering. I enjoy learning new technologies, developing applications, solving problems, and exploring innovative ideas with a keen focus on practical impact and continuous growth.",
-    
+
     // College & Academic Status
     college: "Gokula Krishna College of Engineering",
     degree: "B.Tech, Computer Science and Engineering",
@@ -40,7 +40,7 @@ const PORTFOLIO_DATA = {
     email: "kishorenaik2k06@gmail.com",
     phone: "+91 7013741421",
     whatsappNumber: "917013741421",
-    
+
     // Social Links (Editable Placeholders)
     socialLinks: {
       github: "https://github.com/your-kishorenaikb",
