@@ -1,46 +1,50 @@
-# Kishore Naik - Premium Liquid Glass Portfolio & Digital Identity
+# Kishore Naik - Modern Developer Portfolio & Digital Identity
 
-A modern, high-performance personal developer portfolio and digital identity for **Kishore Naik**, 3rd Year B.Tech Computer Science and Engineering student at Gokula Krishna College of Engineering.
+A clean, high-performance personal developer portfolio and digital identity for **Kishore Naik**, 3rd Year B.Tech Computer Science and Engineering student at Gokula Krishna College of Engineering.
 
-Built with an **Apple-inspired Liquid Glass UI**, dark-mode obsidian aesthetics, frosted glass panels, fluid gradients, responsive navigation, and zero-bloat vanilla web standards.
+Designed and developed to match the exact aesthetic, theme, and features inspired by [Kishore's Reference Portfolio](https://kishore-portfolio-site.netlify.app/).
 
 ---
 
-## 🌟 Highlights & Features
+## 🌟 Key Highlights & Features
 
-1. **Liquid Glass Design System**:
-   - Translucent frosted glass layers (`backdrop-filter: blur(20px)`), subtle reflections, and fluid gradients.
-   - Ambient dynamic canvas background with flowing liquid orbs and stardust particles.
-   - Dark mode primary theme optimized for high contrast, elegance, and battery efficiency.
+1. **Light & Glowing Neon Theme**:
+   - Clean white background aesthetic (`#f8f9fc` & `#ffffff`) paired with glowing neon purple (`#8000ff`) and electric cyan (`#00d2ff`) interactive accents.
+   - Distinct, vibrant glow effects on button clicks, tab selections, and card hovers.
+   - Ambient light gradient mesh blob creating soft visual depth.
 
-2. **Dual Navigation & Mobile Experience**:
-   - Sticky Glass Header with intelligent dropdown mega-menus (About, Education, Work, More).
-   - Floating Glass Bottom Dock for one-touch navigation (Home, About, Projects, Journey, Contact).
-   - Full mobile glass drawer menu and top scroll-progress indicator bar.
+2. **Signature Reference Logo & Header**:
+   - Exact logo design featuring round avatar peek with gradient border, animated floating **"Hey!"** badge, and typography: `<big>K</big><small>ishore Naik</small>`.
+   - Code-style navigation tabs (`</Home>`, `</About Me>`, `</Skills>`, `</Academic Track>`, `</Projects>`).
+   - Sticky blur header with active scroll spy indicators.
 
-3. **Dedicated 3-Tier Educational Timeline & Photo System**:
-   - **B.Tech Section**: Gokula Krishna College of Engineering (3rd Year CSE) + `[B.Tech Photo Slot]`.
-   - **Intermediate Section**: Andhra Pradesh Tribal Welfare Residential College of Excellence (Boys), Yerragondapalem, Prakasam District + `[Intermediate Photo Slot]`.
-   - **SSC Section**: Andhra Pradesh Tribal Welfare Residential School (Boys), Narasaraopet + `[School / SSC Photo Slot]`.
-   - Dedicated identity preservation system: photos never swap or distort facial identity.
+3. **Interactive Barcode Laser Scanner & Identity Printer**:
+   - Hero barcode widget with animated horizontal laser scan beam on click.
+   - Terminal printout: Prints **"KISHORE NAIK"** character-by-character with typewriter animation.
 
-4. **Global Command Palette (`Ctrl + K` or `⌘ + K`)**:
-   - Instant search modal across all sections, projects, skills, education, and credentials with direct keyboard jump.
+4. **Dynamic Hero Role Typewriter**:
+   - Bouncy jello letters greeting (`Hello(); I'm`).
+   - Dynamic typing role rotation: `B.Tech CSE Student`, `Front-End Developer`, `Problem Solver`, `Tech Explorer`.
 
-5. **Interactive Problem Solver Visualizer**:
-   - Live interactive binary search algorithm tracer with step-by-step execution, pointer tracking (`L`, `MID`, `R`), and complexity log.
+5. **3D Flipping Profile Card**:
+   - **Front**: Large profile photo frame, degree details, and key specialization bullets.
+   - **Back**: "What I Do" service tags, inspirational quote, and `<GetinTouch(); />` social links.
 
-6. **Interactive Widgets & Interests**:
-   - Digital Bookshelf with click-to-view key takeaways (*Clean Code*, *Algorithms Unlocked*, *Wings of Fire*, *Atomic Habits*).
-   - Ambient Soundwave Music Visualizer with active Play/Pause state controls.
-   - Respectful Family cards and Roots map radar visual (*Bommarajupalli Thanda, Palnadu District*).
+6. **Interactive Dual-Eye Tracking Pupils (Footer)**:
+   - Playful avatar in the footer whose pupils follow your cursor in real time across the entire viewport.
 
-7. **In-Browser Real-Time Photo Manager**:
-   - Click **Photos** in the navbar or **Update Photo** on any photo card to select real photos from your computer.
-   - Instant live preview in browser without needing to touch code!
+7. **Streamlined Academic Track**:
+   - Focuses exclusively on current degree: **B.Tech (3rd Year) in Computer Science and Engineering** at **Gokula Krishna College of Engineering, Sullurpeta**.
+   - Removed previous schooling (SSC and Intermediate) for a clean, professional trajectory.
 
-8. **Centralized Single Source of Truth (`js/portfolio-data.js`)**:
-   - Update any project, skill, social link (`GITHUB_URL`, `LINKEDIN_URL`, `INSTAGRAM_URL`, `FACEBOOK_URL`), or bio in one clean configuration file.
+8. **Direct High-Resolution Photo Slot (10MB+ Support)**:
+   - In-browser upload dialogs and modals have been removed.
+   - Simply drop your photo as `profile.jpg` (even 10MB+) into `assets/images/profile.jpg`. It will automatically display in crisp, uncompressed quality.
+
+9. **Fully Mobile-Optimized**:
+   - Smooth animated hamburger menu icon.
+   - Slide-down mobile drawer navigation.
+   - Touch-friendly card flip and responsive grid layouts.
 
 ---
 
@@ -48,101 +52,50 @@ Built with an **Apple-inspired Liquid Glass UI**, dark-mode obsidian aesthetics,
 
 ```
 kishore-naik-portfolio/
-├── index.html                 # Semantic HTML5 structure & all portfolio sections
+├── index.html                 # Main portfolio markup & semantic structure
 ├── css/
-│   ├── styles.css             # Liquid Glass design system, color variables, typography, reset
-│   └── components.css         # Navigation, modals, cards, floating bottom dock, responsive layouts
+│   └── style.css              # Light theme, neon glow system, 3D card, barcode & responsive styles
 ├── js/
-│   ├── portfolio-data.js      # Centralized data store (Single Source of Truth)
-│   ├── animations.js          # Ambient liquid canvas background, algorithm & music widgets
-│   ├── photo-manager.js       # Live photo replacer & identity preservation manager
-│   └── main.js                # Core controller, search palette, filters, modals, form validation
+│   └── main.js                # Barcode laser & printer, typewriter, eye tracking, card flip, mobile menu
 ├── assets/
-│   ├── images/                # Personal photo slots & SVG mockups
-│   │   ├── profile.svg        # Hero profile placeholder
-│   │   ├── btech.svg          # B.Tech college placeholder
-│   │   ├── intermediate.svg   # Intermediate college placeholder
-│   │   ├── ssc.svg            # SSC school placeholder
-│   │   ├── project-featured.svg # Featured project mockup
-│   │   └── cert-placeholder.svg # Certificate mockup
-│   └── documents/             # Resume PDF slot (Kishore_Naik_Resume.pdf)
-└── README.md                  # Documentation & deployment guide
+│   └── images/
+│       ├── profile.jpg        # Drop your personal photo here (supports 10MB+)
+│       └── profile.svg        # Default fallback vector avatar
+└── README.md                  # Project documentation
 ```
 
 ---
 
 ## 🚀 How to Run Locally
 
-Because this project is built using vanilla standards (HTML5, CSS3, ES6 JavaScript), you do not need Node.js, npm, or complex builds.
-
 ### Option 1: Direct File Launch
 Double-click `index.html` to open it immediately in Google Chrome, Microsoft Edge, Brave, or Firefox.
 
-### Option 2: Live Local Server
-If using VS Code or terminal:
+### Option 2: Local HTTP Server
+Using Python:
 ```bash
-# Using Python (built-in):
-python -m http.server 8080
-
-# Or using npx:
-npx serve
+python -m http.server 3000
 ```
-Then visit `http://localhost:8080` in your browser.
+Then open `http://localhost:3000` in your web browser.
 
 ---
 
-## 📸 How to Add Your Real Photographs
+## 📸 How to Add Your High-Resolution Photo
 
-You have two easy ways to insert your real photos:
-
-### Method A: Using the In-Browser Photo Manager (Zero Code)
-1. Open the website in your browser.
-2. Click the **Photos** button in the top navigation bar.
-3. Click **Browse File** for each of the 4 slots:
-   - **Hero Profile Photo**
-   - **B.Tech College Photo**
-   - **Intermediate College Photo**
-   - **School / SSC Photo**
-4. Your photos will appear on the website immediately!
-
-### Method B: Permanent File Replacement (For GitHub Pages / Vercel)
-Copy your photos into the `assets/images/` folder and name them:
-- `assets/images/profile.jpg` (or `.png`)
-- `assets/images/btech.jpg`
-- `assets/images/intermediate.jpg`
-- `assets/images/ssc.jpg`
-
-If you use `.png` or custom names, simply update the file paths in `js/portfolio-data.js` under `PORTFOLIO_DATA.photos`.
-
----
-
-## 🌐 Deploying to the Web (Free in 2 Minutes)
-
-### 1. GitHub Pages (Recommended)
-1. Create a new repository on GitHub named `portfolio` or `<username>.github.io`.
-2. Push the files in this folder to your repository:
-   ```bash
-   git init
-   git add .
-   git commit -m "Initial commit: Kishore Naik Liquid Glass Portfolio"
-   git branch -M main
-   git remote add origin https://github.com/<your-username>/portfolio.git
-   git push -u origin main
+1. Take your photo (supports 10MB+ high resolution).
+2. Rename it to `profile.jpg`.
+3. Place it in the folder:
    ```
-3. Go to **Settings** → **Pages** → select `main` branch → Click **Save**.
-4. Your website will be live at `https://<your-username>.github.io/portfolio/`!
-
-### 2. Vercel or Netlify
-1. Drag and drop the `kishore-naik-portfolio` folder directly into [Netlify Drop](https://app.netlify.com/drop) or import from GitHub on [Vercel](https://vercel.com).
-2. It will deploy automatically within seconds.
+   kishore-naik-portfolio/assets/images/profile.jpg
+   ```
+4. Refresh your browser — your photo will instantly display inside the 3D card and navbar!
 
 ---
 
-## 👤 Personal Profile & Contact Info
+## 🌐 Connected Social Profiles
 
-- **Full Name**: Kishore Naik
-- **College**: Gokula Krishna College of Engineering (3rd Year B.Tech CSE)
-- **Native Place**: Bommarajupalli Thanda, Ipur Mandal, Palnadu District, Andhra Pradesh
+- **GitHub**: [your-kishorenaikb](https://github.com/your-kishorenaikb)
+- **Instagram**: [@__1ts__k1shore__na1k___](https://instagram.com/__1ts__k1shore__na1k___)
+- **Facebook**: [1tsk1shorena1k](https://facebook.com/1tsk1shorena1k)
+- **WhatsApp**: [+91 7013741421](https://wa.me/917013741421)
 - **Email**: [kishorenaik2k06@gmail.com](mailto:kishorenaik2k06@gmail.com)
-- **Phone / WhatsApp**: [+91 7013741421](https://wa.me/917013741421)
-- **Copyright**: © 2026 Kishore Naik. All rights reserved.

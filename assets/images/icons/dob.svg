@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22">
+  <defs>
+    <linearGradient id="dobIconGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff758c"/>
+      <stop offset="100%" stop-color="#ff7eb3"/>
+    </linearGradient>
+  </defs>
+  <!-- Birthday Cake Icon for Date of Birth -->
+  <path fill="url(#dobIconGrad)" d="M12 2a1.5 1.5 0 0 1 1.5 1.5c0 .38-.15.74-.4 1L12 5.5l-1.1-1C10.65 4.24 10.5 3.88 10.5 3.5A1.5 1.5 0 0 1 12 2zm-1 5h2v3h-2V7zm-7 5h16a1 1 0 0 1 1 1v2H3v-2a1 1 0 0 1 1-1zm0 4h16v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4z"/>
+</svg>

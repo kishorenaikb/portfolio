@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="22" height="22">
+  <defs>
+    <linearGradient id="teluguGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff9933"/>
+      <stop offset="100%" stop-color="#ff5722"/>
+    </linearGradient>
+  </defs>
+  <circle cx="24" cy="24" r="20" fill="#201a24" stroke="url(#teluguGrad)" stroke-width="2.5"/>
+  <text x="24" y="29" font-family="'Roboto', 'Noto Sans Telugu', sans-serif" font-size="15" font-weight="900" fill="#ffb74d" text-anchor="middle">తె</text>
+</svg>

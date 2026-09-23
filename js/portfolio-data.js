@@ -71,12 +71,12 @@ const PORTFOLIO_DATA = {
     ]
   },
 
-  // Photo System (Preserves real identity - replaceable paths or browser local storage)
+  // Photo System (Preserves real identity - customizable paths)
   photos: {
-    heroProfile: "assets/images/profile.jpg",
-    btechPhoto: "assets/images/btech.jpg",
-    intermediatePhoto: "assets/images/intermediate.jpg",
-    sscPhoto: "assets/images/ssc.jpg"
+    heroProfile: "assets/images/profile.svg",
+    btechPhoto: "assets/images/btech.svg",
+    intermediatePhoto: "assets/images/intermediate.svg",
+    sscPhoto: "assets/images/ssc.svg"
   },
 
   // Education Timeline (SSC -> Intermediate -> B.Tech)
@@ -225,7 +225,7 @@ public int searchElement(int[] nums, int target) {
       "Custom Frosted Liquid Glass UI design system with specular highlights",
       "Interactive 3-tier education timeline with dedicated photo slots",
       "Global Command Palette (Ctrl+K) with instant search indexing",
-      "Real-time local photo manager allowing zero-friction image uploads",
+      "Interactive problem solver with step-by-step binary search visualization",
       "Responsive bottom floating dock and sticky glass mega-menu navbar"
     ],
     technologies: ["HTML5", "CSS3 / Glassmorphism", "JavaScript (ES6+)", "Canvas 2D", "Responsive Web Design"],
@@ -510,7 +510,7 @@ public int searchElement(int[] nums, int target) {
       title: "B.Tech Academic Environment",
       category: "B.Tech",
       caption: "Computer Science and Engineering learning journey at Gokula Krishna College of Engineering.",
-      image: "assets/images/btech.jpg",
+      image: "assets/images/btech.svg",
       isPhotoSlot: "btechPhoto"
     },
     {
@@ -518,7 +518,7 @@ public int searchElement(int[] nums, int target) {
       title: "Intermediate College of Excellence",
       category: "Intermediate",
       caption: "Cherished learning memories at APTWR College of Excellence (Boys), Yerragondapalem.",
-      image: "assets/images/intermediate.jpg",
+      image: "assets/images/intermediate.svg",
       isPhotoSlot: "intermediatePhoto"
     },
     {
@@ -526,7 +526,7 @@ public int searchElement(int[] nums, int target) {
       title: "School Days in Narasaraopet",
       category: "School",
       caption: "Foundational memories from APTWR School (Boys), Narasaraopet.",
-      image: "assets/images/ssc.jpg",
+      image: "assets/images/ssc.svg",
       isPhotoSlot: "sscPhoto"
     },
     {
@@ -534,7 +534,7 @@ public int searchElement(int[] nums, int target) {
       title: "Developer Workspace & Coding Hours",
       category: "Projects",
       caption: "Late evening sessions crafting algorithms, debugging code, and designing interfaces.",
-      image: "assets/images/profile.jpg",
+      image: "assets/images/profile.svg",
       isPhotoSlot: "heroProfile"
     },
     {
@@ -542,7 +542,7 @@ public int searchElement(int[] nums, int target) {
       title: "Campus Engineering Life",
       category: "College Life",
       caption: "Collaborating with fellow classmates, discussions in labs, and academic milestones.",
-      image: "assets/images/btech.jpg",
+      image: "assets/images/btech.svg",
       isPhotoSlot: "btechPhoto"
     },
     {
@@ -550,7 +550,7 @@ public int searchElement(int[] nums, int target) {
       title: "Milestones & Future Aspiration",
       category: "Achievements",
       caption: "Each step of education representing perseverance, pride, and purposeful ambition.",
-      image: "assets/images/profile.jpg",
+      image: "assets/images/profile.svg",
       isPhotoSlot: "heroProfile"
     }
   ],
