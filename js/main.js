@@ -77,87 +77,43 @@ function initTypingAnimation() {
    =================================================================== */
 /* ===================================================================
    2. BARCODE CLICK INTERACTION (Smooth Slow-Motion Print & Return to Barcode)
+/* ===================================================================
+   2. BARCODE CLICK & HOVER INTERACTION (EXACT REFERENCE SITE TYPE)
    =================================================================== */
-let barcodePrintTimer = null;
-let barcodeResetTimer = null;
-let isBarcodePrinting = false;
-let isBarcodeShowingName = false;
-
 function toggleBarcode(element) {
   const box = element || document.getElementById("barcode-box");
-  const textEl = document.getElementById("barcode-print-text") || (box ? box.querySelector(".textt") : null);
-  const barcodeImg = box ? box.querySelector(".iamge") : null;
-  if (!box || !textEl || !barcodeImg) return;
+  if (!box) return;
 
-  // If already showing name and user clicks again -> smoothly return back to barcode!
-  if (isBarcodeShowingName) {
-    resetBarcodeToOriginal(box, textEl, barcodeImg);
-    return;
+  const isShowing = box.classList.contains("show-name");
+  if (isShowing) {
+    box.classList.remove("show-name");
+    if (box._barcodeTimer) clearTimeout(box._barcodeTimer);
+  } else {
+    box.classList.add("show-name");
+    // Stay showing name, then smoothly revert back after 8 seconds
+    if (box._barcodeTimer) clearTimeout(box._barcodeTimer);
+    box._barcodeTimer = setTimeout(() => {
+      box.classList.remove("show-name");
+    }, 8000);
   }
-
-  // If currently printing, ignore rapid clicks
-  if (isBarcodePrinting) return;
-
-  // Clear timers
-  if (barcodePrintTimer) clearInterval(barcodePrintTimer);
-  if (barcodeResetTimer) clearTimeout(barcodeResetTimer);
-
-  isBarcodePrinting = true;
-  box.classList.add("clicked");
-  barcodeImg.style.display = "none";
-  textEl.style.display = "inline-block";
-  textEl.style.opacity = "1";
-  textEl.textContent = "";
-
-  const fullName = "Kishore Naik";
-  let charIdx = 0;
-
-  // Smooth medium slow motion character-by-character printing (~165ms per char)
-  barcodePrintTimer = setInterval(() => {
-    if (charIdx < fullName.length) {
-      textEl.textContent = fullName.substring(0, charIdx + 1);
-      charIdx++;
-    } else {
-      clearInterval(barcodePrintTimer);
-      barcodePrintTimer = null;
-      isBarcodePrinting = false;
-      isBarcodeShowingName = true;
-
-      // Stay visible smoothly so the user can see their full name, then automatically return back to barcode!
-      barcodeResetTimer = setTimeout(() => {
-        resetBarcodeToOriginal(box, textEl, barcodeImg);
-      }, 2600);
-    }
-  }, 165);
 }
+window.toggleBarcode = toggleBarcode;
 
-function resetBarcodeToOriginal(box, textEl, barcodeImg) {
-  if (barcodePrintTimer) {
-    clearInterval(barcodePrintTimer);
-    barcodePrintTimer = null;
+/* Smooth Scroll to Profile Social Connect Row on "Let's Connect!" Click */
+function scrollToConnect(e) {
+  if (e) e.preventDefault();
+  const target = document.getElementById("profile-connect");
+  if (target) {
+    target.scrollIntoView({ behavior: "smooth", block: "center" });
+    target.classList.remove("highlight-connect");
+    void target.offsetWidth;
+    target.classList.add("highlight-connect");
+    setTimeout(() => {
+      target.classList.remove("highlight-connect");
+    }, 2200);
   }
-  if (barcodeResetTimer) {
-    clearTimeout(barcodeResetTimer);
-    barcodeResetTimer = null;
-  }
-  isBarcodePrinting = false;
-  isBarcodeShowingName = false;
-
-  // Smooth fade out of name and fade in of original barcode
-  textEl.style.transition = "opacity 0.25s ease";
-  textEl.style.opacity = "0";
-
-  setTimeout(() => {
-    textEl.style.display = "none";
-    textEl.textContent = "";
-    box.classList.remove("clicked");
-    barcodeImg.style.display = "flex";
-    barcodeImg.style.opacity = "0";
-    void barcodeImg.offsetWidth;
-    barcodeImg.style.transition = "opacity 0.35s ease";
-    barcodeImg.style.opacity = "1";
-  }, 250);
 }
+window.scrollToConnect = scrollToConnect;
 
 /* ===================================================================
    3. ACADEMIC TRACK ON-IMAGE DETAILS & MOVING CIRCLE ANIMATION
@@ -287,8 +243,8 @@ function initAvatarGazeAndClickTracking() {
     // Responsive travel distances based on eye sizes
     const isMobile = window.innerWidth <= 500;
     const isTablet = window.innerWidth > 500 && window.innerWidth <= 768;
-    const maxTravelX = isMobile ? 5.5 : (isTablet ? 7.5 : 11);
-    const maxTravelY = isMobile ? 4.0 : (isTablet ? 5.5 : 8.0);
+    const maxTravelX = isMobile ? 8.0 : (isTablet ? 9.5 : 12.0);
+    const maxTravelY = isMobile ? 6.0 : (isTablet ? 7.0 : 9.0);
 
     let t = 0;
     let o = 0;
