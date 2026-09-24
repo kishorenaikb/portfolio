@@ -78,26 +78,17 @@ function initTypingAnimation() {
 /* ===================================================================
    2. BARCODE CLICK INTERACTION (Smooth Slow-Motion Print & Return to Barcode)
 /* ===================================================================
-   2. BARCODE CLICK & HOVER INTERACTION (EXACT REFERENCE SITE TYPE)
+   2. AUTHENTIC HANDWRITTEN SIGNATURE PRINTING INTERACTION
    =================================================================== */
-function toggleBarcode(element) {
-  const box = element || document.getElementById("barcode-box");
-  if (!box) return;
-
-  const isShowing = box.classList.contains("show-name");
-  if (isShowing) {
-    box.classList.remove("show-name");
-    if (box._barcodeTimer) clearTimeout(box._barcodeTimer);
-  } else {
-    box.classList.add("show-name");
-    // Stay showing name, then smoothly revert back after 8 seconds
-    if (box._barcodeTimer) clearTimeout(box._barcodeTimer);
-    box._barcodeTimer = setTimeout(() => {
-      box.classList.remove("show-name");
-    }, 8000);
-  }
+function replaySignatureAnimation() {
+  const textt = document.getElementById("barcode-print-text");
+  if (!textt) return;
+  textt.style.animation = "none";
+  void textt.offsetWidth; // Force DOM reflow to immediately replay animation
+  textt.style.animation = "anim 6.5s linear infinite";
 }
-window.toggleBarcode = toggleBarcode;
+window.replaySignatureAnimation = replaySignatureAnimation;
+window.toggleBarcode = replaySignatureAnimation;
 
 /* Smooth Scroll to Profile Social Connect Row on "Let's Connect!" Click */
 function scrollToConnect(e) {
@@ -120,13 +111,14 @@ window.scrollToConnect = scrollToConnect;
    =================================================================== */
 let currentActiveHouseId = "house1";
 
-function showDetails(houseId) {
+function handleHouseClick(houseId) {
   currentActiveHouseId = houseId;
 
   const houses = document.querySelectorAll(".house");
   houses.forEach((h) => {
     h.classList.remove("active-house");
     if (h.id !== houseId) {
+      h.classList.remove("flipped");
       h.classList.remove("show-overlay");
     }
   });
@@ -134,8 +126,8 @@ function showDetails(houseId) {
   const clickedHouse = document.getElementById(houseId);
   if (clickedHouse) {
     clickedHouse.classList.add("active-house");
-    // Toggle details overlay directly ON the image card
-    clickedHouse.classList.toggle("show-overlay");
+    // Toggle 3D card flip animation
+    clickedHouse.classList.toggle("flipped");
   }
 
   // Dynamic accents matching clean light white active style (no neon glow halos)
@@ -153,14 +145,19 @@ function showDetails(houseId) {
 
   moveCircleToHouse(houseId);
 }
+window.handleHouseClick = handleHouseClick;
+window.showDetails = handleHouseClick;
 
-function closeHouseOverlay(e, houseId) {
+function flipBackHouse(e, houseId) {
   if (e) e.stopPropagation();
   const house = document.getElementById(houseId);
   if (house) {
+    house.classList.remove("flipped");
     house.classList.remove("show-overlay");
   }
 }
+window.flipBackHouse = flipBackHouse;
+window.closeHouseOverlay = flipBackHouse;
 
 function moveCircleToHouse(houseId) {
   const circle = document.getElementById("moving-circle");
@@ -321,21 +318,35 @@ function initAvatarGazeAndClickTracking() {
    5. HAMBURGER MENU & DRAWER (3-Line Navbar Button Toggle)
    =================================================================== */
 function hamburgerMenu() {
-  document.body.classList.toggle("stopscrolling");
   const menu = document.getElementById("mobiletogglemenu");
   const toggleBtn = document.getElementById("nav-menu-toggle");
-  if (menu) menu.classList.toggle("show-toggle-menu");
-  if (toggleBtn) toggleBtn.classList.toggle("active");
+  const backdrop = document.getElementById("mobile-nav-backdrop");
+
+  const isOpen = menu && menu.classList.contains("show-toggle-menu");
+
+  if (isOpen) {
+    hidemenubyli();
+  } else {
+    document.body.classList.add("stopscrolling");
+    if (menu) menu.classList.add("show-toggle-menu");
+    if (toggleBtn) toggleBtn.classList.add("active");
+    if (backdrop) backdrop.classList.add("show-backdrop");
+  }
 }
+window.hamburgerMenu = hamburgerMenu;
 window.togglenavmenu = hamburgerMenu;
 
 function hidemenubyli() {
   document.body.classList.remove("stopscrolling");
   const menu = document.getElementById("mobiletogglemenu");
   const toggleBtn = document.getElementById("nav-menu-toggle");
+  const backdrop = document.getElementById("mobile-nav-backdrop");
+
   if (menu) menu.classList.remove("show-toggle-menu");
   if (toggleBtn) toggleBtn.classList.remove("active");
+  if (backdrop) backdrop.classList.remove("show-backdrop");
 }
+window.hidemenubyli = hidemenubyli;
 
 /* ===================================================================
    6. SCROLL SPY & EXACT VERTICAL BACK-TO-TOP BUTTON
@@ -508,6 +519,45 @@ function openResume() {
   window.open("mailto:kishorenaik2k06@gmail.com?subject=Resume%20Request%20-%20Kishore%20Naik", "_blank");
 }
 
+/* ===================================================================
+   ACADEMIC FULL IMAGE MODAL VIEWER ("VIEW SMALL BIG")
+   =================================================================== */
+function openAcademicImageViewer(event, imgSrc, title) {
+  if (event) event.stopPropagation();
+  const modal = document.getElementById("academic-image-modal");
+  const modalImg = document.getElementById("academic-modal-img");
+  const modalTitle = document.getElementById("academic-modal-title");
+
+  if (modal && modalImg) {
+    modalImg.src = imgSrc;
+    if (modalTitle && title) {
+      modalTitle.textContent = title;
+    }
+    modal.classList.add("active");
+    modal.style.display = "flex";
+    document.body.classList.add("stopscrolling");
+  }
+}
+window.openAcademicImageViewer = openAcademicImageViewer;
+
+function closeAcademicImageViewer(event) {
+  if (event) event.stopPropagation();
+  const modal = document.getElementById("academic-image-modal");
+  if (modal) {
+    modal.classList.remove("active");
+    modal.style.display = "none";
+    document.body.classList.remove("stopscrolling");
+  }
+}
+window.closeAcademicImageViewer = closeAcademicImageViewer;
+
+function closeAcademicImageViewerOnOverlay(event) {
+  if (event.target && event.target.id === "academic-image-modal") {
+    closeAcademicImageViewer(event);
+  }
+}
+window.closeAcademicImageViewerOnOverlay = closeAcademicImageViewerOnOverlay;
+
 // Global escape key to dismiss any open modal
 window.addEventListener("keydown", (e) => {
   if (e.key === "Escape") {
@@ -518,6 +568,10 @@ window.addEventListener("keydown", (e) => {
     const taleModal = document.getElementById("tale-modal");
     if (taleModal && taleModal.classList.contains("active")) {
       closeTaleModal();
+    }
+    const academicModal = document.getElementById("academic-image-modal");
+    if (academicModal && academicModal.classList.contains("active")) {
+      closeAcademicImageViewer();
     }
   }
 });

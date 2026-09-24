@@ -17,11 +17,11 @@
   <!-- AOS (Animation On Scroll) CDN -->
   <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
-  <!-- Google Fonts: Fira Code, Orbitron, Roboto, Plus Jakarta Sans, Outfit, Space Grotesk -->
+  <!-- Google Fonts: Passions Conflict (Signature font), Fira Code, Orbitron, Roboto, Plus Jakarta Sans, Outfit, Space Grotesk -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=Orbitron:wght@500;700;800;900&family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Roboto:wght@300;400;500;700&family=Space+Grotesk:wght@500;600;700;800&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Passions+Conflict&family=Fira+Code:wght@300;400;500;600;700&family=Orbitron:wght@500;700;800;900&family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Roboto:wght@300;400;500;700&family=Space+Grotesk:wght@500;600;700;800&display=swap"
     rel="stylesheet">
 
   <!-- Font Awesome 6 Icons -->
@@ -54,13 +54,13 @@
               alt="Kishore Naik" id="nav-avatar" />
           </div>
         </div>
-        <!-- Exact Logo Typography -->
+        <!-- Exact Logo Typography: Kish..... -->
         <div class="kis">
-          <big>K</big><small>ishore Naik</small>
+          <big>K</big><small>ish.....</small>
         </div>
       </a>
 
-      <!-- 3-Line Menu Option in Navbar (Click to Show Options) -->
+      <!-- 3-Line Menu Option in Navbar (Click to Show Floating Options) -->
       <div class="nav-menu-btn" id="nav-menu-toggle" onclick="hamburgerMenu()" title="Open Navigation Menu"
         aria-label="Open Navigation Menu">
         <span></span>
@@ -70,25 +70,47 @@
     </div>
   </header>
 
-  <!-- Mobile Slide Drawer Menu -->
+  <!-- Floating Mobile Navigation Menu & Backdrop -->
+  <div class="mobile-nav-backdrop" id="mobile-nav-backdrop" onclick="hidemenubyli()"></div>
   <div class="mobiletogglemenu" id="mobiletogglemenu">
-    <ul class="mobile-navbar-tabs-ul" id="mobile-ul">
-      <li class="mobile-navbar-tabs-li home activeThismobiletab" onclick="hidemenubyli()">
-        <a href="#home">&#60;/Home&#62;</a>
-      </li>
-      <li class="mobile-navbar-tabs-li about" onclick="hidemenubyli()">
-        <a href="#about">&#60;/About Me&#62;</a>
-      </li>
-      <li class="mobile-navbar-tabs-li skills" onclick="hidemenubyli()">
-        <a href="#skills">&#60;/Skills&#62;</a>
-      </li>
-      <li class="mobile-navbar-tabs-li education" onclick="hidemenubyli()">
-        <a href="#education">&#60;/Academic Track&#62;</a>
-      </li>
-      <li class="mobile-navbar-tabs-li projects" onclick="hidemenubyli()">
-        <a href="#projects">&#60;/Projects&#62;</a>
-      </li>
-    </ul>
+    <div class="floating-menu-card">
+      <div class="floating-menu-header">
+        <span class="floating-menu-pill"><i class="fa-solid fa-compass"></i> Quick Navigation</span>
+        <button class="floating-close-btn" onclick="hidemenubyli()" aria-label="Close menu">&times;</button>
+      </div>
+      <ul class="mobile-navbar-tabs-ul" id="mobile-ul">
+        <li class="mobile-navbar-tabs-li home activeThismobiletab" onclick="hidemenubyli()">
+          <a href="#home">
+            <span class="nav-item-icon"><i class="fa-solid fa-house"></i></span>
+            <span class="nav-item-label">&#60;/Home&#62;</span>
+          </a>
+        </li>
+        <li class="mobile-navbar-tabs-li about" onclick="hidemenubyli()">
+          <a href="#about">
+            <span class="nav-item-icon"><i class="fa-solid fa-user-astronaut"></i></span>
+            <span class="nav-item-label">&#60;/About Me&#62;</span>
+          </a>
+        </li>
+        <li class="mobile-navbar-tabs-li skills" onclick="hidemenubyli()">
+          <a href="#skills">
+            <span class="nav-item-icon"><i class="fa-solid fa-code"></i></span>
+            <span class="nav-item-label">&#60;/Skills&#62;</span>
+          </a>
+        </li>
+        <li class="mobile-navbar-tabs-li education" onclick="hidemenubyli()">
+          <a href="#education">
+            <span class="nav-item-icon"><i class="fa-solid fa-graduation-cap"></i></span>
+            <span class="nav-item-label">&#60;/Academic Track&#62;</span>
+          </a>
+        </li>
+        <li class="mobile-navbar-tabs-li projects" onclick="hidemenubyli()">
+          <a href="#projects">
+            <span class="nav-item-icon"><i class="fa-solid fa-laptop-code"></i></span>
+            <span class="nav-item-label">&#60;/Projects&#62;</span>
+          </a>
+        </li>
+      </ul>
+    </div>
   </div>
 
   <!-- ===================================================================
@@ -113,10 +135,9 @@
           <p class="jello">m</p>
         </article>
 
-        <!-- EXACT REFERENCE BARCODE SCANNER & NAME PRINTING WIDGET (Shows "Kishore Naik" on click/hover) -->
-        <div class="immage-container" data-aos="fade-up" data-aos-delay="200" id="barcode-box"
-          onclick="toggleBarcode(this)" title="Click or hover to reveal name">
-          <img src="assets/images/barcode.gif" alt="barcode" class="iamge" />
+        <!-- AUTHENTIC HANDWRITTEN SIGNATURE PRINTING: "Kishore Naik" (No Barcode, Exact Glowing Style) -->
+        <div class="signature-container immage-container" data-aos="fade-up" data-aos-delay="200" id="barcode-box"
+          onclick="replaySignatureAnimation()" title="Click to replay signature printing">
           <div class="textt" id="barcode-print-text" data-text="Kishore Naik">Kishore Naik</div>
         </div>
 
@@ -163,7 +184,7 @@
     </section>
 
     <!-- ===================================================================
-         3. ABOUT ME & EXACT 3D FLIPPING PROFILE CARD
+         3. ABOUT ME & NATURAL BORDERLESS PROFILE SHOWCASE (MIXED WITH THEME)
          =================================================================== -->
     <section class="about-section-container" id="about" data-aos="fade-up">
       <div class="about-section">
@@ -177,11 +198,13 @@
           <!-- Left Bio -->
           <div class="about-info">
             <p>
-              Hello! I'm <strong>Kishore Naik</strong>, an aspiring software engineer and web developer from
-              <strong class="edu-loc-text">Sullurpet, Tirupathi Dist, AP</strong>. Born on <strong>24th September
-                2006</strong>, I am currently pursuing Bachelor of Technology in <strong>Computer Science and
+              Hello! I'm <strong>Kishore Naik</strong>, an aspiring software engineer and web developer. Born on
+              <strong>24/09/2006</strong>, I am currently pursuing Bachelor of Technology in <strong>Computer Science
+                and
                 Engineering</strong> (2024 &ndash; 2028)
-              at <strong>Gokula Krishna College of Engineering</strong>, Sullurpet.
+              at <strong>Gokula Krishna College of Engineering</strong>, with my current live location at <strong
+                class="edu-loc-text"><span class="live-pulse-dot-inline" title="Live College Location"></span> Sullurpet
+                GKCE (Tirupathi Dist, AP)</strong>.
             </p>
             <p>
               Beyond software engineering, I am an enthusiastic <strong>story writer</strong> and deeply passionate
@@ -239,16 +262,21 @@
                   <span class="detail-value edu-font">B.Tech CSE (2024 - 2028) &bull; GKCE</span>
                 </div>
 
-                <!-- Location (Sullurpet, Tirupathi Dist, AP) -->
-                <div class="profile-detail-item loc-item">
-                  <img src="assets/images/icons/location.svg" alt="Location" class="detail-mini-img" />
-                  <span class="detail-value edu-loc-text">Sullurpet, Tirupathi Dist, AP</span>
+                <!-- Current Live College Location: Sullurpet GKCE -->
+                <div class="profile-detail-item live-loc-item">
+                  <span class="live-pulse-dot" title="Live Campus Location"></span>
+                  <a href="https://maps.google.com/?q=Gokula+Krishna+College+of+Engineering+Sullurpet" target="_blank"
+                    rel="noopener noreferrer" class="detail-value live-loc-link"
+                    title="Open Gokula Krishna College of Engineering live location on Google Maps">
+                    Live Location: Sullurpet &bull; GKCE
+                    <i class="fa-solid fa-arrow-up-right-from-square live-map-icon"></i>
+                  </a>
                 </div>
 
-                <!-- Date of Birth: 24 09 2006 (Headline removed as requested) -->
+                <!-- Date of Birth: 24/09/2006 with slashes between dates -->
                 <div class="profile-detail-item">
                   <img src="assets/images/icons/dob.svg" alt="DOB" class="detail-mini-img" />
-                  <span class="detail-value">24 09 2006</span>
+                  <span class="detail-value">24/09/2006</span>
                 </div>
 
                 <!-- Phone: 7013741421 (Small related phone image, headline removed as requested) -->
@@ -434,65 +462,104 @@
         </div>
         <h1 class="big" data-aos="fade-up">Academic Track</h1>
 
-        <!-- Houses (Clickable Cards with Percentage & On-Image Small Details) -->
+        <!-- Houses (3D Flip Animated Cards: Full Size Photo Front -> Special Animation Click -> Same Dark Theme Details Back) -->
         <div class="house-container" data-aos="fade-up">
-          <!-- House 1: SSC School (2012 to 2021 &bull; 87% - Light Yellowish) -->
-          <div class="house house-yellow active-house" id="house1" onclick="showDetails('house1')">
-            <div class="house-front">
-              <img src="assets/images/academic-school.jpg" alt="APTWR School Narasaraopet" class="house-image"
-                onerror="this.src='assets/images/ssc.svg'" />
-              <div class="house-title">SSC (10th)</div>
-              <div class="house-period">2012 &ndash; 2021</div>
-              <div class="house-percentage">87%</div>
-            </div>
-            <!-- Small Details Overlay Opening Directly ON the Image Card -->
-            <div class="house-details-overlay" id="overlay-house1">
-              <span class="overlay-close" onclick="closeHouseOverlay(event, 'house1')" title="Close">&times;</span>
-              <div class="overlay-tag">School</div>
-              <h4 class="overlay-title">APTWR School</h4>
-              <p class="overlay-duration">2012 &ndash; 2021</p>
-              <p class="overlay-info">SSC &bull; <strong>87%</strong></p>
-              <p class="overlay-place">Narasaraopet</p>
+          <!-- House 1: SSC School (APTWR School Narasaraopet) -->
+          <div class="house house-yellow active-house" id="house1" onclick="handleHouseClick('house1')">
+            <div class="house-inner">
+              <!-- Front Face: Shows Full Size Image -->
+              <div class="house-face house-front">
+                <div class="house-img-container">
+                  <img src="assets/images/academic-school.jpg" alt="APTWR School Narasaraopet" class="house-full-image"
+                    onerror="this.src='assets/images/ssc.svg'" />
+                  <div class="house-img-badge">SSC &bull; 87%</div>
+                </div>
+                <div class="house-caption">
+                  <div class="house-title">APTWR School</div>
+                  <div class="house-period">2012 &ndash; 2021</div>
+                  <div class="flip-hint"><i class="fa-solid fa-arrow-right-arrow-left"></i> Click for Details</div>
+                </div>
+              </div>
+
+              <!-- Back Face: Shows Academic Details in Same Dark Theme -->
+              <div class="house-face house-back">
+                <span class="back-close-btn" onclick="flipBackHouse(event, 'house1')" title="Flip Back">&times;</span>
+                <div class="overlay-tag">School</div>
+                <h4 class="overlay-title">APTWR School</h4>
+                <p class="overlay-duration">2012 &ndash; 2021</p>
+                <p class="overlay-info">SSC &bull; <strong style="color: var(--accent-yellow);">87%</strong></p>
+                <p class="overlay-place"><i class="fa-solid fa-location-dot"></i> Narasaraopet</p>
+                <button class="view-academic-photo-btn"
+                  onclick="openAcademicImageViewer(event, 'assets/images/academic-school.jpg', 'APTWR School Narasaraopet')">
+                  <i class="fa-solid fa-expand"></i> View Full Photo
+                </button>
+              </div>
             </div>
           </div>
 
-          <!-- House 2: Intermediate (2021 to 2024 &bull; 94% - Pink) -->
-          <div class="house house-pink" id="house2" onclick="showDetails('house2')">
-            <div class="house-front">
-              <img src="assets/images/academic-inter.jpg" alt="AP Tribal Welfare Residential College"
-                class="house-image" onerror="this.src='assets/images/intermediate.svg'" />
-              <div class="house-title">Inter (MPC)</div>
-              <div class="house-period">2021 &ndash; 2024</div>
-              <div class="house-percentage">94%</div>
-            </div>
-            <!-- Small Details Overlay Opening Directly ON the Image Card -->
-            <div class="house-details-overlay" id="overlay-house2">
-              <span class="overlay-close" onclick="closeHouseOverlay(event, 'house2')" title="Close">&times;</span>
-              <div class="overlay-tag">Intermediate</div>
-              <h4 class="overlay-title">APTW COE</h4>
-              <p class="overlay-duration">2021 &ndash; 2024</p>
-              <p class="overlay-info">MPC &bull; <strong>94%</strong></p>
-              <p class="overlay-place">Yerragondapalem</p>
+          <!-- House 2: Intermediate (APTWR COE) -->
+          <div class="house house-pink" id="house2" onclick="handleHouseClick('house2')">
+            <div class="house-inner">
+              <!-- Front Face: Shows Full Size Image -->
+              <div class="house-face house-front">
+                <div class="house-img-container">
+                  <img src="assets/images/academic-inter.jpg" alt="APTWR COE" class="house-full-image"
+                    onerror="this.src='assets/images/intermediate.svg'" />
+                  <div class="house-img-badge">Inter &bull; 94%</div>
+                </div>
+                <div class="house-caption">
+                  <div class="house-title">APTWR COE</div>
+                  <div class="house-period">2021 &ndash; 2024</div>
+                  <div class="flip-hint"><i class="fa-solid fa-arrow-right-arrow-left"></i> Click for Details</div>
+                </div>
+              </div>
+
+              <!-- Back Face: Shows Academic Details in Same Dark Theme -->
+              <div class="house-face house-back">
+                <span class="back-close-btn" onclick="flipBackHouse(event, 'house2')" title="Flip Back">&times;</span>
+                <div class="overlay-tag">Intermediate</div>
+                <h4 class="overlay-title">APTWR COE</h4>
+                <p class="overlay-duration">2021 &ndash; 2024</p>
+                <p class="overlay-info">MPC &bull; <strong style="color: var(--accent-pink);">94%</strong></p>
+                <p class="overlay-place"><i class="fa-solid fa-location-dot"></i> Yerragondapalem</p>
+                <button class="view-academic-photo-btn"
+                  onclick="openAcademicImageViewer(event, 'assets/images/academic-inter.jpg', 'APTWR COE - Intermediate')">
+                  <i class="fa-solid fa-expand"></i> View Full Photo
+                </button>
+              </div>
             </div>
           </div>
 
-          <!-- House 3: B.Tech College (2024 to 2028 &bull; Current - Blue) -->
-          <div class="house house-blue" id="house3" onclick="showDetails('house3')">
-            <div class="house-front">
-              <img src="assets/images/academic-college.jpg" alt="Gokula Krishna College of Engineering"
-                class="house-image" onerror="this.src='assets/images/btech.svg'" />
-              <div class="house-title">B.Tech (CSE)</div>
-              <div class="house-period">2024 &ndash; 2028</div>
-              <div class="house-percentage">Current</div>
-            </div>
-            <!-- Small Details Overlay Opening Directly ON the Image Card -->
-            <div class="house-details-overlay" id="overlay-house3">
-              <span class="overlay-close" onclick="closeHouseOverlay(event, 'house3')" title="Close">&times;</span>
-              <div class="overlay-tag">B.Tech</div>
-              <h4 class="overlay-title">GKCE</h4>
-              <p class="overlay-duration">2024 &ndash; 2028</p>
-              <p class="overlay-info">CSE &bull; <strong>Current</strong></p>
-              <p class="overlay-place">Sullurpet, AP</p>
+          <!-- House 3: B.Tech College (GKCE - Gokula Krishna College of Engineering) -->
+          <div class="house house-blue" id="house3" onclick="handleHouseClick('house3')">
+            <div class="house-inner">
+              <!-- Front Face: Shows Full Size Image -->
+              <div class="house-face house-front">
+                <div class="house-img-container">
+                  <img src="assets/images/academic-college.jpg" alt="Gokula Krishna College of Engineering"
+                    class="house-full-image" onerror="this.src='assets/images/btech.svg'" />
+                  <div class="house-img-badge">B.Tech &bull; CSE</div>
+                </div>
+                <div class="house-caption">
+                  <div class="house-title">GKCE</div>
+                  <div class="house-period">2024 &ndash; 2028</div>
+                  <div class="flip-hint"><i class="fa-solid fa-arrow-right-arrow-left"></i> Click for Details</div>
+                </div>
+              </div>
+
+              <!-- Back Face: Shows Academic Details in Same Dark Theme -->
+              <div class="house-face house-back">
+                <span class="back-close-btn" onclick="flipBackHouse(event, 'house3')" title="Flip Back">&times;</span>
+                <div class="overlay-tag">B.Tech</div>
+                <h4 class="overlay-title">GKCE</h4>
+                <p class="overlay-duration">2024 &ndash; 2028</p>
+                <p class="overlay-info">CSE &bull; <strong style="color: var(--accent-blue);">Current</strong></p>
+                <p class="overlay-place"><i class="fa-solid fa-location-dot"></i> Sullurpet, AP</p>
+                <button class="view-academic-photo-btn"
+                  onclick="openAcademicImageViewer(event, 'assets/images/academic-college.jpg', 'GKCE - Gokula Krishna College of Engineering')">
+                  <i class="fa-solid fa-expand"></i> View Full Photo
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -517,11 +584,11 @@
         <h1 class="big" data-aos="fade-up">Actionable Innovation.</h1>
 
         <div class="project-boxes-div">
-          <!-- Project 1: BLUE CARD -->
+          <!-- Project 1 -->
           <div class="project-box-wrapper" data-aos="fade-up">
-            <div class="project-box card-blue">
+            <div class="project-box">
               <div class="info-div">
-                <span class="project-tag">Featured &bull; Blue Accent</span>
+                <span class="project-tag">Featured &bull; Web App</span>
                 <article class="ProjectHeading">Personal Developer Portfolio</article>
                 <p class="ProjectDescription">
                   Exact reference themed developer portfolio featuring interactive barcode identity printing,
@@ -544,11 +611,11 @@
             </div>
           </div>
 
-          <!-- Project 2: PINK CARD -->
+          <!-- Project 2 -->
           <div class="project-box-wrapper" data-aos="fade-up">
-            <div class="project-box card-pink">
+            <div class="project-box">
               <div class="info-div">
-                <span class="project-tag">Full-Stack &bull; Pink Accent</span>
+                <span class="project-tag">Full-Stack &bull; Database System</span>
                 <article class="ProjectHeading">Student Record &amp; Attendance Manager</article>
                 <p class="ProjectDescription">
                   A comprehensive management portal designed for tracking student performance metrics, database records,
@@ -571,11 +638,11 @@
             </div>
           </div>
 
-          <!-- Project 3: LIGHT YELLOWISH CARD -->
+          <!-- Project 3 -->
           <div class="project-box-wrapper" data-aos="fade-up">
-            <div class="project-box card-yellow">
+            <div class="project-box">
               <div class="info-div">
-                <span class="project-tag">Algorithms &bull; Yellow Accent</span>
+                <span class="project-tag">Algorithms &bull; Pathfinding Visualizer</span>
                 <article class="ProjectHeading">Pathfinding &amp; Algorithm Visualizer</article>
                 <p class="ProjectDescription">
                   Interactive visual playground demonstrating Dijkstra's, A* Search, and Sorting algorithms with
@@ -598,11 +665,11 @@
             </div>
           </div>
 
-          <!-- Project 4: WHITE / PLATINUM CARD -->
+          <!-- Project 4 -->
           <div class="project-box-wrapper" data-aos="fade-up">
-            <div class="project-box card-white">
+            <div class="project-box">
               <div class="info-div">
-                <span class="project-tag">System &bull; White Accent</span>
+                <span class="project-tag">Frontend &bull; Modern UI Suite</span>
                 <article class="ProjectHeading">Responsive UI &amp; Component Suite</article>
                 <p class="ProjectDescription">
                   A high-performance responsive UI micro-interaction library engineered with vanilla JavaScript, modern
@@ -739,13 +806,26 @@
         </button>
       </div>
     </div>
-  </div>
 
-  <!-- AOS Script CDN -->
-  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <!-- Academic Full Picture Lightbox Modal ("View Small Big") -->
+    <div class="settings-modal-overlay" id="academic-image-modal" onclick="closeAcademicImageViewerOnOverlay(event)">
+      <div class="academic-modal-content">
+        <div class="academic-modal-header">
+          <h3 class="academic-modal-title" id="academic-modal-title">Institution Photo</h3>
+          <button class="settings-close-btn" onclick="closeAcademicImageViewer(event)"
+            aria-label="Close photo">&times;</button>
+        </div>
+        <div class="academic-modal-body">
+          <img src="" alt="Full view" id="academic-modal-img" class="academic-full-img" />
+        </div>
+      </div>
+    </div>
 
-  <!-- Interactive JavaScript Engine -->
-  <script src="js/main.js"></script>
+    <!-- AOS Script CDN -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+    <!-- Interactive JavaScript Engine -->
+    <script src="js/main.js"></script>
 </body>
 
 </html>
