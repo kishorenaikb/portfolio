@@ -34,7 +34,7 @@ function initTypingAnimation() {
   if (!typingAnimationElement) return;
 
   const typingTexts = [
-    "Front-End Developer  ",
+    "Web-Developer  ",
     "B.Tech CSE Student  ",
     "Problem Solver  ",
     "Tech Explorer  "
@@ -90,19 +90,61 @@ function replaySignatureAnimation() {
 window.replaySignatureAnimation = replaySignatureAnimation;
 window.toggleBarcode = replaySignatureAnimation;
 
-/* Smooth Scroll to Profile Social Connect Row on "Let's Connect!" Click */
-function scrollToConnect(e) {
-  if (e) e.preventDefault();
-  const target = document.getElementById("profile-connect");
-  if (target) {
-    target.scrollIntoView({ behavior: "smooth", block: "center" });
-    target.classList.remove("highlight-connect");
-    void target.offsetWidth;
-    target.classList.add("highlight-connect");
-    setTimeout(() => {
-      target.classList.remove("highlight-connect");
-    }, 2200);
+/* ===================================================================
+   LET'S CONNECT POPUP CARD INTERACTION (Opens Right on "Let's Connect!")
+   =================================================================== */
+function toggleConnectPopover(e) {
+  if (e) {
+    e.preventDefault();
+    e.stopPropagation();
   }
+  const popover = document.getElementById("connect-popover");
+  const trigger = document.getElementById("letsTalkBtn");
+  const wrapper = document.getElementById("connect-wrapper");
+  if (!popover) return;
+
+  const isOpen = popover.classList.contains("show-popover");
+  if (isOpen) {
+    closeConnectPopover();
+  } else {
+    popover.classList.add("show-popover");
+    if (trigger) trigger.setAttribute("aria-expanded", "true");
+    if (wrapper) wrapper.classList.add("popover-active");
+  }
+}
+window.toggleConnectPopover = toggleConnectPopover;
+
+function closeConnectPopover(e) {
+  if (e) e.stopPropagation();
+  const popover = document.getElementById("connect-popover");
+  const trigger = document.getElementById("letsTalkBtn");
+  const wrapper = document.getElementById("connect-wrapper");
+  if (popover) {
+    popover.classList.remove("show-popover");
+  }
+  if (trigger) {
+    trigger.setAttribute("aria-expanded", "false");
+  }
+  if (wrapper) {
+    wrapper.classList.remove("popover-active");
+  }
+}
+window.closeConnectPopover = closeConnectPopover;
+
+// Dismiss connect popover when clicking anywhere outside
+document.addEventListener("click", (e) => {
+  const popover = document.getElementById("connect-popover");
+  const wrapper = document.getElementById("connect-wrapper");
+  if (popover && popover.classList.contains("show-popover")) {
+    if (wrapper && !wrapper.contains(e.target)) {
+      closeConnectPopover();
+    }
+  }
+});
+
+/* Smooth Scroll to Profile Social Connect Row on "Let's Connect!" Click (Fallback) */
+function scrollToConnect(e) {
+  toggleConnectPopover(e);
 }
 window.scrollToConnect = scrollToConnect;
 
@@ -572,6 +614,10 @@ window.addEventListener("keydown", (e) => {
     const academicModal = document.getElementById("academic-image-modal");
     if (academicModal && academicModal.classList.contains("active")) {
       closeAcademicImageViewer();
+    }
+    const connectPopover = document.getElementById("connect-popover");
+    if (connectPopover && connectPopover.classList.contains("show-popover")) {
+      closeConnectPopover();
     }
   }
 });

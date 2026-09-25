@@ -156,14 +156,48 @@
           scalable software architectures.
         </p>
 
-        <!-- Action Row: Connect Button & Exact Reference Setting Theme Toggle -->
+        <!-- Action Row: Connect Button with Quick Connect Card & Exact Reference Setting Theme Toggle -->
         <div class="contact-btn-div" data-aos="fade-up" data-aos-delay="650">
-          <a href="#profile-connect" onclick="scrollToConnect(event)" title="Connect with Kishore Naik">
-            <button class="letsTalkBtn">
+          <div class="connect-action-wrapper" id="connect-wrapper">
+            <button class="letsTalkBtn" id="letsTalkBtn" onclick="toggleConnectPopover(event)" aria-expanded="false" title="Let's Connect!">
               <p class="letsTalkBtn-text">Let's Connect!</p>
               <span class="letsTalkBtn-BG"></span>
             </button>
-          </a>
+
+            <!-- Small Best Connect Card (Opens Right on Let's Connect) -->
+            <div class="connect-popover-card" id="connect-popover" onclick="event.stopPropagation()">
+              <div class="popover-header">
+                <span class="popover-title"><i class="fa-solid fa-paper-plane"></i> Let's Connect</span>
+                <span class="popover-close-btn" onclick="closeConnectPopover(event)" title="Close">&times;</span>
+              </div>
+              <div class="popover-links-grid">
+                <a href="https://wa.me/917013741421" target="_blank" rel="noopener noreferrer" class="popover-link-item link-whatsapp" title="WhatsApp: +91 7013741421">
+                  <i class="fa-brands fa-whatsapp"></i>
+                  <span>WhatsApp</span>
+                </a>
+                <a href="https://instagram.com/__1ts__k1shore__na1k___" target="_blank" rel="noopener noreferrer" class="popover-link-item link-instagram" title="Instagram: @__1ts__k1shore__na1k___">
+                  <i class="fa-brands fa-instagram"></i>
+                  <span>Instagram</span>
+                </a>
+                <a href="mailto:kishorenaik2k06@gmail.com" class="popover-link-item link-email" title="Email: kishorenaik2k06@gmail.com">
+                  <i class="fa-solid fa-envelope"></i>
+                  <span>Email</span>
+                </a>
+                <a href="https://github.com/your-kishorenaikb" target="_blank" rel="noopener noreferrer" class="popover-link-item link-github" title="GitHub: your-kishorenaikb">
+                  <i class="fa-brands fa-github"></i>
+                  <span>GitHub</span>
+                </a>
+                <a href="tel:7013741421" class="popover-link-item link-call" title="Call: +91 7013741421">
+                  <i class="fa-solid fa-phone"></i>
+                  <span>Call</span>
+                </a>
+                <a href="https://facebook.com/1tsk1shorena1k" target="_blank" rel="noopener noreferrer" class="popover-link-item link-facebook" title="Facebook: 1tsk1shorena1k">
+                  <i class="fa-brands fa-facebook-f"></i>
+                  <span>Facebook</span>
+                </a>
+              </div>
+            </div>
+          </div>
 
           <!-- Exact Reference Site Setting Container -->
           <div class="setting-container" id="setting-container">
@@ -252,65 +286,47 @@
                 alt="Kishore Naik" />
             </div>
 
-            <div class="profile-info-content">
+            <div class="member-info profile-info-content">
               <h3 class="profile-name">Kishore Naik</h3>
 
-              <div class="profile-details-list">
-                <!-- Education Background -->
-                <div class="profile-detail-item edu-item">
-                  <img src="assets/images/icons/education.svg" alt="Education" class="detail-mini-img" />
-                  <span class="detail-value edu-font">B.Tech CSE (2024 - 2028) &bull; GKCE</span>
-                </div>
-
-                <!-- Current Live College Location: Sullurpet GKCE -->
-                <div class="profile-detail-item live-loc-item">
-                  <span class="live-pulse-dot" title="Live Campus Location"></span>
-                  <a href="https://maps.google.com/?q=Gokula+Krishna+College+of+Engineering+Sullurpet" target="_blank"
-                    rel="noopener noreferrer" class="detail-value live-loc-link"
-                    title="Open Gokula Krishna College of Engineering live location on Google Maps">
-                    Live Location: Sullurpet &bull; GKCE
-                    <i class="fa-solid fa-arrow-up-right-from-square live-map-icon"></i>
-                  </a>
-                </div>
-
-                <!-- Date of Birth: 24/09/2006 with slashes between dates -->
-                <div class="profile-detail-item">
-                  <img src="assets/images/icons/dob.svg" alt="DOB" class="detail-mini-img" />
-                  <span class="detail-value">24/09/2006</span>
-                </div>
-
-                <!-- Phone: 7013741421 (Small related phone image, headline removed as requested) -->
-                <div class="profile-detail-item">
-                  <img src="assets/images/icons/phone.svg" alt="Phone" class="detail-mini-img" />
-                  <a href="tel:7013741421" class="detail-value phone-link">7013741421</a>
-                </div>
-
-                <!-- Passions: Story Writing & Alone Travelling -->
-                <div class="profile-detail-item">
-                  <img src="assets/images/icons/story-writing.svg" alt="Story Writing" class="detail-mini-img" />
-                  <span class="detail-value">Story Writing</span>
-                </div>
-
-                <div class="profile-detail-item">
-                  <img src="assets/images/icons/alone-travelling.svg" alt="Alone Travelling" class="detail-mini-img" />
-                  <span class="detail-value">Alone Travelling</span>
-                </div>
-
-                <!-- Languages: Telugu, English, Hindi -->
-                <div class="profile-languages-row">
-                  <span class="lang-pill" title="Telugu Language">
-                    <img src="assets/images/icons/telugu.svg" alt="Telugu" class="detail-mini-img" />
-                    Telugu
-                  </span>
-                  <span class="lang-pill" title="English Language">
-                    <img src="assets/images/icons/english.svg" alt="English" class="detail-mini-img" />
-                    English
-                  </span>
-                  <span class="lang-pill" title="Hindi Language">
-                    <img src="assets/images/icons/hindi.svg" alt="Hindi" class="detail-mini-img" />
-                    Hindi
-                  </span>
-                </div>
+              <!-- Profile Details List: Exact Same Structure as Reference Site (.prof ul li) -->
+              <div class="prof">
+                <ul>
+                  <li>
+                    <i class="fa fa-birthday-cake"></i>
+                    <span>24/09/2006</span>
+                  </li>
+                  <li>
+                    <i class="fa fa-phone"></i>
+                    <a href="tel:7013741421" class="phone-link" title="Call Kishore Naik">7013741421</a>
+                  </li>
+                  <li>
+                    <i class="fa fa-map-marker"></i>
+                    <a href="https://maps.google.com/?q=Gokula+Krishna+College+of+Engineering+Sullurpet" target="_blank"
+                      rel="noopener noreferrer" class="live-loc-link"
+                      title="Open Gokula Krishna College of Engineering live location on Google Maps">
+                      <span class="live-pulse-dot" title="Live College Location"></span>
+                      Sullurpet, AP &bull; GKCE
+                      <i class="fa-solid fa-arrow-up-right-from-square live-map-icon"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <i class="fa fa-graduation-cap"></i>
+                    <span>B.Tech CSE (2024 &ndash; 2028) &bull; GKCE</span>
+                  </li>
+                  <li>
+                    <i class="fa fa-clock"></i>
+                    <span>Story Writing, Alone Traveling.</span>
+                  </li>
+                  <li>
+                    <i class="fa fa-heart"></i>
+                    <span>Motivational Speech, Web-Development.</span>
+                  </li>
+                  <li>
+                    <i class="fa fa-language"></i>
+                    <span>Telugu, English, Hindi.</span>
+                  </li>
+                </ul>
               </div>
 
               <!-- Connect Socials Row -->
