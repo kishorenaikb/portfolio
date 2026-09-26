@@ -352,8 +352,8 @@ header {
   pointer-events: none;
   will-change: transform, opacity;
   transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-              opacity 0.25s ease,
-              visibility 0.25s ease;
+    opacity 0.25s ease,
+    visibility 0.25s ease;
 }
 
 .mobiletogglemenu.show-toggle-menu {
@@ -470,11 +470,25 @@ header {
   transform: translate3d(0, 0, 0) scale(1);
 }
 
-.mobiletogglemenu.show-toggle-menu .mobile-navbar-tabs-li:nth-child(1) { transition-delay: 0.05s; }
-.mobiletogglemenu.show-toggle-menu .mobile-navbar-tabs-li:nth-child(2) { transition-delay: 0.09s; }
-.mobiletogglemenu.show-toggle-menu .mobile-navbar-tabs-li:nth-child(3) { transition-delay: 0.13s; }
-.mobiletogglemenu.show-toggle-menu .mobile-navbar-tabs-li:nth-child(4) { transition-delay: 0.17s; }
-.mobiletogglemenu.show-toggle-menu .mobile-navbar-tabs-li:nth-child(5) { transition-delay: 0.21s; }
+.mobiletogglemenu.show-toggle-menu .mobile-navbar-tabs-li:nth-child(1) {
+  transition-delay: 0.05s;
+}
+
+.mobiletogglemenu.show-toggle-menu .mobile-navbar-tabs-li:nth-child(2) {
+  transition-delay: 0.09s;
+}
+
+.mobiletogglemenu.show-toggle-menu .mobile-navbar-tabs-li:nth-child(3) {
+  transition-delay: 0.13s;
+}
+
+.mobiletogglemenu.show-toggle-menu .mobile-navbar-tabs-li:nth-child(4) {
+  transition-delay: 0.17s;
+}
+
+.mobiletogglemenu.show-toggle-menu .mobile-navbar-tabs-li:nth-child(5) {
+  transition-delay: 0.21s;
+}
 
 .mobile-navbar-tabs-li a {
   display: flex;
