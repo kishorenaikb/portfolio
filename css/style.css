@@ -3455,9 +3455,9 @@ body.light-mode #backtotopbutton article {
     transform: rotate(45deg) !important;
   }
 
-  /* About Me Section */
+  /* About Me Section - Added Little More Space Under Let's Connect */
   .about-section-container {
-    padding-top: 35px !important;
+    padding-top: 55px !important;
   }
 
   .section-heading-article {
@@ -3640,12 +3640,12 @@ body.light-mode #backtotopbutton article {
     font-size: 1.15rem !important;
   }
 
-  /* Hero Section (Proportionally Decreased to Match Reference Mobile - Gap Under Let's Connect Removed) */
+  /* Hero Section (Proportionally Decreased with comfortable spacing to About Me) */
   .landing-page-container {
     min-height: auto !important;
     height: auto !important;
     padding-top: 75px !important;
-    padding-bottom: 10px !important;
+    padding-bottom: 24px !important;
   }
 
   .text-content {
@@ -3723,9 +3723,9 @@ body.light-mode #backtotopbutton article {
     font-size: 1.35rem !important;
   }
 
-  /* About Me Section - Tightened Space Under Let's Connect */
+  /* About Me Section - Added Little More Space Under Let's Connect */
   .about-section-container {
-    padding-top: 22px !important;
+    padding-top: 48px !important;
   }
 
   .section-heading-article {
@@ -4116,11 +4116,11 @@ body.light-mode #backtotopbutton article {
   }
 
   .landing-page-container {
-    padding-bottom: 8px !important;
+    padding-bottom: 20px !important;
   }
 
   .about-section-container {
-    padding-top: 18px !important;
+    padding-top: 44px !important;
   }
 
   .about-section,
