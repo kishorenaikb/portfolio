@@ -258,7 +258,7 @@ header {
   letter-spacing: 1px;
 }
 
-/* 3-Line Menu Button in Top Navbar */
+/* 3-Line Menu Button in Top Navbar - Instant Responsive Feel */
 .nav-menu-btn {
   display: flex;
   flex-direction: column;
@@ -271,8 +271,10 @@ header {
   background: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.18);
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), background-color 0.2s ease, border-color 0.2s ease;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
 }
 
 .nav-menu-btn span {
@@ -281,7 +283,9 @@ header {
   height: 2.5px;
   background-color: #ffffff;
   border-radius: 2px;
-  transition: all 0.3s ease;
+  transition: transform 0.26s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.2s ease;
+  will-change: transform, opacity;
+  transform-origin: center;
 }
 
 .nav-menu-btn:hover,
@@ -293,7 +297,7 @@ header {
 }
 
 .nav-menu-btn.active span:nth-child(1) {
-  transform: translateY(7.5px) rotate(45deg);
+  transform: translate3d(0, 7.5px, 0) rotate(45deg);
   background-color: #ffffff;
 }
 
@@ -303,27 +307,28 @@ header {
 }
 
 .nav-menu-btn.active span:nth-child(3) {
-  transform: translateY(-7.5px) rotate(-45deg);
+  transform: translate3d(0, -7.5px, 0) rotate(-45deg);
   background-color: #ffffff;
 }
 
 /* ===================================================================
-   FLOATING MOBILE NAVIGATION MENU (Smooth Floating View in Mobile)
+   FLOATING MOBILE NAVIGATION MENU (Ultra-Smooth Fluid Motion)
    =================================================================== */
-/* Semi-transparent Backdrop */
+/* Semi-transparent Light Backdrop (Low GPU overhead) */
 .mobile-nav-backdrop {
   position: fixed;
   inset: 0;
   width: 100%;
   height: 100vh;
-  background: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
   z-index: 997;
   opacity: 0;
   pointer-events: none;
   visibility: hidden;
-  transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.35s ease;
+  will-change: opacity;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
 }
 
 .mobile-nav-backdrop.show-backdrop {
@@ -332,52 +337,46 @@ header {
   pointer-events: auto;
 }
 
-/* Floating Navigation Capsule Menu */
+/* Floating Navigation Capsule Menu - Buttery Smooth 60/120fps Flow */
 .mobiletogglemenu {
   position: fixed;
-  top: 96px;
+  top: 86px;
   left: 50%;
-  transform: translateX(-50%) translateY(-20px) scale(0.94);
+  transform: translate3d(-50%, -14px, 0) scale(0.96);
   width: calc(100% - 32px);
   max-width: 420px;
   z-index: 998;
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease, visibility 0.35s ease;
+  will-change: transform, opacity;
+  transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.22s ease, visibility 0.22s ease;
 }
 
 .mobiletogglemenu.show-toggle-menu {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
-  transform: translateX(-50%) translateY(0) scale(1);
-  animation: floatMobileMenu 4s ease-in-out infinite alternate 0.4s;
+  transform: translate3d(-50%, 0, 0) scale(1);
 }
 
-@keyframes floatMobileMenu {
-  0% {
-    transform: translateX(-50%) translateY(0);
-  }
-
-  100% {
-    transform: translateX(-50%) translateY(6px);
-  }
-}
-
-/* Floating Glass Card */
+/* Floating Glass Card - Optimized Rendering */
 .floating-menu-card {
-  background: rgba(14, 14, 22, 0.94);
-  backdrop-filter: blur(28px);
-  -webkit-backdrop-filter: blur(28px);
+  background: rgba(13, 13, 22, 0.96);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(255, 255, 255, 0.16);
-  border-radius: 26px;
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.85), 0 0 35px rgba(255, 255, 255, 0.05);
-  padding: 16px 16px 20px;
+  border-radius: 24px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.85), 0 0 25px rgba(255, 255, 255, 0.04);
+  padding: 14px 14px 18px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
+  transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
+
 
 /* Header with Badge & Close Button */
 .floating-menu-header {
@@ -442,7 +441,22 @@ header {
 .mobile-navbar-tabs-li {
   position: relative;
   width: 100%;
+  opacity: 0;
+  transform: translate3d(0, 10px, 0);
+  transition: transform 0.26s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.22s ease;
+  will-change: transform, opacity;
 }
+
+.mobiletogglemenu.show-toggle-menu .mobile-navbar-tabs-li {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.mobiletogglemenu.show-toggle-menu .mobile-navbar-tabs-li:nth-child(1) { transition-delay: 0.03s; }
+.mobiletogglemenu.show-toggle-menu .mobile-navbar-tabs-li:nth-child(2) { transition-delay: 0.06s; }
+.mobiletogglemenu.show-toggle-menu .mobile-navbar-tabs-li:nth-child(3) { transition-delay: 0.09s; }
+.mobiletogglemenu.show-toggle-menu .mobile-navbar-tabs-li:nth-child(4) { transition-delay: 0.12s; }
+.mobiletogglemenu.show-toggle-menu .mobile-navbar-tabs-li:nth-child(5) { transition-delay: 0.15s; }
 
 .mobile-navbar-tabs-li a {
   display: flex;

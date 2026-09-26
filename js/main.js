@@ -363,16 +363,19 @@ function hamburgerMenu() {
   const menu = document.getElementById("mobiletogglemenu");
   const toggleBtn = document.getElementById("nav-menu-toggle");
   const backdrop = document.getElementById("mobile-nav-backdrop");
+  if (!menu) return;
 
-  const isOpen = menu && menu.classList.contains("show-toggle-menu");
+  const isOpen = menu.classList.contains("show-toggle-menu");
 
   if (isOpen) {
     hidemenubyli();
   } else {
-    document.body.classList.add("stopscrolling");
-    if (menu) menu.classList.add("show-toggle-menu");
+    menu.classList.add("show-toggle-menu");
     if (toggleBtn) toggleBtn.classList.add("active");
     if (backdrop) backdrop.classList.add("show-backdrop");
+    requestAnimationFrame(() => {
+      document.body.classList.add("stopscrolling");
+    });
   }
 }
 window.hamburgerMenu = hamburgerMenu;
