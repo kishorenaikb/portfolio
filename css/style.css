@@ -258,7 +258,7 @@ header {
   letter-spacing: 1px;
 }
 
-/* 3-Line Menu Button in Top Navbar - Instant Responsive Feel */
+/* 3-Line Menu Button in Top Navbar - Instant Zero-Lag Touch & Click */
 .nav-menu-btn {
   display: flex;
   flex-direction: column;
@@ -271,10 +271,11 @@ header {
   background: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.18);
   cursor: pointer;
-  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), background-color 0.2s ease, border-color 0.2s ease;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+  touch-action: manipulation;
   -webkit-tap-highlight-color: transparent;
   user-select: none;
+  transition: transform 0.2s cubic-bezier(0.22, 1, 0.36, 1), background-color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
 }
 
 .nav-menu-btn span {
@@ -283,17 +284,25 @@ header {
   height: 2.5px;
   background-color: #ffffff;
   border-radius: 2px;
-  transition: transform 0.26s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.2s ease;
+  transition: transform 0.22s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.16s ease, background-color 0.16s ease;
   will-change: transform, opacity;
   transform-origin: center;
 }
 
-.nav-menu-btn:hover,
-.nav-menu-btn.active {
+.nav-menu-btn:hover {
   background: rgba(56, 189, 248, 0.16);
   border-color: #38bdf8;
-  box-shadow: 0 0 18px rgba(56, 189, 248, 0.45);
-  transform: scale(1.06);
+  box-shadow: 0 0 16px rgba(56, 189, 248, 0.45);
+}
+
+.nav-menu-btn:active {
+  transform: scale(0.92);
+}
+
+.nav-menu-btn.active {
+  background: rgba(56, 189, 248, 0.22);
+  border-color: #38bdf8;
+  box-shadow: 0 0 18px rgba(56, 189, 248, 0.55);
 }
 
 .nav-menu-btn.active span:nth-child(1) {
@@ -312,7 +321,7 @@ header {
 }
 
 /* ===================================================================
-   FLOATING MOBILE NAVIGATION MENU (Flows Out Directly from the 3 Lines)
+   FLOATING MOBILE NAVIGATION MENU (Zero-Lag Fluid Card Flow from 3 Lines)
    =================================================================== */
 /* Semi-transparent Light Backdrop */
 .mobile-nav-backdrop {
@@ -320,15 +329,16 @@ header {
   inset: 0;
   width: 100%;
   height: 100vh;
-  background: rgba(0, 0, 0, 0.65);
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
-  z-index: 997;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 9995;
   opacity: 0;
   pointer-events: none;
   visibility: hidden;
   will-change: opacity;
-  transition: opacity 0.28s ease, visibility 0.28s ease;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+  touch-action: none;
 }
 
 .mobile-nav-backdrop.show-backdrop {
@@ -337,45 +347,62 @@ header {
   pointer-events: auto;
 }
 
-/* Floating Navigation Capsule Menu - Flowing Out from 3-Line Button */
+/* Floating Navigation Capsule Menu - Flowing Out Directly from the 3 Lines */
 .mobiletogglemenu {
   position: fixed;
-  top: 74px;
-  left: 50%;
-  transform: translate3d(-50%, -8px, 0) scale(0.2);
-  transform-origin: calc(100% - 28px) -14px;
-  width: calc(100% - 28px);
-  max-width: 410px;
-  z-index: 998;
+  top: 88px;
+  right: calc(9% + 15px);
+  width: calc(100% - 32px);
+  max-width: 380px;
+  z-index: 9998;
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
   will-change: transform, opacity;
-  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-    opacity 0.25s ease,
-    visibility 0.25s ease;
+  transform: translate3d(0, -10px, 0) scale(0.95);
+  transform-origin: top right;
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.18s cubic-bezier(0.16, 1, 0.3, 1),
+              visibility 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+  contain: layout paint;
+}
+
+@media (min-width: 1100px) {
+  .mobiletogglemenu {
+    top: 92px;
+    right: calc((100vw - 1100px) / 2 + 15px);
+    transform-origin: calc(100% - 36px) 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .mobiletogglemenu {
+    top: 66px;
+    right: 14px;
+    width: calc(100% - 28px);
+    max-width: 360px;
+    transform-origin: calc(100% - 22px) 0;
+  }
 }
 
 .mobiletogglemenu.show-toggle-menu {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
-  transform: translate3d(-50%, 0, 0) scale(1);
+  transform: translate3d(0, 0, 0) scale(1);
 }
 
 /* Floating Glass Card with Pointer Notch Aligning to the 3 Lines */
 .floating-menu-card {
   position: relative;
-  background: rgba(13, 13, 22, 0.96);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  border-radius: 24px;
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.9), 0 0 25px rgba(255, 255, 255, 0.05);
-  padding: 14px 14px 18px;
+  background: linear-gradient(155deg, rgba(18, 18, 28, 0.98), rgba(10, 10, 18, 0.99));
+  border: 1px solid rgba(56, 189, 248, 0.22);
+  border-radius: 20px;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.75), 0 0 24px rgba(0, 210, 255, 0.1);
+  padding: 12px 14px 16px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 8px;
   transform: translateZ(0);
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
@@ -385,38 +412,43 @@ header {
   content: "";
   position: absolute;
   top: -6px;
-  right: 28px;
+  right: 30px;
   width: 12px;
   height: 12px;
-  background: rgba(13, 13, 22, 0.96);
-  border-left: 1px solid rgba(255, 255, 255, 0.16);
-  border-top: 1px solid rgba(255, 255, 255, 0.16);
+  background: #11111d;
+  border-left: 1px solid rgba(56, 189, 248, 0.28);
+  border-top: 1px solid rgba(56, 189, 248, 0.28);
   transform: rotate(45deg);
   z-index: 1;
 }
 
+@media (max-width: 768px) {
+  .floating-menu-card::before {
+    right: 20px;
+  }
+}
 
 /* Header with Badge & Close Button */
 .floating-menu-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 4px 10px 4px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0 4px 8px 4px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .floating-menu-pill {
   font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: 1.15rem;
+  font-size: 1.1rem;
   font-weight: 700;
   color: #ffffff;
   display: flex;
   align-items: center;
   gap: 8px;
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.07);
   padding: 4px 12px;
   border-radius: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   letter-spacing: 0.3px;
 }
 
@@ -426,23 +458,24 @@ header {
 
 .floating-close-btn {
   background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.16);
   color: #ffffff;
   font-size: 1.8rem;
   line-height: 1;
-  width: 32px;
-  height: 32px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: all 0.25s ease;
+  touch-action: manipulation;
+  transition: all 0.2s ease;
 }
 
 .floating-close-btn:hover {
   background: rgba(255, 255, 255, 0.2);
-  transform: scale(1.1);
+  transform: scale(1.08);
 }
 
 /* Floating Navigation Items List */
@@ -450,7 +483,7 @@ header {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 6px;
   width: 100%;
   padding: 0;
   margin: 0;
@@ -460,34 +493,34 @@ header {
   position: relative;
   width: 100%;
   opacity: 0;
-  transform: translate3d(24px, -10px, 0) scale(0.92);
-  transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
+  transform: translate3d(0, 6px, 0);
+  transition: transform 0.18s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.16s ease;
   will-change: transform, opacity;
 }
 
 .mobiletogglemenu.show-toggle-menu .mobile-navbar-tabs-li {
   opacity: 1;
-  transform: translate3d(0, 0, 0) scale(1);
+  transform: translate3d(0, 0, 0);
 }
 
 .mobiletogglemenu.show-toggle-menu .mobile-navbar-tabs-li:nth-child(1) {
-  transition-delay: 0.05s;
+  transition-delay: 0.02s;
 }
 
 .mobiletogglemenu.show-toggle-menu .mobile-navbar-tabs-li:nth-child(2) {
-  transition-delay: 0.09s;
+  transition-delay: 0.04s;
 }
 
 .mobiletogglemenu.show-toggle-menu .mobile-navbar-tabs-li:nth-child(3) {
-  transition-delay: 0.13s;
+  transition-delay: 0.06s;
 }
 
 .mobiletogglemenu.show-toggle-menu .mobile-navbar-tabs-li:nth-child(4) {
-  transition-delay: 0.17s;
+  transition-delay: 0.08s;
 }
 
 .mobiletogglemenu.show-toggle-menu .mobile-navbar-tabs-li:nth-child(5) {
-  transition-delay: 0.21s;
+  transition-delay: 0.10s;
 }
 
 .mobile-navbar-tabs-li a {
@@ -2999,12 +3032,47 @@ body.light-mode .nav-menu-btn span {
   background-color: #111827 !important;
 }
 
-body.light-mode .mobiletogglemenu {
-  background-color: rgba(236, 231, 225, 0.98) !important;
+body.light-mode .floating-menu-card {
+  background: linear-gradient(155deg, rgba(245, 243, 240, 0.98), rgba(235, 230, 222, 0.99)) !important;
+  border-color: rgba(0, 0, 0, 0.12) !important;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12) !important;
+}
+
+body.light-mode .floating-menu-card::before {
+  background: #ece7e1 !important;
+  border-left-color: rgba(0, 0, 0, 0.12) !important;
+  border-top-color: rgba(0, 0, 0, 0.12) !important;
+}
+
+body.light-mode .floating-menu-pill {
+  color: #111827 !important;
+  background: rgba(0, 0, 0, 0.05) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+body.light-mode .floating-close-btn {
+  color: #111827 !important;
+  background: rgba(0, 0, 0, 0.05) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
 }
 
 body.light-mode .mobile-navbar-tabs-li a {
   color: #111827 !important;
+  background: rgba(0, 0, 0, 0.03) !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+body.light-mode .mobile-navbar-tabs-li .nav-item-icon {
+  background: rgba(0, 0, 0, 0.06) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+  color: #111827 !important;
+}
+
+body.light-mode .mobile-navbar-tabs-li.activeThismobiletab a,
+body.light-mode .mobile-navbar-tabs-li a:hover {
+  background: rgba(56, 189, 248, 0.15) !important;
+  border-color: #38bdf8 !important;
+  color: #0369a1 !important;
 }
 
 /* Hero in light mode */
@@ -3681,6 +3749,14 @@ body.light-mode #backtotopbutton article {
   .nav-menu-btn span {
     width: 13px !important;
     height: 2px !important;
+  }
+
+  .nav-menu-btn.active span:nth-child(1) {
+    transform: translate3d(0, 5px, 0) rotate(45deg) !important;
+  }
+
+  .nav-menu-btn.active span:nth-child(3) {
+    transform: translate3d(0, -5px, 0) rotate(-45deg) !important;
   }
 
   .hey {

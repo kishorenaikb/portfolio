@@ -24,6 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initAvatarGazeAndClickTracking();
   initScrollSpy();
   initAcademicTrackInitial();
+  initMobileNavZeroLag();
 });
 
 /* ===================================================================
@@ -357,9 +358,17 @@ function initAvatarGazeAndClickTracking() {
 }
 
 /* ===================================================================
-   5. HAMBURGER MENU & DRAWER (3-Line Navbar Button Toggle)
+   5. HAMBURGER MENU & DRAWER (3-Line Navbar Button Toggle - Instant Flow)
    =================================================================== */
-function hamburgerMenu() {
+let lastMenuToggleTime = 0;
+
+function hamburgerMenu(e) {
+  if (e && e.type === "click" && Date.now() - lastMenuToggleTime < 300) {
+    if (e.preventDefault) e.preventDefault();
+    return;
+  }
+  lastMenuToggleTime = Date.now();
+
   const menu = document.getElementById("mobiletogglemenu");
   const toggleBtn = document.getElementById("nav-menu-toggle");
   const backdrop = document.getElementById("mobile-nav-backdrop");
@@ -373,16 +382,12 @@ function hamburgerMenu() {
     menu.classList.add("show-toggle-menu");
     if (toggleBtn) toggleBtn.classList.add("active");
     if (backdrop) backdrop.classList.add("show-backdrop");
-    requestAnimationFrame(() => {
-      document.body.classList.add("stopscrolling");
-    });
   }
 }
 window.hamburgerMenu = hamburgerMenu;
 window.togglenavmenu = hamburgerMenu;
 
 function hidemenubyli() {
-  document.body.classList.remove("stopscrolling");
   const menu = document.getElementById("mobiletogglemenu");
   const toggleBtn = document.getElementById("nav-menu-toggle");
   const backdrop = document.getElementById("mobile-nav-backdrop");
@@ -392,6 +397,26 @@ function hidemenubyli() {
   if (backdrop) backdrop.classList.remove("show-backdrop");
 }
 window.hidemenubyli = hidemenubyli;
+
+function initMobileNavZeroLag() {
+  const toggleBtn = document.getElementById("nav-menu-toggle");
+  const backdrop = document.getElementById("mobile-nav-backdrop");
+
+  if (toggleBtn) {
+    // Instant touch/click response eliminating 300ms mobile delay
+    toggleBtn.addEventListener("pointerdown", (e) => {
+      if (e.button === 0) {
+        hamburgerMenu(e);
+      }
+    });
+  }
+
+  if (backdrop) {
+    backdrop.addEventListener("touchmove", (e) => {
+      e.preventDefault();
+    }, { passive: false });
+  }
+}
 
 /* ===================================================================
    6. SCROLL SPY & EXACT VERTICAL BACK-TO-TOP BUTTON
@@ -621,6 +646,10 @@ window.addEventListener("keydown", (e) => {
     const connectPopover = document.getElementById("connect-popover");
     if (connectPopover && connectPopover.classList.contains("show-popover")) {
       closeConnectPopover();
+    }
+    const mobileMenu = document.getElementById("mobiletogglemenu");
+    if (mobileMenu && mobileMenu.classList.contains("show-toggle-menu")) {
+      hidemenubyli();
     }
   }
 });
