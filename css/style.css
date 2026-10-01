@@ -257,9 +257,9 @@ header {
 }
 
 .navbar {
-  background: linear-gradient(135deg, rgba(6, 20, 42, 0.9), rgba(2, 10, 24, 0.95)) !important;
-  backdrop-filter: blur(22px);
-  -webkit-backdrop-filter: blur(22px);
+  background: rgba(10, 10, 14, 0.88) !important;
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
   height: 70px;
   width: 82%;
   max-width: 1100px;
@@ -267,11 +267,11 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border: 1.5px solid rgba(56, 189, 248, 0.45) !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.14) !important;
   border-radius: 50px;
   box-shadow: 0 12px 36px rgba(0, 0, 0, 0.88), 
-              0 0 28px rgba(0, 210, 255, 0.3), 
-              inset 0 1px 2px rgba(56, 189, 248, 0.35) !important;
+              0 0 1px rgba(255, 255, 255, 0.15), 
+              inset 0 1px 1px rgba(255, 255, 255, 0.12) !important;
   position: fixed;
   top: 28px;
   left: 50%;
@@ -419,24 +419,27 @@ header {
 }
 
 .nav-menu-btn:hover {
-  background: rgba(56, 189, 248, 0.16);
-  border-color: #38bdf8;
-  box-shadow: 0 0 16px rgba(56, 189, 248, 0.45);
+  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 16px rgba(255, 255, 255, 0.45);
 }
 
 .nav-menu-btn:active {
-  transform: scale(0.92);
+  transform: scale(0.92) !important;
+  background: rgba(255, 255, 255, 0.28) !important;
+  border-color: #ffffff !important;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.95), 0 0 35px rgba(255, 255, 255, 0.5) !important;
 }
 
 .nav-menu-btn.active {
-  background: rgba(56, 189, 248, 0.22);
-  border-color: #38bdf8;
-  box-shadow: 0 0 18px rgba(56, 189, 248, 0.55);
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 0 18px rgba(255, 255, 255, 0.65), 0 0 30px rgba(255, 255, 255, 0.3);
 }
 
 .nav-menu-btn.active span:nth-child(1) {
   transform: translate3d(0, 7.5px, 0) rotate(45deg);
-  background-color: #38bdf8;
+  background-color: #ffffff;
 }
 
 .nav-menu-btn.active span:nth-child(2) {
@@ -446,7 +449,7 @@ header {
 
 .nav-menu-btn.active span:nth-child(3) {
   transform: translate3d(0, -7.5px, 0) rotate(-45deg);
-  background-color: #38bdf8;
+  background-color: #ffffff;
 }
 
 /* ===================================================================
@@ -935,8 +938,10 @@ body.light-mode .role-subtitle-wrap:hover #typing-animation {
 }
 
 #labelforsetting {
-  width: 40px;
-  height: 40px;
+  width: 42px;
+  height: 42px;
+  min-width: 42px;
+  min-height: 42px;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -944,24 +949,34 @@ body.light-mode .role-subtitle-wrap:hover #typing-animation {
   background-image: url('../assets/images/settings.svg');
   background-repeat: no-repeat;
   background-position: center;
-  background-size: 58%;
+  background-size: 55%;
   background-color: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(56, 189, 248, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.18);
   cursor: pointer;
   transition: transform 0.4s ease, background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
   user-select: none;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
 }
 
 #labelforsetting:hover {
-  background-color: rgba(56, 189, 248, 0.16);
-  border-color: #38bdf8;
-  box-shadow: 0 0 16px rgba(56, 189, 248, 0.45);
+  background-color: rgba(255, 255, 255, 0.16);
+  border-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 16px rgba(255, 255, 255, 0.45);
+}
+
+#labelforsetting:active {
+  transform: scale(0.92) !important;
+  background-color: rgba(255, 255, 255, 0.28) !important;
+  border-color: #ffffff !important;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.95), 0 0 35px rgba(255, 255, 255, 0.5) !important;
 }
 
 #switchforsetting:checked+#labelforsetting,
 .settingactivate #labelforsetting {
   transform: rotate(180deg);
+  background-color: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 0 18px rgba(255, 255, 255, 0.65), 0 0 30px rgba(255, 255, 255, 0.3);
 }
 
 .visualmodetogglebuttoncontainer {
@@ -985,8 +1000,10 @@ body.light-mode .role-subtitle-wrap:hover #typing-animation {
 
 #labelforvisualmode {
   position: relative;
-  width: 38px;
-  height: 38px;
+  width: 42px;
+  height: 42px;
+  min-width: 42px;
+  min-height: 42px;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -996,11 +1013,24 @@ body.light-mode .role-subtitle-wrap:hover #typing-animation {
   background-position: center;
   background-size: 55%;
   background-color: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(56, 189, 248, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.18);
   cursor: pointer;
   transition: transform 0.4s ease, background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
   user-select: none;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+}
+
+#labelforvisualmode:hover {
+  background-color: rgba(255, 255, 255, 0.16);
+  border-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 16px rgba(255, 255, 255, 0.45);
+}
+
+#labelforvisualmode:active {
+  transform: scale(0.92) !important;
+  background-color: rgba(255, 255, 255, 0.28) !important;
+  border-color: #ffffff !important;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.95), 0 0 35px rgba(255, 255, 255, 0.5) !important;
 }
 
 #switchforvisualmode:checked+#labelforvisualmode,
@@ -3342,11 +3372,42 @@ body.light-mode #typing-animation {
   border-bottom: 2px solid rgba(15, 23, 42, 0.3) !important;
 }
 
-/* Navbar in light mode */
+/* Navbar in light mode - Pure Frosted White Shade */
 body.light-mode .navbar {
-  background: linear-gradient(135deg, rgba(240, 249, 255, 0.94), rgba(224, 242, 254, 0.96)) !important;
-  border: 1.5px solid rgba(56, 189, 248, 0.5) !important;
-  box-shadow: 0 10px 30px rgba(2, 132, 199, 0.16), 0 0 20px rgba(56, 189, 248, 0.22) !important;
+  background: rgba(255, 255, 255, 0.95) !important;
+  border: 1.5px solid rgba(0, 0, 0, 0.1) !important;
+  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.08), 
+              0 0 1px rgba(0, 0, 0, 0.05),
+              inset 0 1px 2px rgba(255, 255, 255, 0.9) !important;
+}
+
+body.light-mode #labelforsetting {
+  background-color: rgba(0, 0, 0, 0.05) !important;
+  border-color: rgba(0, 0, 0, 0.12) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06) !important;
+}
+
+body.light-mode #labelforsetting:hover,
+body.light-mode .nav-menu-btn:hover {
+  background-color: rgba(0, 0, 0, 0.08) !important;
+  border-color: rgba(0, 0, 0, 0.3) !important;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.12) !important;
+}
+
+body.light-mode #labelforsetting:active,
+body.light-mode .nav-menu-btn:active,
+body.light-mode #labelforvisualmode:active {
+  transform: scale(0.92) !important;
+  background-color: rgba(0, 0, 0, 0.14) !important;
+  border-color: rgba(0, 0, 0, 0.5) !important;
+  box-shadow: 0 0 18px rgba(0, 0, 0, 0.22), 0 0 30px rgba(255, 255, 255, 0.95) !important;
+}
+
+body.light-mode .settingactivate #labelforsetting,
+body.light-mode .nav-menu-btn.active {
+  background-color: rgba(0, 0, 0, 0.1) !important;
+  border-color: rgba(0, 0, 0, 0.4) !important;
+  box-shadow: 0 0 14px rgba(0, 0, 0, 0.15) !important;
 }
 
 body.light-mode .hey {
@@ -3557,7 +3618,41 @@ body.light-mode .back-close-btn {
   color: #000000 !important;
 }
 
-/* Footer in light mode */
+/* Academic Track in light mode - Images & Last Image Background is Pure White */
+body.light-mode .house-img-container,
+body.light-mode #house3 .house-img-container,
+body.light-mode #house3 .house-face,
+body.light-mode #house3 .house-full-image,
+body.light-mode .house:last-child .house-img-container,
+body.light-mode .house:last-child .house-full-image {
+  background-color: #ffffff !important;
+  background: #ffffff !important;
+}
+
+/* Footer in light mode - Entire Footer & Avatar Background is Pure White */
+body.light-mode footer {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+  border-top: 1px solid rgba(0, 0, 0, 0.08) !important;
+}
+
+body.light-mode .footercontainer {
+  background-color: #ffffff !important;
+}
+
+body.light-mode .footer-avatar-container {
+  background-color: #ffffff !important;
+}
+
+body.light-mode .footer-avatar-img,
+body.light-mode #footer-wala-avatar {
+  background-color: transparent !important;
+}
+
+body.light-mode .footer-avatar-face {
+  background-color: #ffffff !important;
+}
+
 body.light-mode .footer-avatar-eye {
   background-color: #ffffff !important;
 }
@@ -3745,9 +3840,9 @@ body.light-mode #backtotopbutton article {
     margin: 0 !important;
     border-radius: 35px !important;
     z-index: 9999 !important;
-    background: linear-gradient(135deg, rgba(6, 20, 42, 0.92), rgba(2, 10, 24, 0.96)) !important;
-    border: 1.5px solid rgba(56, 189, 248, 0.45) !important;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.85), 0 0 24px rgba(0, 210, 255, 0.28) !important;
+    background: rgba(10, 10, 14, 0.92) !important;
+    border: 1.5px solid rgba(255, 255, 255, 0.14) !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.85), 0 0 1px rgba(255, 255, 255, 0.15) !important;
     animation: none !important;
     transition: none !important;
     pointer-events: auto !important;
@@ -3758,26 +3853,34 @@ body.light-mode #backtotopbutton article {
   }
 
   .setting-container {
-    height: 36px;
-    gap: 6px;
+    height: 38px !important;
+    gap: 8px;
+  }
+
+  #labelforsetting,
+  #labelforvisualmode,
+  .nav-menu-btn {
+    width: 38px !important;
+    height: 38px !important;
+    min-width: 38px !important;
+    min-height: 38px !important;
   }
 
   #labelforsetting {
-    width: 34px;
-    height: 34px;
     background-size: 55%;
   }
 
   #labelforvisualmode {
-    width: 32px;
-    height: 32px;
     background-size: 50%;
   }
 
   .nav-menu-btn {
-    width: 36px;
-    height: 36px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     gap: 4px;
+    padding: 0;
   }
 
   .nav-menu-btn span {
@@ -4074,9 +4177,9 @@ body.light-mode #backtotopbutton article {
     padding: 0 14px !important;
     margin: 0 !important;
     border-radius: 35px !important;
-    background: linear-gradient(135deg, rgba(6, 20, 42, 0.94), rgba(2, 10, 24, 0.97)) !important;
-    border: 1.5px solid rgba(56, 189, 248, 0.45) !important;
-    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.85), 0 0 24px rgba(0, 210, 255, 0.3) !important;
+    background: rgba(10, 10, 14, 0.94) !important;
+    border: 1.5px solid rgba(255, 255, 255, 0.14) !important;
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.85), 0 0 1px rgba(255, 255, 255, 0.15) !important;
     animation: none !important;
     transition: none !important;
   }
@@ -4095,23 +4198,27 @@ body.light-mode #backtotopbutton article {
   }
 
   .nav-menu-btn {
-    width: 30px !important;
-    height: 30px !important;
-    gap: 3px !important;
-    padding: 3px !important;
+    width: 36px !important;
+    height: 36px !important;
+    min-width: 36px !important;
+    min-height: 36px !important;
+    gap: 4px !important;
+    padding: 0 !important;
   }
 
   .nav-menu-btn span {
-    width: 13px !important;
+    width: 16px !important;
     height: 2px !important;
   }
 
   .nav-menu-btn.active span:nth-child(1) {
-    transform: translate3d(0, 5px, 0) rotate(45deg) !important;
+    transform: translate3d(0, 5.5px, 0) rotate(45deg) !important;
+    background-color: #ffffff !important;
   }
 
   .nav-menu-btn.active span:nth-child(3) {
-    transform: translate3d(0, -5px, 0) rotate(-45deg) !important;
+    transform: translate3d(0, -5.5px, 0) rotate(-45deg) !important;
+    background-color: #ffffff !important;
   }
 
   .hey {
@@ -4184,13 +4291,16 @@ body.light-mode #backtotopbutton article {
 
   .setting-container {
     margin-left: 0 !important;
-    height: 42px !important;
+    height: 36px !important;
+    gap: 6px !important;
   }
 
   #labelforsetting,
   #labelforvisualmode {
-    width: 38px !important;
-    height: 38px !important;
+    width: 36px !important;
+    height: 36px !important;
+    min-width: 36px !important;
+    min-height: 36px !important;
   }
 
   .letsTalkBtn {
@@ -4646,6 +4756,25 @@ body.light-mode #backtotopbutton article {
     padding: 0 10px !important;
   }
 
+  .nav-menu-btn,
+  #labelforsetting,
+  #labelforvisualmode {
+    width: 32px !important;
+    height: 32px !important;
+    min-width: 32px !important;
+    min-height: 32px !important;
+  }
+
+  .nav-menu-btn span {
+    width: 14px !important;
+    height: 2px !important;
+  }
+
+  .setting-container {
+    height: 32px !important;
+    gap: 5px !important;
+  }
+
   .kis {
     font-size: 1.3rem !important;
   }
@@ -4780,7 +4909,6 @@ a:hover,
 body:not(.light-mode) button:hover,
 body:not(.light-mode) a:hover,
 body:not(.light-mode) .resume-btn:hover,
-body:not(.light-mode) .nav-menu-btn:hover,
 body:not(.light-mode) .skill-item:hover,
 body:not(.light-mode) .skills-btn:hover,
 body:not(.light-mode) .cta:hover,
@@ -4794,9 +4922,7 @@ body:not(.light-mode) .popover-close-btn:hover,
 body:not(.light-mode) .back-close-btn:hover,
 body:not(.light-mode) .tale-action-btn:hover,
 body:not(.light-mode) .view-academic-photo-btn:hover,
-body:not(.light-mode) .popover-link-item:hover,
-body:not(.light-mode) #labelforvisualmode:hover,
-body:not(.light-mode) #labelforsetting:hover {
+body:not(.light-mode) .popover-link-item:hover {
   box-shadow: 0 10px 25px -4px rgba(0, 210, 255, 0.4), 0 0 16px rgba(56, 189, 248, 0.3) !important;
   border-color: #38bdf8 !important;
 }
@@ -4836,7 +4962,6 @@ body:not(.light-mode) button:active,
 body:not(.light-mode) a:active,
 body:not(.light-mode) .resume-btn:active,
 body:not(.light-mode) .letsTalkBtn:active,
-body:not(.light-mode) .nav-menu-btn:active,
 body:not(.light-mode) .house:active,
 body:not(.light-mode) .skill-item:active,
 body:not(.light-mode) .skills-btn:active,
@@ -4854,9 +4979,7 @@ body:not(.light-mode) .back-close-btn:active,
 body:not(.light-mode) .tale-action-btn:active,
 body:not(.light-mode) .view-academic-photo-btn:active,
 body:not(.light-mode) #backtotopbutton:active,
-body:not(.light-mode) .popover-link-item:active,
-body:not(.light-mode) #labelforvisualmode:active,
-body:not(.light-mode) #labelforsetting:active {
+body:not(.light-mode) .popover-link-item:active {
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.9), inset 0 2px 4px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 210, 255, 0.6) !important;
   border-color: #00d2ff !important;
   color: #ffffff !important;
@@ -4866,7 +4989,6 @@ body:not(.light-mode) #labelforsetting:active {
 body.light-mode button:hover,
 body.light-mode a:hover,
 body.light-mode .resume-btn:hover,
-body.light-mode .nav-menu-btn:hover,
 body.light-mode .skill-item:hover,
 body.light-mode .skills-btn:hover,
 body.light-mode .cta:hover,
@@ -4874,9 +4996,7 @@ body.light-mode .github-redirect:hover,
 body.light-mode .social-media-container a:hover,
 body.light-mode .profile-connect-row a:hover,
 body.light-mode .lang-pill:hover,
-body.light-mode .popover-link-item:hover,
-body.light-mode #labelforvisualmode:hover,
-body.light-mode #labelforsetting:hover {
+body.light-mode .popover-link-item:hover {
   box-shadow: 0 10px 24px -2px rgba(2, 132, 199, 0.28), 0 0 12px rgba(2, 132, 199, 0.2) !important;
   border-color: #0284c7 !important;
 }
@@ -4885,7 +5005,6 @@ body.light-mode button:active,
 body.light-mode a:active,
 body.light-mode .resume-btn:active,
 body.light-mode .letsTalkBtn:active,
-body.light-mode .nav-menu-btn:active,
 body.light-mode .house:active,
 body.light-mode .skill-item:active,
 body.light-mode .skills-btn:active,
@@ -4903,11 +5022,42 @@ body.light-mode .back-close-btn:active,
 body.light-mode .tale-action-btn:active,
 body.light-mode .view-academic-photo-btn:active,
 body.light-mode #backtotopbutton:active,
-body.light-mode .popover-link-item:active,
-body.light-mode #labelforvisualmode:active,
-body.light-mode #labelforsetting:active {
+body.light-mode .popover-link-item:active {
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15), inset 0 2px 4px rgba(0, 0, 0, 0.08), 0 0 16px rgba(2, 132, 199, 0.35) !important;
   border-color: #0284c7 !important;
+}
+
+/* Pure Light Click & Hover Effects for Navbar Setting Button & 3-Line Menu (No Blue Color) */
+body:not(.light-mode) .nav-menu-btn:hover,
+body:not(.light-mode) #labelforsetting:hover,
+body:not(.light-mode) #labelforvisualmode:hover {
+  box-shadow: 0 0 16px rgba(255, 255, 255, 0.45), 0 0 25px rgba(255, 255, 255, 0.2) !important;
+  border-color: rgba(255, 255, 255, 0.6) !important;
+  background-color: rgba(255, 255, 255, 0.16) !important;
+}
+
+body:not(.light-mode) .nav-menu-btn:active,
+body:not(.light-mode) #labelforsetting:active,
+body:not(.light-mode) #labelforvisualmode:active {
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.95), 0 0 35px rgba(255, 255, 255, 0.5), inset 0 0 8px rgba(255, 255, 255, 0.4) !important;
+  border-color: #ffffff !important;
+  background-color: rgba(255, 255, 255, 0.28) !important;
+}
+
+body.light-mode .nav-menu-btn:hover,
+body.light-mode #labelforsetting:hover,
+body.light-mode #labelforvisualmode:hover {
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.12), 0 0 20px rgba(255, 255, 255, 0.8) !important;
+  border-color: rgba(0, 0, 0, 0.25) !important;
+  background-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+body.light-mode .nav-menu-btn:active,
+body.light-mode #labelforsetting:active,
+body.light-mode #labelforvisualmode:active {
+  box-shadow: 0 0 18px rgba(0, 0, 0, 0.22), 0 0 28px rgba(255, 255, 255, 0.95), inset 0 0 6px rgba(0, 0, 0, 0.08) !important;
+  border-color: rgba(0, 0, 0, 0.45) !important;
+  background-color: rgba(0, 0, 0, 0.14) !important;
 }
 
 button:focus-visible,
