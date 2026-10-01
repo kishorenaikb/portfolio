@@ -43,9 +43,9 @@ const PORTFOLIO_DATA = {
 
     // Social Links (Editable Placeholders)
     socialLinks: {
-      github: "https://github.com/your-kishorenaikb",
+      github: "https://github.com/kishorenaikb",
       linkedin: "https://linkedin.com/in/LINKEDIN_URL",
-      instagram: "https://instagram.com/__1ts__k1shore__na1k___",
+      instagram: "https://instagram.com/kishorena1k",
       facebook: "https://facebook.com/1tsk1shorena1k",
       whatsapp: "https://wa.me/917013741421?text=Hi%20Kishore,%20I%20came%20across%20your%20portfolio!",
       emailLink: "mailto:kishorenaik2k06@gmail.com"
