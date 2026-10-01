@@ -550,21 +550,30 @@ function visualmode() {
 }
 window.visualmode = visualmode;
 
-// Restore saved theme on page load
-(function restoreTheme() {
+// Restore saved theme on page load (Default: White / Light theme)
+function restoreTheme() {
   if (typeof localStorage !== "undefined") {
     const saved = localStorage.getItem("kishore-theme");
-    if (saved === "light") {
+    const switchVisual = document.getElementById("switchforvisualmode");
+    const inverts = document.querySelectorAll(".needtobeinvert");
+
+    if (saved === "dark") {
+      document.body.classList.remove("light-mode");
+      if (switchVisual) switchVisual.checked = false;
+      inverts.forEach((e) => e.classList.remove("invertapplied"));
+    } else {
       document.body.classList.add("light-mode");
-      const switchVisual = document.getElementById("switchforvisualmode");
       if (switchVisual) switchVisual.checked = true;
-      const inverts = document.querySelectorAll(".needtobeinvert");
-      inverts.forEach((e) => {
-        e.classList.add("invertapplied");
-      });
+      inverts.forEach((e) => e.classList.add("invertapplied"));
     }
   }
-})();
+}
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", restoreTheme);
+} else {
+  restoreTheme();
+}
 
 // Click outside collapses setting container
 document.addEventListener("click", (e) => {

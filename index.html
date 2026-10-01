@@ -47,10 +47,17 @@
     crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <!-- Main Stylesheet (Black Theme & Exact Animations) -->
-  <link rel="stylesheet" href="css/style.css?v=3.8">
+  <link rel="stylesheet" href="css/style.css?v=3.9">
 </head>
 
-<body class="body">
+<body class="body light-mode">
+  <script>
+    try {
+      if (localStorage.getItem("kishore-theme") === "dark") {
+        document.body.classList.remove("light-mode");
+      }
+    } catch (e) {}
+  </script>
 
   <!-- Ambient Light Blob -->
   <div class="blob"></div>
@@ -82,12 +89,12 @@
         <!-- Setting & Theme Toggle Button -->
         <div class="setting-container" id="setting-container">
           <input type="checkbox" id="switchforsetting" onclick="settingtoggle()" />
-          <label for="switchforsetting" class="needtobeinvert" id="labelforsetting" tabindex="0"
+          <label for="switchforsetting" class="needtobeinvert invertapplied" id="labelforsetting" tabindex="0"
             aria-label="Settings for appearance" title="Settings"></label>
 
           <!-- Small Moon/Sun Icon (White Theme Toggle Button) -->
           <div class="visualmodetogglebuttoncontainer" id="visualmodetogglebuttoncontainer">
-            <input type="checkbox" id="switchforvisualmode" onclick="visualmode()" />
+            <input type="checkbox" id="switchforvisualmode" onclick="visualmode()" checked />
             <label for="switchforvisualmode" id="labelforvisualmode" tabindex="0" aria-label="Switch White Theme"
               title="Toggle White Theme"></label>
           </div>
@@ -866,7 +873,7 @@
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 
     <!-- Interactive JavaScript Engine -->
-    <script src="js/main.js?v=3.8"></script>
+    <script src="js/main.js?v=3.9"></script>
 </body>
 
 </html>
