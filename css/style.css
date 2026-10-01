@@ -216,7 +216,7 @@ body:not(.light-mode) #typing-animation {
   border-radius: 4px;
 }
 
-/* Ambient Background Blob */
+/* Ambient Background Blob - Hardware Accelerated GPU Layer */
 .blob {
   position: absolute;
   right: -10%;
@@ -229,17 +229,20 @@ body:not(.light-mode) #typing-animation {
   pointer-events: none;
   animation: 3s linear infinite alternate-reverse breath;
   z-index: 0;
+  will-change: transform, opacity;
+  transform: translate3d(0, 0, 0);
+  contain: strict;
 }
 
 @keyframes breath {
   from {
     opacity: 0.3;
-    transform: scale(0.95);
+    transform: translate3d(0, 0, 0) scale(0.95);
   }
 
   to {
     opacity: 0.7;
-    transform: scale(1.1);
+    transform: translate3d(0, 0, 0) scale(1.1);
   }
 }
 
@@ -799,6 +802,7 @@ header {
   min-height: 80px;
   height: fit-content;
   max-width: 100%;
+  contain: layout paint;
 }
 
 .signature-container .textt,
@@ -1876,6 +1880,7 @@ input:checked+.slider:before {
   min-height: 56px !important;
   height: fit-content;
   max-width: 100%;
+  contain: layout paint;
 }
 
 .profile-signature-container .profile-signature-text,

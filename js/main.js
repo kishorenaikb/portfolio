@@ -12,11 +12,13 @@ let trackingActive = true;
 // Initialize AOS (Animation On Scroll) & Core Functions
 document.addEventListener("DOMContentLoaded", () => {
   if (typeof AOS !== "undefined") {
+    const isMobile = window.innerWidth <= 768;
     AOS.init({
-      offset: 100,
-      duration: 800,
-      easing: "ease-in-out",
-      once: false
+      offset: isMobile ? 50 : 80,
+      duration: isMobile ? 650 : 750,
+      easing: "ease-out-cubic",
+      once: true,
+      disableMutationObserver: false
     });
   }
 
@@ -240,9 +242,11 @@ function initAcademicTrackInitial() {
   setTimeout(align, 500);
   setTimeout(align, 1000);
 
+  let resizeTimer = null;
   window.addEventListener("resize", () => {
-    moveCircleToHouse(currentActiveHouseId);
-  });
+    if (resizeTimer) cancelAnimationFrame(resizeTimer);
+    resizeTimer = requestAnimationFrame(align);
+  }, { passive: true });
 
   const academicRoad = document.getElementById("academic-road") || document.querySelector(".road");
   if (academicRoad) {
@@ -274,8 +278,22 @@ function initAvatarGazeAndClickTracking() {
     avatar.style.transform = "none";
   }
 
+  // Viewport visibility check: skip cursor calculations if footer is offscreen
+  let isFooterVisible = false;
+  if ("IntersectionObserver" in window && avatarContainer) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        isFooterVisible = entry.isIntersecting;
+      });
+    }, { rootMargin: "250px" });
+    observer.observe(avatarContainer);
+  } else {
+    isFooterVisible = true;
+  }
+
   function directPupilGaze(targetX, targetY, isClick = false) {
     if (!trackingActive) return;
+    if (!isClick && !isFooterVisible) return;
 
     if (pupils.length === 0) {
       pupils = Array.from(document.getElementsByClassName("footer-pupil"));
@@ -302,7 +320,6 @@ function initAvatarGazeAndClickTracking() {
       const dist = Math.hypot(dx, dy);
       if (dist > 0) {
         const angle = Math.atan2(dy, dx);
-        // Intensity scaling so even close-up clicks visibly shift the gaze
         const intensity = Math.min(1, Math.max(0.4, dist / (isMobile ? 50 : 80)));
         t = Math.cos(angle) * maxTravelX * intensity;
         o = Math.sin(angle) * maxTravelY * intensity;
@@ -318,14 +335,14 @@ function initAvatarGazeAndClickTracking() {
       p.style.transition = isClick
         ? "transform 0.16s cubic-bezier(0.2, 0.9, 0.3, 1.2)"
         : "transform 0.05s ease-out";
-      p.style.transform = `translate(${t.toFixed(1)}px, ${o.toFixed(1)}px)`;
+      p.style.transform = `translate3d(${t.toFixed(1)}px, ${o.toFixed(1)}px, 0)`;
     });
   }
 
   // Click tracking: Clicking anywhere on desktop or mobile turns eyes to click side
   document.addEventListener("click", (e) => {
     directPupilGaze(e.clientX, e.clientY, true);
-  });
+  }, { passive: true });
 
   // Mobile tap tracking: Touching/tapping anywhere turns eyes to the tapped side
   document.addEventListener("touchstart", (e) => {
@@ -338,7 +355,7 @@ function initAvatarGazeAndClickTracking() {
   if (avatarContainer) {
     avatarContainer.addEventListener("click", (e) => {
       directPupilGaze(e.clientX, e.clientY, true);
-    });
+    }, { passive: true });
     avatarContainer.addEventListener("touchstart", (e) => {
       if (e.touches && e.touches[0]) {
         directPupilGaze(e.touches[0].clientX, e.touches[0].clientY, true);
@@ -349,14 +366,14 @@ function initAvatarGazeAndClickTracking() {
   // Smooth mouse movement cursor tracking across desktop
   let throttle = false;
   window.addEventListener("mousemove", (e) => {
-    if (window.innerWidth <= 768) return;
+    if (window.innerWidth <= 768 || !isFooterVisible) return;
     if (throttle) return;
     throttle = true;
     requestAnimationFrame(() => {
       directPupilGaze(e.clientX, e.clientY, false);
       throttle = false;
     });
-  });
+  }, { passive: true });
 }
 
 /* ===================================================================
@@ -428,31 +445,53 @@ function initScrollSpy() {
   const mobilenavLi = document.querySelectorAll(".mobiletogglemenu .mobile-navbar-tabs-ul li");
   const mybutton = document.getElementById("backtotopbutton");
 
+  let isTicking = false;
+  let cachedOffsets = [];
+
+  function updateOffsets() {
+    cachedOffsets = Array.from(sections).map((s) => ({
+      id: s.getAttribute("id"),
+      top: s.offsetTop - 250
+    }));
+  }
+
+  updateOffsets();
+  window.addEventListener("resize", updateOffsets, { passive: true });
+
   window.addEventListener("scroll", () => {
-    let currentId = "";
-    sections.forEach((section) => {
-      const sectionTop = section.offsetTop;
-      if (window.pageYOffset >= sectionTop - 250) {
-        currentId = section.getAttribute("id");
-      }
-    });
+    if (!isTicking) {
+      requestAnimationFrame(() => {
+        const scrollPos = window.pageYOffset || document.documentElement.scrollTop;
+        let currentId = "";
 
-    mobilenavLi.forEach((li) => {
-      li.classList.remove("activeThismobiletab");
-      if (li.classList.contains(currentId)) {
-        li.classList.add("activeThismobiletab");
-      }
-    });
+        for (let i = 0; i < cachedOffsets.length; i++) {
+          if (scrollPos >= cachedOffsets[i].top) {
+            currentId = cachedOffsets[i].id;
+          }
+        }
 
-    // Back to top visibility
-    if (mybutton) {
-      if (document.body.scrollTop > 350 || document.documentElement.scrollTop > 350) {
-        mybutton.style.display = "flex";
-      } else {
-        mybutton.style.display = "none";
-      }
+        if (currentId) {
+          mobilenavLi.forEach((li) => {
+            const shouldBeActive = li.classList.contains(currentId);
+            if (li.classList.contains("activeThismobiletab") !== shouldBeActive) {
+              li.classList.toggle("activeThismobiletab", shouldBeActive);
+            }
+          });
+        }
+
+        if (mybutton) {
+          const shouldShow = scrollPos > 350;
+          const isShown = mybutton.style.display === "flex";
+          if (shouldShow !== isShown) {
+            mybutton.style.display = shouldShow ? "flex" : "none";
+          }
+        }
+
+        isTicking = false;
+      });
+      isTicking = true;
     }
-  });
+  }, { passive: true });
 }
 
 function scrolltoTopfunction() {
