@@ -24,15 +24,15 @@ html {
   -webkit-font-smoothing: antialiased;
 }
 
-/* Reference Site Theme Variables (Black Theme) */
+/* Reference Site Theme Variables (Pure OLED Black Theme) */
 :root {
   --color-white: #ffffff;
   --color-black: #000000;
-  --color-dark-mode: #11111b;
-  /* Exact reference dark background */
-  --color-card-bg: #1a1a29;
-  --color-ddd-color: #dddddd;
-  --color-gray: #c4c4c4;
+  --color-dark-mode: #000000;
+  /* Pure OLED Black background */
+  --color-card-bg: #000000;
+  --color-ddd-color: #ffffff;
+  --color-gray: #ffffff;
 
   /* Accent Colors Requested by User */
   --accent-blue: #00d2ff;
@@ -53,14 +53,134 @@ html {
 }
 
 body {
-  background-color: var(--color-dark-mode);
-  color: var(--color-white);
+  background-color: #000000 !important;
+  color: #ffffff !important;
   font-family: 'Roboto', -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif;
   overflow-x: hidden;
 }
 
 body.stopscrolling {
   overflow: hidden;
+}
+
+/* ===================================================================
+   PURE BLACK THEME TYPOGRAPHY & COLOR SYSTEM
+   1. All Body & Descriptive Texts: Pure Crisp White (#ffffff)
+   2. Main Headings: Realistic Luminous Chromatic Bold Color
+   3. Subheadings: Light Bold Ghost Aesthetic ("Visible & Not Visible")
+   =================================================================== */
+
+/* 1. All Texts in Pure White across Dark Theme */
+body:not(.light-mode) p,
+body:not(.light-mode) li,
+body:not(.light-mode) .about-info p,
+body:not(.light-mode) .about-info strong,
+body:not(.light-mode) #info-para,
+body:not(.light-mode) .ProjectDescription,
+body:not(.light-mode) .education-details p,
+body:not(.light-mode) .prof ul li,
+body:not(.light-mode) .prof ul li span,
+body:not(.light-mode) .prof ul li a,
+body:not(.light-mode) .footer-bottom article,
+body:not(.light-mode) .tale-narrative p,
+body:not(.light-mode) .tale-quote-text,
+body:not(.light-mode) .overlay-info,
+body:not(.light-mode) .overlay-place,
+body:not(.light-mode) .detail-value,
+body:not(.light-mode) .popover-link-item span,
+body:not(.light-mode) .profile-detail-item,
+body:not(.light-mode) .nav-item-label,
+body:not(.light-mode) .mobile-navbar-tabs-li a,
+body:not(.light-mode) .cta span,
+body:not(.light-mode) .sign,
+body:not(.light-mode) .tooltip,
+body:not(.light-mode) .settings-title,
+body:not(.light-mode) .view-academic-photo-btn {
+  color: #ffffff !important;
+}
+
+/* 2. Main Headings: Realistic Chromatic Metallic Bold Color */
+body:not(.light-mode) .section-heading-article,
+body:not(.light-mode) h1.big,
+body:not(.light-mode) .big,
+body:not(.light-mode) .ProjectHeading,
+body:not(.light-mode) #hello-friend,
+body:not(.light-mode) #hello-friend p.jello,
+body:not(.light-mode) .kis big,
+body:not(.light-mode) .profile-name,
+body:not(.light-mode) .tale-headline,
+body:not(.light-mode) .academic-modal-title,
+body:not(.light-mode) .popover-title {
+  background: linear-gradient(135deg, #ffffff 0%, #38bdf8 35%, #00d2ff 70%, #0284c7 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  font-weight: 800 !important;
+  filter: drop-shadow(0 2px 14px rgba(0, 210, 255, 0.45)) !important;
+  letter-spacing: -0.3px;
+}
+
+body:not(.light-mode) .sectionHeadingP {
+  background: linear-gradient(90deg, #38bdf8, #00d2ff, #0284c7) !important;
+  box-shadow: 0 0 10px rgba(0, 210, 255, 0.5) !important;
+}
+
+/* 3. Subheadings: Light Bold Ghost Frosted Aesthetic ("Visible & Not Visible") */
+body:not(.light-mode) .role-subtitle-wrap,
+body:not(.light-mode) #typing-animation,
+body:not(.light-mode) .project-tag,
+body:not(.light-mode) .house-caption .house-title,
+body:not(.light-mode) .house-caption .house-period,
+body:not(.light-mode) .house-caption .flip-hint,
+body:not(.light-mode) .overlay-tag,
+body:not(.light-mode) .overlay-duration,
+body:not(.light-mode) .skills-subdivisions .skills-btn,
+body:not(.light-mode) .floating-menu-pill,
+body:not(.light-mode) .tale-badge,
+body:not(.light-mode) .tale-author,
+body:not(.light-mode) .two-words article,
+body:not(.light-mode) .house-img-badge {
+  font-weight: 600 !important;
+  color: rgba(255, 255, 255, 0.45) !important;
+  -webkit-text-fill-color: rgba(255, 255, 255, 0.45) !important;
+  background: none;
+  letter-spacing: 1.2px;
+  text-shadow: 0 0 12px rgba(255, 255, 255, 0.08);
+  transition: color 0.25s ease, opacity 0.25s ease, border-color 0.25s ease;
+}
+
+/* Ghost Subheadings Smooth Illumination on Hover */
+body:not(.light-mode) .role-subtitle-wrap:hover,
+body:not(.light-mode) .project-tag:hover,
+body:not(.light-mode) .skills-btn:hover,
+body:not(.light-mode) .two-words article:hover,
+body:not(.light-mode) .house-caption:hover .house-title,
+body:not(.light-mode) .house-caption:hover .house-period,
+body:not(.light-mode) .house-caption:hover .flip-hint {
+  color: rgba(255, 255, 255, 0.9) !important;
+  -webkit-text-fill-color: rgba(255, 255, 255, 0.9) !important;
+}
+
+/* "In that texts are in white color" - Inner accents/values inside subheadings stay pure crisp white */
+body:not(.light-mode) .role-subtitle-wrap span,
+body:not(.light-mode) .tale-author strong,
+body:not(.light-mode) .overlay-info strong,
+body:not(.light-mode) .project-tag span,
+body:not(.light-mode) .floating-menu-pill i,
+body:not(.light-mode) .tale-badge i {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  font-weight: 700;
+}
+
+body:not(.light-mode) .project-tag {
+  background: rgba(255, 255, 255, 0.06) !important;
+  border: 1px solid rgba(255, 255, 255, 0.16) !important;
+  backdrop-filter: blur(8px);
+}
+
+body:not(.light-mode) #typing-animation {
+  border-bottom: 2px solid rgba(255, 255, 255, 0.3) !important;
 }
 
 /* Typography Helpers */
@@ -137,9 +257,9 @@ header {
 }
 
 .navbar {
-  background-image: linear-gradient(to bottom right, #1a1a29, rgba(27, 27, 40, 0.8));
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
+  background: rgba(0, 0, 0, 0.88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   height: 70px;
   width: 82%;
   max-width: 1100px;
@@ -147,9 +267,9 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.14);
   border-radius: 50px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.9);
   position: fixed;
   top: 16px;
   left: 50%;
@@ -395,10 +515,10 @@ header {
 /* Floating Glass Card with Pointer Notch Aligning to the 3 Lines */
 .floating-menu-card {
   position: relative;
-  background: linear-gradient(155deg, rgba(18, 18, 28, 0.98), rgba(10, 10, 18, 0.99));
-  border: 1px solid rgba(56, 189, 248, 0.22);
+  background: #000000;
+  border: 1px solid rgba(255, 255, 255, 0.16);
   border-radius: 20px;
-  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.75), 0 0 24px rgba(0, 210, 255, 0.1);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.95), 0 0 24px rgba(0, 210, 255, 0.15);
   padding: 12px 14px 16px;
   display: flex;
   flex-direction: column;
@@ -415,9 +535,9 @@ header {
   right: 30px;
   width: 12px;
   height: 12px;
-  background: #11111d;
-  border-left: 1px solid rgba(56, 189, 248, 0.28);
-  border-top: 1px solid rgba(56, 189, 248, 0.28);
+  background: #000000;
+  border-left: 1px solid rgba(255, 255, 255, 0.16);
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
   transform: rotate(45deg);
   z-index: 1;
 }
@@ -728,16 +848,46 @@ body.light-mode .textt {
   gap: 10px;
 }
 
+.role-caret {
+  font-family: 'Fira Code', monospace;
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-shadow: 0 0 12px rgba(255, 255, 255, 0.4);
+}
+
+body.light-mode .role-caret {
+  color: #000000;
+  text-shadow: none;
+}
+
 #typing-animation {
   font-family: 'Fira Code', monospace;
   font-size: clamp(2rem, 3.5vw, 3.2rem);
-  font-weight: 700;
-  color: var(--color-purple);
-  background: linear-gradient(90deg, var(--color-purple) 0%, var(--accent-blue) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  border-bottom: 2px solid var(--accent-blue);
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.55);
+  letter-spacing: 1.2px;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.35);
   padding-bottom: 2px;
+  text-shadow: 0 0 12px rgba(255, 255, 255, 0.1);
+  transition: color 0.25s ease, border-color 0.25s ease;
+}
+
+.role-subtitle-wrap:hover #typing-animation {
+  color: #ffffff;
+  border-bottom-color: #38bdf8;
+  text-shadow: 0 0 16px rgba(0, 210, 255, 0.4);
+}
+
+body.light-mode #typing-animation {
+  color: rgba(15, 23, 42, 0.5);
+  border-bottom: 2px solid rgba(15, 23, 42, 0.25);
+  text-shadow: none;
+}
+
+body.light-mode .role-subtitle-wrap:hover #typing-animation {
+  color: #000000;
+  border-bottom-color: #0284c7;
 }
 
 #info-para {
@@ -891,12 +1041,12 @@ body.light-mode #labelforvisualmode {
 .settings-modal-content {
   width: 90%;
   max-width: 440px;
-  background: rgba(18, 18, 28, 0.95);
+  background: #000000;
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.16);
   border-radius: 18px;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.85);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.95);
   overflow: hidden;
   padding: 24px;
 }
@@ -1041,12 +1191,12 @@ input:checked+.slider:before {
   max-width: 580px;
   max-height: 88vh;
   overflow-y: auto;
-  background: rgba(17, 17, 34, 0.95);
+  background: #000000;
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.16);
   border-radius: 20px;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.95);
   padding: 28px;
   position: relative;
   scrollbar-width: thin;
@@ -1284,12 +1434,12 @@ input:checked+.slider:before {
   left: 0;
   width: 320px;
   max-width: 90vw;
-  background: rgba(13, 13, 22, 0.96);
+  background: #000000;
   backdrop-filter: blur(28px);
   -webkit-backdrop-filter: blur(28px);
   border: 1px solid rgba(255, 255, 255, 0.18);
   border-radius: 20px;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9), 0 0 30px rgba(255, 255, 255, 0.05);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.95), 0 0 30px rgba(255, 255, 255, 0.05);
   padding: 14px 14px 16px;
   z-index: 1000;
   opacity: 0;
@@ -1315,7 +1465,7 @@ input:checked+.slider:before {
   left: 84px;
   width: 12px;
   height: 12px;
-  background: rgba(13, 13, 22, 0.96);
+  background: #000000;
   border-left: 1px solid rgba(255, 255, 255, 0.18);
   border-top: 1px solid rgba(255, 255, 255, 0.18);
   border-right: none;
@@ -1473,26 +1623,31 @@ input:checked+.slider:before {
 .section-heading-article {
   font-size: 2.8rem;
   font-family: 'Fira Code', monospace;
-  font-weight: 700;
-  background: linear-gradient(90deg, var(--static-heading-gradient-blue), var(--static-heading-gradient-pink));
+  font-weight: 800;
+  background: linear-gradient(135deg, #ffffff 0%, #38bdf8 35%, #00d2ff 70%, #0284c7 100%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 2px 14px rgba(0, 210, 255, 0.45));
 }
 
 .sectionHeadingP {
   width: 200px;
-  height: 2px;
-  background: linear-gradient(90deg, var(--static-heading-gradient-blue), var(--static-heading-gradient-pink));
+  height: 2.5px;
+  background: linear-gradient(90deg, #38bdf8, #00d2ff, #0284c7);
+  box-shadow: 0 0 10px rgba(0, 210, 255, 0.5);
   border-radius: 2px;
 }
 
 .big {
   font-family: 'Orbitron', 'Roboto', sans-serif;
-  font-size: clamp(1.6rem, 2.2vw, 2.0rem);
-  font-weight: 600;
-  color: #cbd5e1;
-  /* Light white color */
+  font-size: clamp(1.8rem, 2.4vw, 2.2rem);
+  font-weight: 800;
+  background: linear-gradient(135deg, #ffffff 0%, #38bdf8 35%, #00d2ff 70%, #0284c7 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 2px 14px rgba(0, 210, 255, 0.4));
   letter-spacing: 0.8px;
   margin-bottom: 25px;
 }
@@ -2157,25 +2312,25 @@ input:checked+.slider:before {
 }
 
 .skills-btn {
-  background: rgba(18, 18, 28, 0.7);
-  color: #e2e8f0;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.04);
+  color: rgba(255, 255, 255, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 8px;
   padding: 14px 18px;
   font-size: 1.35rem;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.25s ease;
   text-align: center;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5);
 }
 
 .skills-btn:hover,
 .skills-btn.active {
-  background: rgba(255, 255, 255, 0.16) !important;
+  background: rgba(56, 189, 248, 0.12) !important;
   color: #ffffff !important;
-  border-color: rgba(255, 255, 255, 0.45) !important;
-  box-shadow: 0 4px 18px rgba(255, 255, 255, 0.15) !important;
+  border-color: #38bdf8 !important;
+  box-shadow: 0 4px 18px rgba(0, 210, 255, 0.25) !important;
   transform: translateY(-2px);
 }
 
@@ -2245,18 +2400,18 @@ input:checked+.slider:before {
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  background: rgba(14, 14, 24, 0.9);
+  background: #000000;
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.9);
   transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
 }
 
 .house:hover .house-face,
 .house.active-house .house-face {
   border-color: rgba(255, 255, 255, 0.35);
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.8), 0 0 20px rgba(255, 255, 255, 0.08);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.95), 0 0 20px rgba(255, 255, 255, 0.08);
 }
 
 /* Front Face: Full-Size Image Container */
@@ -2308,7 +2463,7 @@ input:checked+.slider:before {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  background: rgba(14, 14, 22, 0.95);
+  background: #000000;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
@@ -2348,7 +2503,7 @@ input:checked+.slider:before {
 /* Back Face: Same Dark Black Theme with Details */
 .house-back {
   transform: rotateY(180deg);
-  background: rgba(11, 11, 19, 0.97) !important;
+  background: #000000 !important;
   border: 1px solid rgba(255, 255, 255, 0.2) !important;
   color: #ffffff !important;
   padding: 16px 12px;
@@ -2649,9 +2804,9 @@ input:checked+.slider:before {
 
 .project-box:hover {
   transform: translateY(-5px);
-  background: #0a0a10;
-  border-color: rgba(255, 255, 255, 0.35);
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.95), 0 0 18px rgba(255, 255, 255, 0.08);
+  background: #000000;
+  border-color: #38bdf8;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.95), 0 0 20px rgba(0, 210, 255, 0.25);
 }
 
 .project-tag {
@@ -2681,13 +2836,17 @@ input:checked+.slider:before {
   font-family: 'Space Grotesk', 'Orbitron', sans-serif;
   font-size: 2.4rem;
   font-weight: 800;
-  color: #ffffff !important;
+  background: linear-gradient(135deg, #ffffff 0%, #38bdf8 35%, #00d2ff 70%, #0284c7 100%) !important;
+  background-clip: text !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  filter: drop-shadow(0 2px 12px rgba(0, 210, 255, 0.45));
   letter-spacing: 0.4px;
 }
 
 .ProjectDescription {
   font-size: 1.6rem;
-  color: #f1f5f9 !important;
+  color: #ffffff !important;
   line-height: 1.7;
 }
 
@@ -2976,28 +3135,28 @@ footer {
    LIGHT MODE / WHITE THEME (Exact Reference Color Palette & Styling)
    =================================================================== */
 .light-mode {
-  --color-dark-mode: #ece7e1;
-  --color-black: #ffffff;
-  --color-white: #11111b;
-  --color-ddd-color: #262626;
-  --color-gray: #4b5563;
-  --color-card-bg: #e7e2db;
-  --color-navbarBorder-dark: rgba(0, 0, 0, 0.1);
-  --static-heading-gradient-blue: #0f7878;
-  --static-heading-gradient-pink: #d946ef;
-  --color-shadowDark: #e2ddd7;
-  --tech-stack-box-first-color: #e7e2db;
-  --tech-stack-box-second-color: #ece7e1;
-  --tech-stack-box-border-color: #dad5cf;
+  --color-dark-mode: #ffffff;
+  --color-black: #000000;
+  --color-white: #ffffff;
+  --color-ddd-color: #000000;
+  --color-gray: #0f172a;
+  --color-card-bg: #ffffff;
+  --color-navbarBorder-dark: rgba(0, 0, 0, 0.09);
+  --static-heading-gradient-blue: #0284c7;
+  --static-heading-gradient-pink: #0369a1;
+  --color-shadowDark: #e2e8f0;
+  --tech-stack-box-first-color: #ffffff;
+  --tech-stack-box-second-color: #f8fafc;
+  --tech-stack-box-border-color: #e2e8f0;
 }
 
 body.light-mode {
-  background-color: #ece7e1 !important;
-  color: #111827 !important;
+  background-color: #ffffff !important;
+  color: #000000 !important;
 }
 
 body.light-mode .blob {
-  opacity: 0.15;
+  opacity: 0.12;
 }
 
 body.light-mode .invertapplied,
@@ -3005,205 +3164,276 @@ body.light-mode .needtobeinvert {
   filter: invert(1);
 }
 
-/* Navbar in light mode */
-body.light-mode .navbar {
-  background: rgba(236, 231, 225, 0.85) !important;
-  border: 1px solid rgba(0, 0, 0, 0.12) !important;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08) !important;
+/* ===================================================================
+   WHITE THEME (LIGHT MODE) TYPOGRAPHY & COLOR SYSTEM
+   1. All Texts in Solid Black (#000000)
+   2. Main Headings: Realistic Royal Sapphire Metallic Bold Color
+   3. Subheadings: Light Bold Ghost Aesthetic ("Visible & Not Visible")
+   =================================================================== */
+
+/* 1. All Texts in Crisp Solid Black */
+body.light-mode p,
+body.light-mode li,
+body.light-mode .about-info p,
+body.light-mode .about-info strong,
+body.light-mode #info-para,
+body.light-mode .ProjectDescription,
+body.light-mode .education-details p,
+body.light-mode .prof ul li,
+body.light-mode .prof ul li span,
+body.light-mode .prof ul li a,
+body.light-mode .footer-bottom article,
+body.light-mode .tale-narrative p,
+body.light-mode .tale-quote-text,
+body.light-mode .overlay-info,
+body.light-mode .overlay-place,
+body.light-mode .detail-value,
+body.light-mode .popover-link-item span,
+body.light-mode .profile-detail-item,
+body.light-mode .nav-item-label,
+body.light-mode .mobile-navbar-tabs-li a,
+body.light-mode .cta span,
+body.light-mode .sign,
+body.light-mode .tooltip,
+body.light-mode .settings-title,
+body.light-mode .profile-name,
+body.light-mode .kis,
+body.light-mode .kis small,
+body.light-mode .phone-link,
+body.light-mode .live-loc-link {
+  color: #000000 !important;
 }
 
-body.light-mode .kis,
+/* 2. Main Headings: Realistic Royal Sapphire Bold Color */
+body.light-mode .section-heading-article,
+body.light-mode h1.big,
+body.light-mode .big,
+body.light-mode .ProjectHeading,
+body.light-mode #hello-friend,
+body.light-mode #hello-friend p.jello,
 body.light-mode .kis big,
-body.light-mode .kis small {
-  color: #111827 !important;
+body.light-mode .tale-headline,
+body.light-mode .academic-modal-title,
+body.light-mode .popover-title {
+  background: linear-gradient(135deg, #0284c7 0%, #0369a1 40%, #0f172a 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  font-weight: 800 !important;
+  filter: drop-shadow(0 2px 6px rgba(2, 132, 199, 0.22)) !important;
+  letter-spacing: -0.3px;
+}
+
+body.light-mode .sectionHeadingP {
+  background: linear-gradient(90deg, #0284c7, #0369a1, #0f172a) !important;
+  box-shadow: 0 0 8px rgba(2, 132, 199, 0.3) !important;
+}
+
+/* 3. Subheadings: Light Bold Ghost Aesthetic ("Visible & Not Visible") */
+body.light-mode .role-subtitle-wrap,
+body.light-mode #typing-animation,
+body.light-mode .project-tag,
+body.light-mode .house-caption .house-title,
+body.light-mode .house-caption .house-period,
+body.light-mode .house-caption .flip-hint,
+body.light-mode .overlay-tag,
+body.light-mode .overlay-duration,
+body.light-mode .skills-subdivisions .skills-btn,
+body.light-mode .floating-menu-pill,
+body.light-mode .tale-badge,
+body.light-mode .tale-author,
+body.light-mode .two-words article,
+body.light-mode .house-img-badge {
+  font-weight: 600 !important;
+  color: rgba(15, 23, 42, 0.45) !important;
+  -webkit-text-fill-color: rgba(15, 23, 42, 0.45) !important;
+  background: none;
+  letter-spacing: 1.2px;
+  text-shadow: none !important;
+}
+
+body.light-mode .role-subtitle-wrap:hover,
+body.light-mode .project-tag:hover,
+body.light-mode .skills-btn:hover,
+body.light-mode .two-words article:hover,
+body.light-mode .house-caption:hover .house-title,
+body.light-mode .house-caption:hover .house-period,
+body.light-mode .house-caption:hover .flip-hint {
+  color: rgba(15, 23, 42, 0.9) !important;
+  -webkit-text-fill-color: rgba(15, 23, 42, 0.9) !important;
+}
+
+body.light-mode .role-subtitle-wrap span,
+body.light-mode .tale-author strong,
+body.light-mode .overlay-info strong,
+body.light-mode .project-tag span,
+body.light-mode .floating-menu-pill i,
+body.light-mode .tale-badge i {
+  color: #000000 !important;
+  -webkit-text-fill-color: #000000 !important;
+  font-weight: 700;
+}
+
+body.light-mode .project-tag {
+  background: rgba(0, 0, 0, 0.04) !important;
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
+}
+
+body.light-mode #typing-animation {
+  border-bottom: 2px solid rgba(15, 23, 42, 0.3) !important;
+}
+
+/* Navbar in light mode */
+body.light-mode .navbar {
+  background: rgba(255, 255, 255, 0.92) !important;
+  border: 1px solid rgba(0, 0, 0, 0.09) !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06) !important;
 }
 
 body.light-mode .hey {
-  background-color: #dcd6ce !important;
-  color: #111827 !important;
-}
-
-body.light-mode .nav-menu-btn {
-  background: rgba(0, 0, 0, 0.06) !important;
-  border-color: rgba(0, 0, 0, 0.15) !important;
-}
-
-body.light-mode .nav-menu-btn span {
-  background-color: #111827 !important;
-}
-
-body.light-mode .floating-menu-card {
-  background: linear-gradient(155deg, rgba(245, 243, 240, 0.98), rgba(235, 230, 222, 0.99)) !important;
-  border-color: rgba(0, 0, 0, 0.12) !important;
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12) !important;
-}
-
-body.light-mode .floating-menu-card::before {
-  background: #ece7e1 !important;
-  border-left-color: rgba(0, 0, 0, 0.12) !important;
-  border-top-color: rgba(0, 0, 0, 0.12) !important;
-}
-
-body.light-mode .floating-menu-pill {
-  color: #111827 !important;
-  background: rgba(0, 0, 0, 0.05) !important;
+  background-color: #f1f5f9 !important;
+  color: #000000 !important;
   border-color: rgba(0, 0, 0, 0.1) !important;
 }
 
+body.light-mode .nav-menu-btn {
+  background: rgba(0, 0, 0, 0.05) !important;
+  border-color: rgba(0, 0, 0, 0.12) !important;
+}
+
+body.light-mode .nav-menu-btn span {
+  background-color: #000000 !important;
+}
+
+body.light-mode .floating-menu-card {
+  background: #ffffff !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08) !important;
+}
+
+body.light-mode .floating-menu-card::before {
+  background: #ffffff !important;
+  border-left-color: rgba(0, 0, 0, 0.1) !important;
+  border-top-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+body.light-mode .floating-menu-pill {
+  background: rgba(0, 0, 0, 0.04) !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+}
+
 body.light-mode .floating-close-btn {
-  color: #111827 !important;
+  color: #000000 !important;
   background: rgba(0, 0, 0, 0.05) !important;
   border-color: rgba(0, 0, 0, 0.1) !important;
 }
 
 body.light-mode .mobile-navbar-tabs-li a {
-  color: #111827 !important;
-  background: rgba(0, 0, 0, 0.03) !important;
-  border-color: rgba(0, 0, 0, 0.08) !important;
+  background: rgba(0, 0, 0, 0.02) !important;
+  border-color: rgba(0, 0, 0, 0.06) !important;
 }
 
 body.light-mode .mobile-navbar-tabs-li .nav-item-icon {
-  background: rgba(0, 0, 0, 0.06) !important;
-  border-color: rgba(0, 0, 0, 0.1) !important;
-  color: #111827 !important;
+  background: rgba(0, 0, 0, 0.05) !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+  color: #000000 !important;
 }
 
 body.light-mode .mobile-navbar-tabs-li.activeThismobiletab a,
 body.light-mode .mobile-navbar-tabs-li a:hover {
-  background: rgba(56, 189, 248, 0.15) !important;
-  border-color: #38bdf8 !important;
-  color: #0369a1 !important;
+  background: rgba(2, 132, 199, 0.12) !important;
+  border-color: #0284c7 !important;
+  color: #0284c7 !important;
 }
 
 /* Hero in light mode */
-body.light-mode #hello-friend {
-  color: #111827 !important;
-  text-shadow: none !important;
-}
-
 body.light-mode .immage-container {
-  background: rgba(255, 255, 255, 0.8) !important;
+  background: rgba(255, 255, 255, 0.9) !important;
   border-color: rgba(0, 0, 0, 0.1) !important;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06) !important;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05) !important;
 }
 
 body.light-mode .immage-container .barcode-svg rect {
-  fill: #111827 !important;
+  fill: #000000 !important;
 }
 
 body.light-mode .textt {
   color: #c026d3 !important;
 }
 
-body.light-mode #info-para {
-  color: #374151 !important;
-}
-
 body.light-mode .letsTalkBtn-text {
-  background-color: rgba(0, 0, 0, 0.06) !important;
-  color: #111827 !important;
-  border-color: rgba(0, 0, 0, 0.2) !important;
+  background-color: rgba(0, 0, 0, 0.04) !important;
+  color: #000000 !important;
+  border-color: rgba(0, 0, 0, 0.15) !important;
 }
 
 body.light-mode .letsTalkBtn-BG {
-  background: rgba(0, 0, 0, 0.12) !important;
-  border-color: rgba(0, 0, 0, 0.22) !important;
-}
-
-/* About Me in light mode */
-body.light-mode .about-info p {
-  color: #374151 !important;
-}
-
-body.light-mode .big {
-  color: #111827 !important;
-}
-
-body.light-mode .profile-name {
-  color: #111827 !important;
-}
-
-body.light-mode .profile-detail-item {
-  color: #374151 !important;
-}
-
-body.light-mode .profile-detail-item .detail-value {
-  color: #1f2937 !important;
-}
-
-body.light-mode .profile-connect-row a {
-  color: #4b5563 !important;
-}
-
-body.light-mode .profile-connect-row a:hover {
-  color: #111827 !important;
+  background: rgba(0, 0, 0, 0.08) !important;
+  border-color: rgba(0, 0, 0, 0.16) !important;
 }
 
 body.light-mode .lang-pill {
-  background: rgba(0, 0, 0, 0.06) !important;
-  color: #1f2937 !important;
-  border-color: rgba(0, 0, 0, 0.12) !important;
+  background: rgba(0, 0, 0, 0.04) !important;
+  color: #000000 !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
 }
 
 /* Connect Popover in light mode */
 body.light-mode .connect-popover-card {
-  background: rgba(255, 255, 255, 0.98) !important;
-  border-color: rgba(0, 0, 0, 0.12) !important;
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.18), 0 0 20px rgba(0, 0, 0, 0.05) !important;
+  background: #ffffff !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12) !important;
 }
 
 body.light-mode .connect-popover-card::after {
-  background: rgba(255, 255, 255, 0.98) !important;
-  border-color: rgba(0, 0, 0, 0.12) !important;
+  background: #ffffff !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
 }
 
 body.light-mode .popover-header {
   border-bottom-color: rgba(0, 0, 0, 0.08) !important;
 }
 
-body.light-mode .popover-title {
-  color: #111827 !important;
-}
-
 body.light-mode .popover-close-btn {
-  color: #4b5563 !important;
-  background: rgba(0, 0, 0, 0.06) !important;
+  color: #000000 !important;
+  background: rgba(0, 0, 0, 0.05) !important;
 }
 
 body.light-mode .popover-close-btn:hover {
-  color: #111827 !important;
-  background: rgba(0, 0, 0, 0.12) !important;
+  background: rgba(0, 0, 0, 0.1) !important;
 }
 
 body.light-mode .popover-link-item {
-  background: rgba(0, 0, 0, 0.03) !important;
+  background: rgba(0, 0, 0, 0.02) !important;
   border-color: rgba(0, 0, 0, 0.08) !important;
-  color: #1f2937 !important;
 }
 
 body.light-mode .popover-link-item:hover {
-  background: rgba(0, 0, 0, 0.08) !important;
-  border-color: rgba(0, 0, 0, 0.2) !important;
-  color: #000000 !important;
+  background: rgba(0, 0, 0, 0.06) !important;
+  border-color: rgba(0, 0, 0, 0.18) !important;
 }
 
 /* Academic Track in light mode */
 body.light-mode .house {
-  background: rgba(255, 255, 255, 0.8) !important;
+  background: #ffffff !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06) !important;
+}
+
+body.light-mode .house-face {
+  background: #ffffff !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06) !important;
+}
+
+body.light-mode .house-caption {
+  background: #ffffff !important;
+  border-top-color: rgba(0, 0, 0, 0.06) !important;
+}
+
+body.light-mode .house-back {
+  background: #ffffff !important;
   border-color: rgba(0, 0, 0, 0.1) !important;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06) !important;
-}
-
-body.light-mode .house-title {
-  color: #111827 !important;
-}
-
-body.light-mode .house-period {
-  color: #6b7280 !important;
-}
-
-body.light-mode .house-percentage {
-  color: #111827 !important;
 }
 
 body.light-mode .road {
@@ -3212,72 +3442,77 @@ body.light-mode .road {
 
 /* Skills in light mode */
 body.light-mode .skill-item {
-  background: rgba(255, 255, 255, 0.8) !important;
-  border-color: rgba(0, 0, 0, 0.1) !important;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06) !important;
+  background: #ffffff !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05) !important;
 }
 
 body.light-mode .skill-item i {
-  color: #111827 !important;
+  color: #000000 !important;
 }
 
 body.light-mode .skill-item .tooltip {
-  color: #111827 !important;
+  color: #000000 !important;
+  background: #ffffff !important;
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
 }
 
 body.light-mode .skills-btn {
-  background: rgba(0, 0, 0, 0.06) !important;
-  color: #374151 !important;
-  border-color: rgba(0, 0, 0, 0.12) !important;
+  background: rgba(0, 0, 0, 0.04) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
 }
 
 body.light-mode .skills-btn.active-tab,
 body.light-mode .skills-btn.active {
-  background: #111827 !important;
-  color: #ffffff !important;
+  background: rgba(2, 132, 199, 0.12) !important;
+  border-color: #0284c7 !important;
+  color: #0284c7 !important;
+  -webkit-text-fill-color: #0284c7 !important;
 }
 
 /* Projects in light mode */
 body.light-mode .project-box {
-  background: rgba(255, 255, 255, 0.85) !important;
-  border-color: rgba(0, 0, 0, 0.1) !important;
+  background: #ffffff !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06) !important;
 }
 
-body.light-mode .ProjectHeading {
-  color: #111827 !important;
+body.light-mode .project-box:hover {
+  background: #ffffff !important;
+  border-color: #0284c7 !important;
+  box-shadow: 0 12px 32px rgba(2, 132, 199, 0.18) !important;
 }
 
-body.light-mode .ProjectDescription {
-  color: #4b5563 !important;
+/* Modals in light mode */
+body.light-mode .settings-modal-content,
+body.light-mode .tale-modal-content,
+body.light-mode .academic-modal-content {
+  background: #ffffff !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15) !important;
 }
 
-body.light-mode .project-tag {
-  background: rgba(0, 0, 0, 0.06) !important;
-  color: #1f2937 !important;
+body.light-mode .settings-close-btn,
+body.light-mode .back-close-btn {
+  color: #000000 !important;
 }
 
 /* Footer in light mode */
 body.light-mode .footer-avatar-eye {
-  background-color: #dcd6ce !important;
+  background-color: #ffffff !important;
 }
 
-body.light-mode .two-words article {
-  color: #111827 !important;
-}
-
-body.light-mode .footer-bottom article {
-  color: #6b7280 !important;
-}
-
-body.light-mode .social-media-container a {
-  background: rgba(0, 0, 0, 0.06) !important;
-  border-color: rgba(0, 0, 0, 0.15) !important;
-  color: #111827 !important;
+body.light-mode .social-media-container a,
+body.light-mode .profile-connect-row a,
+body.light-mode .github-redirect {
+  background: rgba(0, 0, 0, 0.04) !important;
+  border-color: rgba(0, 0, 0, 0.12) !important;
+  color: #000000 !important;
 }
 
 body.light-mode #backtotopbutton article {
-  color: #111827 !important;
+  color: #000000 !important;
 }
 
 /* ===================================================================
@@ -4113,13 +4348,12 @@ body.light-mode #backtotopbutton article {
 
   .ProjectHeading {
     font-size: 1.8rem;
-    color: #ffffff !important;
   }
 
   .ProjectDescription {
     font-size: 1.35rem;
     line-height: 1.5;
-    color: #f1f5f9 !important;
+    color: #ffffff !important;
   }
 
   .project-tag {
@@ -4328,8 +4562,108 @@ body.light-mode #backtotopbutton article {
 }
 
 /* ===================================================================
-   10. LIGHT WHITE CLICK & ACTIVE HIGHLIGHT
+   10. PREMIUM CLICKABLE EFFECTS & HAPTIC MICRO-INTERACTIONS
+   - Mechanical Haptic Micro-Depression on Click (:active)
+   - Luminous Elevation & Aura on Hover (:hover)
+   - Instant Smooth Recovery with Zero Lag (cubic-bezier)
    =================================================================== */
+
+/* Universal Interactive Elements Base */
+button,
+a,
+.resume-btn,
+.letsTalkBtn,
+.nav-menu-btn,
+.house,
+.skill-item,
+.skills-btn,
+.project-box,
+.cta,
+.github-redirect,
+.social-media-container a,
+.profile-connect-row a,
+.lang-pill,
+.barcode-box,
+.signature-container,
+.floating-close-btn,
+.settings-close-btn,
+.popover-close-btn,
+.back-close-btn,
+.tale-action-btn,
+.view-academic-photo-btn,
+#backtotopbutton,
+.popover-link-item,
+#labelforvisualmode,
+#labelforsetting,
+.mobile-navbar-tabs-li a {
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  will-change: transform;
+  transition: transform 0.22s cubic-bezier(0.25, 1, 0.5, 1),
+              box-shadow 0.22s cubic-bezier(0.25, 1, 0.5, 1),
+              border-color 0.2s ease,
+              filter 0.2s ease,
+              background-color 0.2s ease !important;
+}
+
+/* 1. Luminous Elevation on Hover */
+button:hover,
+a:hover,
+.resume-btn:hover,
+.letsTalkBtn:hover,
+.nav-menu-btn:hover,
+.house:hover,
+.skill-item:hover,
+.skills-btn:hover,
+.project-box:hover,
+.cta:hover,
+.github-redirect:hover,
+.social-media-container a:hover,
+.profile-connect-row a:hover,
+.lang-pill:hover,
+.barcode-box:hover,
+.floating-close-btn:hover,
+.settings-close-btn:hover,
+.popover-close-btn:hover,
+.back-close-btn:hover,
+.tale-action-btn:hover,
+.view-academic-photo-btn:hover,
+#backtotopbutton:hover,
+.popover-link-item:hover,
+#labelforvisualmode:hover,
+#labelforsetting:hover {
+  transform: translateY(-2.5px) scale(1.02);
+  filter: brightness(1.08);
+}
+
+/* Dark Theme Hover Neon Aura */
+body:not(.light-mode) button:hover,
+body:not(.light-mode) a:hover,
+body:not(.light-mode) .resume-btn:hover,
+body:not(.light-mode) .nav-menu-btn:hover,
+body:not(.light-mode) .skill-item:hover,
+body:not(.light-mode) .skills-btn:hover,
+body:not(.light-mode) .cta:hover,
+body:not(.light-mode) .github-redirect:hover,
+body:not(.light-mode) .social-media-container a:hover,
+body:not(.light-mode) .profile-connect-row a:hover,
+body:not(.light-mode) .lang-pill:hover,
+body:not(.light-mode) .floating-close-btn:hover,
+body:not(.light-mode) .settings-close-btn:hover,
+body:not(.light-mode) .popover-close-btn:hover,
+body:not(.light-mode) .back-close-btn:hover,
+body:not(.light-mode) .tale-action-btn:hover,
+body:not(.light-mode) .view-academic-photo-btn:hover,
+body:not(.light-mode) .popover-link-item:hover,
+body:not(.light-mode) #labelforvisualmode:hover,
+body:not(.light-mode) #labelforsetting:hover {
+  box-shadow: 0 10px 25px -4px rgba(0, 210, 255, 0.4), 0 0 16px rgba(56, 189, 248, 0.3) !important;
+  border-color: #38bdf8 !important;
+}
+
+/* 2. Mechanical Haptic Micro-Depression on Click (:active) */
 button:active,
 a:active,
 .resume-btn:active,
@@ -4339,18 +4673,108 @@ a:active,
 .skill-item:active,
 .skills-btn:active,
 .project-box:active,
+.cta:active,
+.github-redirect:active,
 .social-media-container a:active,
 .profile-connect-row a:active,
 .lang-pill:active,
-.barcode-box:active {
-  box-shadow: 0 0 14px rgba(255, 255, 255, 0.5) !important;
-  border-color: rgba(255, 255, 255, 0.7) !important;
+.barcode-box:active,
+.floating-close-btn:active,
+.settings-close-btn:active,
+.popover-close-btn:active,
+.back-close-btn:active,
+.tale-action-btn:active,
+.view-academic-photo-btn:active,
+#backtotopbutton:active,
+.popover-link-item:active,
+#labelforvisualmode:active,
+#labelforsetting:active {
+  transform: scale(0.95) translateY(2px) !important;
+  transition: transform 0.06s cubic-bezier(0.2, 0.8, 0.2, 1) !important;
+}
+
+/* Dark Theme Active Luminous Compression */
+body:not(.light-mode) button:active,
+body:not(.light-mode) a:active,
+body:not(.light-mode) .resume-btn:active,
+body:not(.light-mode) .letsTalkBtn:active,
+body:not(.light-mode) .nav-menu-btn:active,
+body:not(.light-mode) .house:active,
+body:not(.light-mode) .skill-item:active,
+body:not(.light-mode) .skills-btn:active,
+body:not(.light-mode) .project-box:active,
+body:not(.light-mode) .cta:active,
+body:not(.light-mode) .github-redirect:active,
+body:not(.light-mode) .social-media-container a:active,
+body:not(.light-mode) .profile-connect-row a:active,
+body:not(.light-mode) .lang-pill:active,
+body:not(.light-mode) .barcode-box:active,
+body:not(.light-mode) .floating-close-btn:active,
+body:not(.light-mode) .settings-close-btn:active,
+body:not(.light-mode) .popover-close-btn:active,
+body:not(.light-mode) .back-close-btn:active,
+body:not(.light-mode) .tale-action-btn:active,
+body:not(.light-mode) .view-academic-photo-btn:active,
+body:not(.light-mode) #backtotopbutton:active,
+body:not(.light-mode) .popover-link-item:active,
+body:not(.light-mode) #labelforvisualmode:active,
+body:not(.light-mode) #labelforsetting:active {
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.9), inset 0 2px 4px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 210, 255, 0.6) !important;
+  border-color: #00d2ff !important;
   color: #ffffff !important;
+}
+
+/* Light Mode Hover & Active Effects */
+body.light-mode button:hover,
+body.light-mode a:hover,
+body.light-mode .resume-btn:hover,
+body.light-mode .nav-menu-btn:hover,
+body.light-mode .skill-item:hover,
+body.light-mode .skills-btn:hover,
+body.light-mode .cta:hover,
+body.light-mode .github-redirect:hover,
+body.light-mode .social-media-container a:hover,
+body.light-mode .profile-connect-row a:hover,
+body.light-mode .lang-pill:hover,
+body.light-mode .popover-link-item:hover,
+body.light-mode #labelforvisualmode:hover,
+body.light-mode #labelforsetting:hover {
+  box-shadow: 0 10px 24px -2px rgba(2, 132, 199, 0.28), 0 0 12px rgba(2, 132, 199, 0.2) !important;
+  border-color: #0284c7 !important;
+}
+
+body.light-mode button:active,
+body.light-mode a:active,
+body.light-mode .resume-btn:active,
+body.light-mode .letsTalkBtn:active,
+body.light-mode .nav-menu-btn:active,
+body.light-mode .house:active,
+body.light-mode .skill-item:active,
+body.light-mode .skills-btn:active,
+body.light-mode .project-box:active,
+body.light-mode .cta:active,
+body.light-mode .github-redirect:active,
+body.light-mode .social-media-container a:active,
+body.light-mode .profile-connect-row a:active,
+body.light-mode .lang-pill:active,
+body.light-mode .barcode-box:active,
+body.light-mode .floating-close-btn:active,
+body.light-mode .settings-close-btn:active,
+body.light-mode .popover-close-btn:active,
+body.light-mode .back-close-btn:active,
+body.light-mode .tale-action-btn:active,
+body.light-mode .view-academic-photo-btn:active,
+body.light-mode #backtotopbutton:active,
+body.light-mode .popover-link-item:active,
+body.light-mode #labelforvisualmode:active,
+body.light-mode #labelforsetting:active {
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15), inset 0 2px 4px rgba(0, 0, 0, 0.08), 0 0 16px rgba(2, 132, 199, 0.35) !important;
+  border-color: #0284c7 !important;
 }
 
 button:focus-visible,
 a:focus-visible,
 .house:focus-visible {
-  outline: 2px solid rgba(255, 255, 255, 0.65) !important;
+  outline: 2px solid #38bdf8 !important;
   outline-offset: 2px;
 }
