@@ -77,12 +77,29 @@
         </div>
       </a>
 
-      <!-- 3-Line Menu Option in Navbar (Click to Show Floating Options) -->
-      <div class="nav-menu-btn" id="nav-menu-toggle" onclick="hamburgerMenu(event)" title="Open Navigation Menu"
-        aria-label="Open Navigation Menu">
-        <span></span>
-        <span></span>
-        <span></span>
+      <!-- Right Actions: Setting & Visual Theme Toggle + 3-Line Menu -->
+      <div class="nav-actions-right">
+        <!-- Setting & Theme Toggle Button -->
+        <div class="setting-container" id="setting-container">
+          <input type="checkbox" id="switchforsetting" onclick="settingtoggle()" />
+          <label for="switchforsetting" class="needtobeinvert" id="labelforsetting" tabindex="0"
+            aria-label="Settings for appearance" title="Settings"></label>
+
+          <!-- Small Moon/Sun Icon (White Theme Toggle Button) -->
+          <div class="visualmodetogglebuttoncontainer" id="visualmodetogglebuttoncontainer">
+            <input type="checkbox" id="switchforvisualmode" onclick="visualmode()" />
+            <label for="switchforvisualmode" id="labelforvisualmode" tabindex="0" aria-label="Switch White Theme"
+              title="Toggle White Theme"></label>
+          </div>
+        </div>
+
+        <!-- 3-Line Menu Option in Navbar (Click to Show Floating Options) -->
+        <div class="nav-menu-btn" id="nav-menu-toggle" onclick="hamburgerMenu(event)" title="Open Navigation Menu"
+          aria-label="Open Navigation Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
       </div>
     </div>
   </header>
@@ -218,22 +235,6 @@
                   <span>Facebook</span>
                 </a>
               </div>
-            </div>
-          </div>
-
-          <!-- Exact Reference Site Setting Container -->
-          <div class="setting-container" id="setting-container">
-            <input type="checkbox" id="switchforsetting" onclick="settingtoggle()" />
-
-            <label for="switchforsetting" class="needtobeinvert" id="labelforsetting" tabindex="0"
-              aria-label="Settings for appearance" title="Settings"></label>
-
-            <!-- Small Moon Icon (White Theme Toggle Button) -->
-            <div class="visualmodetogglebuttoncontainer" id="visualmodetogglebuttoncontainer">
-              <input type="checkbox" id="switchforvisualmode" onclick="visualmode()" />
-              <label for="switchforvisualmode" id="labelforvisualmode" tabindex="0" aria-label="Switch White Theme"
-                title="Toggle White Theme"></label>
-            </div>
           </div>
         </div>
       </div>
@@ -256,11 +257,8 @@
             <p>
               Hello! I'm <strong>Kishore Naik</strong>, an aspiring software engineer and web developer. Born on
               <strong>24/09/2006</strong>, I am currently pursuing Bachelor of Technology in <strong>Computer Science
-                and
-                Engineering</strong> (2024 &ndash; 2028)
-              at <strong>Gokula Krishna College of Engineering</strong>, with my current live location at <strong
-                class="edu-loc-text"><span class="live-pulse-dot-inline" title="Live College Location"></span> Sullurpet
-                GKCE (Tirupathi Dist, AP)</strong>.
+                and Engineering</strong> (2024 &ndash; 2028)
+              at <strong>Gokula Krishna College of Engineering</strong>.
             </p>
             <p>
               Beyond software engineering, I am an enthusiastic <strong>story writer</strong> and deeply passionate
@@ -326,9 +324,9 @@
                     <i class="fa fa-map-marker"></i>
                     <a href="https://maps.google.com/?q=Gokula+Krishna+College+of+Engineering+Sullurpet" target="_blank"
                       rel="noopener noreferrer" class="live-loc-link"
-                      title="Open Gokula Krishna College of Engineering live location on Google Maps">
+                      title="Open GKCE, Sullurpet on Google Maps">
                       <span class="live-pulse-dot" title="Live College Location"></span>
-                      Sullurpet, AP &bull; GKCE
+                      GKCE, Sullurpet
                       <i class="fa-solid fa-arrow-up-right-from-square live-map-icon"></i>
                     </a>
                   </li>
