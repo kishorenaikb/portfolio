@@ -82,11 +82,13 @@ function initTypingAnimation() {
    2. AUTHENTIC HANDWRITTEN SIGNATURE PRINTING INTERACTION
    =================================================================== */
 function replaySignatureAnimation() {
-  const textt = document.getElementById("barcode-print-text");
-  if (!textt) return;
-  textt.style.animation = "none";
-  void textt.offsetWidth; // Force DOM reflow to immediately replay animation
-  textt.style.animation = "anim 6.5s linear infinite";
+  const signatureTexts = document.querySelectorAll(".signature-container .textt, #barcode-print-text, #profile-signature-text");
+  signatureTexts.forEach(el => {
+    if (!el) return;
+    el.style.animation = "none";
+    void el.offsetWidth; // Force DOM reflow to immediately replay animation
+    el.style.animation = "anim 6.5s linear infinite";
+  });
 }
 window.replaySignatureAnimation = replaySignatureAnimation;
 window.toggleBarcode = replaySignatureAnimation;

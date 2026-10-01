@@ -1834,6 +1834,56 @@ input:checked+.slider:before {
   letter-spacing: 0.5px;
 }
 
+/* Authentic Under-Profile Handwritten Signature Printing (Matches Above Signature Style) */
+.profile-signature-container {
+  position: relative;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 0 0 10px 0 !important;
+  user-select: none;
+  min-height: 56px !important;
+  height: fit-content;
+  max-width: 100%;
+}
+
+.profile-signature-container .profile-signature-text,
+.profile-signature-container .textt {
+  display: block !important;
+  position: relative;
+  font-size: clamp(44px, 4.2vw, 58px) !important;
+  font-weight: 400 !important;
+  font-family: 'Passions Conflict', cursive, sans-serif !important;
+  text-align: left;
+  color: #f30acc !important;
+  -webkit-text-fill-color: #f30acc !important;
+  width: fit-content;
+  max-width: fit-content;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 2.5px solid #ffffff !important;
+  filter: drop-shadow(0 0 5px #ffffff) drop-shadow(0 0 10px #ffffff) !important;
+  z-index: 2;
+  line-height: 1.1;
+  letter-spacing: 2.2px;
+  animation: anim 6.5s linear infinite;
+  padding-right: 4px;
+}
+
+.profile-signature-container:hover .profile-signature-text,
+.profile-signature-container:hover .textt {
+  filter: drop-shadow(0 0 6px #ffffff) drop-shadow(0 0 14px #ffffff) drop-shadow(0 0 20px rgba(243, 10, 204, 0.6)) !important;
+}
+
+body.light-mode .profile-signature-container .profile-signature-text,
+body.light-mode .profile-signature-container .textt {
+  color: #d900b8 !important;
+  -webkit-text-fill-color: #d900b8 !important;
+  border-right-color: #000000 !important;
+  filter: drop-shadow(0 0 4px rgba(217, 0, 184, 0.7)) !important;
+}
+
 /* ===================================================================
    PROFILE DETAILS (.prof) - EXACT SAME AS REFERENCE SITE
    =================================================================== */
@@ -3669,10 +3719,10 @@ body.light-mode #backtotopbutton article {
     font-size: 50%;
   }
 
-  /* Exact Fixed Centered Navbar (Light Blue Intensity & Moved Slightly Down) */
+  /* Exact Fixed Centered Navbar (Light Blue Intensity & Moved Comfortably Down) */
   header {
     width: 100%;
-    height: 85px;
+    height: 98px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -3685,7 +3735,7 @@ body.light-mode #backtotopbutton article {
 
   .navbar {
     position: fixed !important;
-    top: 22px !important;
+    top: 28px !important;
     left: 50% !important;
     transform: translateX(-50%) !important;
     width: 88% !important;
@@ -4008,23 +4058,25 @@ body.light-mode #backtotopbutton article {
     font-size: 45%;
   }
 
-  /* Compact Stationary Navbar Centered Above Screen */
+  /* Compact Stationary Navbar Centered Below Mobile Screen Top */
   header {
-    height: 68px;
+    height: 96px;
   }
 
   .navbar {
     position: fixed !important;
-    top: 12px !important;
+    top: 26px !important;
     left: 50% !important;
     transform: translateX(-50%) !important;
-    width: 84% !important;
-    max-width: 390px !important;
-    height: 50px !important;
+    width: 86% !important;
+    max-width: 400px !important;
+    height: 52px !important;
     padding: 0 14px !important;
     margin: 0 !important;
     border-radius: 35px !important;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.75) !important;
+    background: linear-gradient(135deg, rgba(6, 20, 42, 0.94), rgba(2, 10, 24, 0.97)) !important;
+    border: 1.5px solid rgba(56, 189, 248, 0.45) !important;
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.85), 0 0 24px rgba(0, 210, 255, 0.3) !important;
     animation: none !important;
     transition: none !important;
   }
@@ -4072,7 +4124,7 @@ body.light-mode #backtotopbutton article {
   .landing-page-container {
     min-height: auto !important;
     height: auto !important;
-    padding-top: 75px !important;
+    padding-top: 96px !important;
     padding-bottom: 35px !important;
   }
 
@@ -4224,6 +4276,20 @@ body.light-mode #backtotopbutton article {
   .profile-name {
     font-size: 1.8rem;
     text-align: center;
+  }
+
+  .profile-signature-container {
+    justify-content: center !important;
+    margin: 4px auto 12px auto !important;
+    min-height: 48px !important;
+    width: fit-content !important;
+  }
+
+  .profile-signature-container .profile-signature-text,
+  .profile-signature-container .textt {
+    font-size: clamp(38px, 9.5vw, 48px) !important;
+    letter-spacing: 1.8px !important;
+    text-align: center !important;
   }
 
   .prof {
@@ -4573,9 +4639,10 @@ body.light-mode #backtotopbutton article {
   }
 
   .navbar {
+    top: 24px !important;
     width: 88% !important;
     max-width: 340px !important;
-    height: 46px !important;
+    height: 48px !important;
     padding: 0 10px !important;
   }
 
