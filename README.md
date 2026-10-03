@@ -95,7 +95,7 @@ Then open `http://localhost:3000` in your web browser.
 ## 🌐 Connected Social Profiles
 
 - **GitHub**: [your-kishorenaikb](https://github.com/your-kishorenaikb)
-- **Instagram**: [@__1ts__k1shore__na1k___](https://instagram.com/kishorena1k)
+- **Instagram**: [@ishorena1k](https://instagram.com/kishorena1k)
 - **Facebook**: [1tsk1shorena1k](https://facebook.com/1tsk1shorena1k)
 - **WhatsApp**: [+91 7013741421](https://wa.me/917013741421)
 - **Email**: [kishorenaik2k06@gmail.com](mailto:kishorenaik2k06@gmail.com)
